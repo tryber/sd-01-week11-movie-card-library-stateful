@@ -16,9 +16,17 @@ class MovieLibrary extends Component {
     }
   }
 
+  addNewFilm = (values) => {
+    const { movies } = this.state;
+    movies.push(values)
+    this.setState({movies});
+  }
+
+
   changeHandler = event => {
     const { name, value } = event.target
     console.log(name,value)
+    console.log(event.target)
     this.setState(() => ({
       [name]: value
     }))
@@ -26,18 +34,12 @@ class MovieLibrary extends Component {
 
   changeHandlerChecked = event => {
     const { name, checked } = event.target
-    console.log(name,checked)
     this.setState(() => ({
       [name]: checked
     }))
   }
 
-  addNewFilm = (values) => {
-    const { movies } = this.state;
-    movies.push(values)
-    this.setState({movies});
-  }
-
+  
   render() {
 
     const filterMoviesBySearchBox = (value,arr) => arr.filter((movie) => (movie.title.includes(value) || movie.subtitle.includes(value) || movie.storyline.includes(value))?true:false)
@@ -46,8 +48,7 @@ class MovieLibrary extends Component {
       arr.filter((movie) => movie.bookmarked);
 
     const filterMoviesBySelectedGenre = (value,arr) => {
-      arr.filter((movie) => 
-        movie.genre===value );
+      arr.filter((movie) => movie.genre===value );
     }
     
     const finalList = () => {
@@ -58,7 +59,7 @@ class MovieLibrary extends Component {
       if(this.state.bookmarkedOnly){
         arrMovies = filterMoviesByBookMarkedOnly(arrMovies);
       }
-      if(this.state.selectedGenre!==''){
+      if(this.state.selectedGenre.length>0){
         arrMovies = filterMoviesBySelectedGenre(this.state.selectedGenre,arrMovies);
       }
       return arrMovies;

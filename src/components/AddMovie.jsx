@@ -21,19 +21,21 @@ class AddMovie extends React.Component {
     }))
   }
 
+
   btnSaveMovie(onClick){
     onClick(this.state)
-    this.setState(
-      {
+     this.setState({
         subtitle: '',
         title: '',
         imagePath: '',
         storyline: '',
         rating: 0,
         genre: 'action',
-      }
-    )
+      })
   }
+
+  
+  
 
   render() {
     const { onClick } = this.props;
