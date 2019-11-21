@@ -11,7 +11,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action'
-    }
+    };
   }
 
   change = (event) => {
@@ -20,6 +20,7 @@ class AddMovie extends React.Component {
       [id]: value
     })
   }
+
 
 // func(f){
 //   func(this.state)
@@ -64,6 +65,5 @@ class AddMovie extends React.Component {
     )
   }
 }
-
 
 export default AddMovie;
