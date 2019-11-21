@@ -13,13 +13,12 @@ class AddMovie extends React.Component {
       genre: 'action'
     };
   }
-
-  changeHandler = event => {
+  
+  changeHandler = (event) => {
     const { name, value } = event.target
-      this.setState((state) => ({
-        [name]: value,
-      })
-    )
+    this.setState({
+      [name]: value
+    })
   }
   
   render() {
@@ -49,10 +48,10 @@ class AddMovie extends React.Component {
         <label>
           Gênero
         <select value={this.state.genre} onChange={this.changeHandler}>
-          <option value="action">Ação</option>
-          <option value="comedy">Comédia</option>
-          <option value="thriller">Suspense</option>
-        </select>
+            <option value="action">Ação</option>
+            <option value="comedy">Comédia</option>
+            <option value="thriller">Suspense</option>
+          </select>
         </label>
         <button onClick={onClick}>Adicionar filme</button>
       </form>
