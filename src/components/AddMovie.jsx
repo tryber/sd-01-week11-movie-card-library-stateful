@@ -13,7 +13,7 @@ class AddMovie extends React.Component {
       genre: 'action'
     };
   }
-}
+
   changeHandler = event => {
     const { name, value } = event.target
       this.setState((state) => ({
@@ -23,35 +23,39 @@ class AddMovie extends React.Component {
   }
   
   render() {
-    const { onClick } = this.props.movies
+    const { onClick } = this.props;
     return (
-      <label>
-        Título
-        <input type="text" value={this.state.title} onChange={this.changeHandler} />
-      </label>
-      <label>
-        Subtítulo
-        <input type="text" value={this.state.subtitle} onChange={this.changeHandler} />
-      </label>
-      <label>
-        Imagem
-        <input type="text" value={this.state.imagePath} onChange={this.changeHandler} />
-      </label>
-      <label>
-        Sinopse
-        <textarea value={this.getSnapshotBeforeUpdate.storyline} onChange={this.changeHandler}></textarea>
-      </label>
-      <label>
-        Avaliação
-        <input type="number" value={rating} onChange={this.changeHandler} />
-      </label>
-      <label>
-        Gênero
-      <select value={genre} onChange={this.changeHandler}>
-
-      </select>
-      </label>
-
+      <form>
+        <label>
+          Título
+          <input type="text" value={this.state.title} onChange={this.changeHandler} />
+        </label>
+        <label>
+          Subtítulo
+          <input type="text" value={this.state.subtitle} onChange={this.changeHandler} />
+        </label>
+        <label>
+          Imagem
+          <input type="text" value={this.state.imagePath} onChange={this.changeHandler} />
+        </label>
+        <label>
+          Sinopse
+          <textarea value={this.getSnapshotBeforeUpdate.storyline} onChange={this.changeHandler}></textarea>
+        </label>
+        <label>
+          Avaliação
+          <input type="number" value={this.state.rating} onChange={this.changeHandler} />
+        </label>
+        <label>
+          Gênero
+        <select value={this.state.genre} onChange={this.changeHandler}>
+          <option value="action">Ação</option>
+          <option value="comedy">Comédia</option>
+          <option value="thriller">Suspense</option>
+        </select>
+        </label>
+        <button onClick={onClick}>Adicionar filme</button>
+      </form>
     );
   }
 };
