@@ -12,6 +12,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action'
     };
+    
   }
   
   changeHandler = (event) => {
