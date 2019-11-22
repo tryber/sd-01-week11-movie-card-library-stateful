@@ -40,18 +40,18 @@ class AddMovie extends React.Component {
     return (
       <form>
         <fieldset>
-          <label htmlFor="">Título<input type="text" value={this.state.title} onChange={(e) => this.changeHandler(e, 'title')} /></label>
-          <label htmlFor="">Subtítulo
-            <input type="text" value={this.state.subtitle} onChange={(e) => this.changeHandler(e, 'subtitle')} /></label>
-          <label htmlFor="">Imagem
-            <input type="text" value={this.state.imagePath} onChange={(e) => this.changeHandler(e, 'imagePath')} /></label>
-          <label htmlFor="">Sinopse
-            <textarea value={this.state.storyline} onChange={(e) =>
+          <label htmlFor="tlt">Título<input id="tlt" type="text" value={this.state.title} onChange={(e) => this.changeHandler(e, 'title')} /></label>
+          <label htmlFor="sub">Subtítulo
+            <input type="text" id="sub" value={this.state.subtitle} onChange={(e) => this.changeHandler(e, 'subtitle')} /></label>
+          <label htmlFor="img">Imagem
+            <input type="text" id="img" value={this.state.imagePath} onChange={(e) => this.changeHandler(e, 'imagePath')} /></label>
+          <label htmlFor="sps">Sinopse
+            <textarea id="sps" value={this.state.storyline} onChange={(e) =>
               this.changeHandler(e, 'storyline')} /></label>
-          <label htmlFor="">Avaliação
-            <input type="number" value={this.state.rating} onChange={(e) => this.changeHandler(e, 'rating')} /></label>
-          <label htmlFor="">Gênero
-            <select onChange={(e) => this.changeHandler(e, 'genre')} value={this.state.genre} >
+          <label htmlFor="num">Avaliação
+            <input id="num" type="number" value={this.state.rating} onChange={(e) => this.changeHandler(e, 'rating')} /></label>
+          <label htmlFor="gen">Gênero
+            <select id="gen" onChange={(e) => this.changeHandler(e, 'genre')} value={this.state.genre} >
               <option value="action">Ação</option>
               <option value="comedy">Comédia</option>
               <option value="thriller">Suspense</option>
