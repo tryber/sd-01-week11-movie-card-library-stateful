@@ -36,7 +36,7 @@ describe('<SearchBar /> component', () => {
   describe('Text input', () => {
     const textInput = () => searchBar().find('form input[type="text"]');
 
-    it.skip('renders a text input inside the form', () => {
+    it('renders a text input inside the form', () => {
       expect(textInput().length).toBe(1);
     });
 
