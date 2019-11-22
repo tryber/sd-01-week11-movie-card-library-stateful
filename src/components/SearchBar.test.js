@@ -97,7 +97,7 @@ describe('<SearchBar /> component', () => {
       expect(select.prop('onChange')).toEqual(props.onSelectedGenreChange);
     });
 
-    it.skip('renders 4 options inside the select with expected text and values', () => {
+    it('renders 4 options inside the select with expected text and values', () => {
       const genreOptions = [
         { text: 'Todos', value: '' },
         { text: 'Ação', value: 'action' },

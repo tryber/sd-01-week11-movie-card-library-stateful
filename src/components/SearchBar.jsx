@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 
 class SearchBar extends Component {
   render() {
+    const genreOptions = [
+      { text: 'Todos', value: '' },
+      { text: 'Ação', value: 'action' },
+      { text: 'Comédia', value: 'comedy' },
+      { text: 'Suspense', value: 'thriller' },
+    ];
     return (
       <form className="forms">
         <label htmlFor="search-bar">
@@ -13,9 +19,9 @@ class SearchBar extends Component {
           <input type="checkbox" name="checkbox" id="checkbox" checked={this.props.bookmarkedOnly} onChange={this.props.onBookmarkedChange} />
         </label>
         <label htmlFor="select">
-        Filtrar por gênero:
-          <select  id="select" value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange}>
-
+          Filtrar por gênero:
+          <select id="select" value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange}>
+            {genreOptions.map((option) => <option value={option.value}>{option.text}</option>)}
           </select>
         </label>
 
