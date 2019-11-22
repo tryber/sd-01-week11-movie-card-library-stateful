@@ -4,8 +4,8 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtitle: '',
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
@@ -13,15 +13,20 @@ class AddMovie extends React.Component {
     };
   }
 
-  changeHandler = event => {
-    const { name, value } = event.target;
-    //console.log(`${name}: ${value}`);
-    this.setState(state => ({ [name]: value }));
-  };
+  changeHandlerTitle = event => this.setState({ title: event.target.value });
 
-  resetarValores = (onClick) =>{
-  onClick (this.state)
+  changeHandlerSubtitle = event => this.setState({ subtitle: event.target.value });
 
+  changeHandlerImagePath = event => this.setState({ imagePath: event.target.value });
+
+  changeHandlerStoryline = event => this.setState({ storyline: event.target.value });
+
+  changeHandlerRating = event => this.setState({ rating: Number(event.target.value) });
+
+  changeHandlerGenre = event => this.setState({ genre: event.target.value });
+
+  resetarValores = onClick => {
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -29,71 +34,59 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action'
-    })};
-
+    });
+  };
 
   render() {
-    const {onClick} = this.props;
+    const { onClick } = this.props;
     return (
-      <div>
+      <form>
         <label htmlFor="titulo">
           Título
           <input
             type="text"
-            name="titulo"
-            id="titulo"
             value={this.state.title}
-            onChange={this.changeHandler}
+            onChange={event => this.changeHandlerTitle(event)}
           />
         </label>
         <label htmlFor="subtitulo">
           Subtítulo
           <input
             type="text"
-            name="subtitulo"
-            id="subtitulo"
             value={this.state.subtitle}
-            onChange={this.changeHandler}
+            onChange={event => this.changeHandlerSubtitle(event)}
           />
         </label>
         <label htmlFor="imagem">
           Imagem
           <input
             type="text"
-            name="imagem"
-            id="imagem"
             value={this.state.imagePath}
-            onChange={this.changeHandler}
+            onChange={event => this.changeHandlerImagePath(event)}
           />
         </label>
         <label htmlFor="sinopse">
           Sinopse
           <textarea
-            name="sinopse"
-            id="sinopse"
             cols="30"
             rows="10"
             value={this.state.storyline}
-            onChange={this.changeHandler}
+            onChange={event => this.changeHandlerStoryline(event)}
           ></textarea>
         </label>
         <label htmlFor="avalia">
           Avaliação
           <input
             type="number"
-            name="avalia"
-            id="avalia"
             value={this.state.rating}
-            onChange={this.changeHandler}
+            onChange={event => this.changeHandlerRating(event)}
           />
         </label>
         <label htmlFor="selectgenero">
           Gênero
           <select
-            name="selectgenero"
-            id="selectgenero"
             value={this.state.genre}
-            onChange={this.changeHandler}
+            onChange={event => this.changeHandlerGenre(event)}
           >
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
@@ -103,7 +96,7 @@ class AddMovie extends React.Component {
         <button type="submit" onClick={() => this.resetarValores(onClick)}>
           Adicionar filme
         </button>
-      </div>
+      </form>
     );
   }
 }
