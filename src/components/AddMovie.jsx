@@ -15,8 +15,7 @@ class AddMovie extends React.Component {
   
   onTextChange = event => {
     const { name, value } = event.target
-    console.log(`${name} : ${value}`)
-    this.setState({ [name]: value } )
+    this.setState({ [name]: value })
   }
 
   // onTitleChange = event => {
