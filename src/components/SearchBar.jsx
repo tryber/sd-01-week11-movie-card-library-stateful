@@ -9,7 +9,7 @@ class SearchBar extends Component {
       { text: 'Suspense', value: 'thriller' },
     ];
     return (
-      <form className="forms">
+      <form >
         <label htmlFor="search-bar">
           Inclui o texto:
         <input type="text" name="search-bar" id="search-bar" value={this.props.searchText} onChange={this.props.onSearchTextChange} />

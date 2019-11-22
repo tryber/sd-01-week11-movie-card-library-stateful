@@ -28,7 +28,7 @@ describe('<AddMovie /> component', () => {
     props = { onClick: jest.fn() };
   });
 
-  it.skip('renders a form', () => {
+  it('renders a form', () => {
     expect(addMovie().find('form').length).toEqual(1);
   });
 
