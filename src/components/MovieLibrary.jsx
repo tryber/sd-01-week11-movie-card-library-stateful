@@ -36,7 +36,7 @@ class MovieLibrary extends Component {
           searchText={this.state.searchText}
           onSearchTextChange={(e) => this.changeHandler(e, 'searchText')}
           bookmarkedOnly={this.state.bookmarkedOnly}
-          onBookmarkedChang={(e) => this.changeHandler(e, 'bookmarkedOnly')}
+          onBookmarkedChange={(e) => this.changeHandler(e, 'bookmarkedOnly')}
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={(e) => this.changeHandler(e, 'selectedGenre')}
         />
