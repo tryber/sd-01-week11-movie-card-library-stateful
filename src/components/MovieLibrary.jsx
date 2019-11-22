@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -15,12 +14,18 @@ class MovieLibrary extends Component {
     };
   }
 
-  changeHandler = event => {
-    const { name, value } = event.target
-    console.log(name,value)
-    this.setState(() => ({
-      [name]: value
-    }))
+  changeHandler = (event, name) => {
+    if (name === 'bookmarkedOnly') {
+      const { checked } = event.target;
+      this.setState({ [name]: checked });
+    } else {
+      const { value } = event.target;
+      this.setState({ [name]: value });
+    }
+  }
+
+  addNewMovie = values => {
+    this.setState((state) => ({ movies: [...state.movies, values] }))
   }
 
   render() {
@@ -29,13 +34,14 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={this.state.searchText}
-          onSearchTextChange={this.changeHandler}
+          onSearchTextChange={(e) => this.changeHandler(e, 'searchText')}
           bookmarkedOnly={this.state.bookmarkedOnly}
-          onBookmarkedChang={this.changeHandler}
+          onBookmarkedChang={(e) => this.changeHandler(e, 'bookmarkedOnly')}
           selectedGenre={this.state.selectedGenre}
-          onSelectedGenreChange={this.changeHandler} />
+          onSelectedGenreChange={(e) => this.changeHandler(e, 'selectedGenre')}
+        />
         <MovieList movies={this.props.movies} />
-        <AddMovie />
+        <AddMovie onClick={this.addNewMovie} />
       </div>
     );
   }
