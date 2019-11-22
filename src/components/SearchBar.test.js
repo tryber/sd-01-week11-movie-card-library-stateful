@@ -40,7 +40,7 @@ describe('<SearchBar /> component', () => {
       expect(textInput().length).toBe(1);
     });
 
-    it.skip('has a label with the text "Inclui o texto"', () => {
+    it('has a label with the text "Inclui o texto"', () => {
       expect(searchBar().find('label').at(0).text()).toMatch('Inclui o texto');
     });
 
