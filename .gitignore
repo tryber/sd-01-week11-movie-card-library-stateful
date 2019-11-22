@@ -24,5 +24,6 @@ yarn-error.log*
 
 # VSCode repo settings
 .vscode
-# prettier
-.prettier.json
+
+# prettier para formatar o codigo. Espero qeu assim ele não entre em conflito mais
+/.prettier.json

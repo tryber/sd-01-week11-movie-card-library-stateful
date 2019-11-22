@@ -16,12 +16,19 @@ class AddMovie extends React.Component {
       console.log(`${name}: ${value}`)
       this.setState((state) => ({ [name]: value }))
     }
-    btn (valor,callback()) => {
-      const valor = this.state
-    };
-  }
+pegarValores = () => (this.setState({
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+}))
+  btn = (event) => pegarValores(this.state);
+  
 
   render() {
+    const valorAtual = this.state;
     return (
       <div>
       <label htmlFor="titulo">Título
@@ -46,7 +53,7 @@ class AddMovie extends React.Component {
       <option value="thriller">Suspense</option>
       </select>
       </label>
-      <button type="submit" onClick={btn}>Adicionar filme</button>
+      <button type="submit" onClick={this.btn(valorAtual)}>Adicionar filme</button>
       </div>
     )
   }
