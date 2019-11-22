@@ -37,31 +37,29 @@ class MovieLibrary extends Component {
     }))
   }
 
+  filterMoviesBySearchBox = (value, arr) => arr.filter((movie) =>
+    (movie.title.includes(value) || movie.subtitle.includes(value) || movie.storyline.includes(value)) ? true : false)
 
-  render() {
-    const filterMoviesBySearchBox = (value, arr) => arr.filter((movie) =>
-      (movie.title.includes(value) || movie.subtitle.includes(value) || movie.storyline.includes(value)) ? true : false)
+  filterMoviesByBookMarkedOnly = (arr) =>
+    arr.filter((movie) => movie.bookmarked);
 
-    const filterMoviesByBookMarkedOnly = (arr) =>
-      arr.filter((movie) => movie.bookmarked);
+  filterMoviesBySelectedGenre = (value, arr) =>
+    arr.filter((movie) => movie.genre === value);
 
-    const filterMoviesBySelectedGenre = (value, arr) =>
-      arr.filter((movie) => movie.genre === value);
-
-    const finalList = () => {
-      let arrMovies = this.state.movies;
-      if (this.state.searchText !== '') {
-        arrMovies = filterMoviesBySearchBox(this.state.searchText, arrMovies);
-      }
-      if (this.state.bookmarkedOnly) {
-        arrMovies = filterMoviesByBookMarkedOnly(arrMovies);
-      }
-      if (this.state.selectedGenre.length > 0) {
-        arrMovies = filterMoviesBySelectedGenre(this.state.selectedGenre, arrMovies);
-      }
-      return arrMovies;
+  finalList = () => {
+    let arrMovies = this.state.movies;
+    if (this.state.searchText !== '') {
+      arrMovies = this.filterMoviesBySearchBox(this.state.searchText, arrMovies);
     }
-
+    if (this.state.bookmarkedOnly) {
+      arrMovies = this.filterMoviesByBookMarkedOnly(arrMovies);
+    }
+    if (this.state.selectedGenre.length > 0) {
+      arrMovies = this.filterMoviesBySelectedGenre(this.state.selectedGenre, arrMovies);
+    }
+    return arrMovies;
+  }
+  render() {
     return (
       <div>
         <h2>My awesome movie library</h2>
@@ -72,7 +70,7 @@ class MovieLibrary extends Component {
           onBookmarkedChange={(e) => this.changeHandlerChecked(e, 'bookmarkedOnly')}
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={(e) => this.changeHandler(e, 'selectedGenre')} />
-        <MovieList movies={finalList()} />
+        <MovieList movies={this.finalList()} />
         <AddMovie onClick={this.addNewFilm} />
       </div>
     );
