@@ -54,7 +54,7 @@ describe('<SearchBar /> component', () => {
   });
 
   describe('Bookmarked checkbox', () => {
-    it.skip('renders a checkbox input inside the form', () => {
+    it('renders a checkbox input inside the form', () => {
       expect(searchBar().find('form input[type="checkbox"]').length).toBe(1);
     });
 
