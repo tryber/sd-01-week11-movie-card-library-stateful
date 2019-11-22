@@ -58,7 +58,7 @@ class AddMovie extends React.Component {
             </label>
             <label>
               Imagem
-            <input type="img" value={this.state.imagePath} onChange={(e) => this.changeHandler(e, 'imagePath')} />
+            <input type="text" value={this.state.imagePath} onChange={(e) => this.changeHandler(e, 'imagePath')} />
             </label>
             <label>
               Sinopse
@@ -80,7 +80,7 @@ class AddMovie extends React.Component {
               </select>
             </label>
           </fieldset>
-          <button type="button" onClick={()=>this.btnSaveMovie(onClick)}>
+          <button type="button" onClick={() => this.btnSaveMovie(onClick)}>
             Adicionar filme
       </button>
         </form>
