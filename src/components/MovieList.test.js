@@ -34,17 +34,17 @@ describe('<MovieList /> component', () => {
     },
   ];
 
-  it('renders without crashing', () => {
+  it.skip('renders without crashing', () => {
     shallow(<MovieList movies={movies} />);
   });
 
-  it('renders a `MovieCard` component for each object in the array', () => {
+  it.skip('renders a `MovieCard` component for each object in the array', () => {
     const wrapper = shallow(<MovieList movies={movies} />);
 
     expect(wrapper.find('MovieCard').length).toEqual(3);
   });
 
-  it('sets the movie title as the key in each rendered `MovieCard`', () => {
+  it.skip('sets the movie title as the key in each rendered `MovieCard`', () => {
     const wrapper = mount(<MovieList movies={movies} />);
     const movieCards = wrapper.find('MovieCard');
 
