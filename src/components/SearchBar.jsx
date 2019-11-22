@@ -11,12 +11,10 @@ class SearchBar extends Component {
           <label htmlFor="searchText">Inclui o texto:</label>
           <input name="searchText" type="text" value={searchText} onChange={onSearchTextChange}></input>
         </div>
-
         <div>
           <label htmlFor="checkbox">Mostrar somente favoritos</label>
           <input name="checkbox" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
         </div>
-
         <div>
           <label htmlFor="selectedGenre">Filtrar por gênero</label>
           <select name="selectedGenre" value={selectedGenre} onChange={onSelectedGenreChange}>

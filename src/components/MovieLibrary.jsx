@@ -11,24 +11,21 @@ class MovieLibrary extends Component {
       searchText: "",
       bookmarkedOnly: false,
       selectedGenre: "",
-      movies: props.movies
+      movies: this.props.movies
     }
   }
 
-  changeHandler = (event, name) => {
-    const { value } = event.target
-    this.setState(() => ({
-      [name]: value
-    }));
+  changeHandlerText = (event) => {
+    this.setState({ searchText: event.target.value })
+  }
+  
+  changeHandlerCheckbox = (event) => {
+    this.setState({ bookmarkedOnly: event.target.checked })
   }
 
-  changeHandlerCheckbox = (event, name) => {
-    const { value } = event.target
-    this.setState(() => ({
-      [name]: value
-    }));
+  changeHandlerGenre = (event) => {
+    this.setState({ selectedGenre: event.target.value })
   }
-
 
   render() {
     return (
@@ -36,11 +33,11 @@ class MovieLibrary extends Component {
         <h2> My Awesome Movie library </h2>
         <SearchBar
           searchText={this.state.searchText}
-          onSearchTextChange={(event) => changeHandlerText(event, 'searchText')}
+          onSearchTextChange={(event) => this.changeHandlerText(event)}
           bookmarkedOnly={this.state.bookmarkedOnly}
-          onBookmarkedChange={(event => changeHandlerCheckbox(event, 'checkbox'))}
+          onBookmarkedChange={(event) => this.changeHandlerCheckbox(event)}
           selectedGenre={this.state.selectedGenre}
-          onSelectedGenreChange={(event => changeHandler(event, 'selectedGenre'))}
+          onSelectedGenreChange={(event) => this.changeHandlerGenre(event)}
         />
         <MovieList movies={this.props.movies} />
         <AddMovie />
