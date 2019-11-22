@@ -36,29 +36,29 @@ class AddMovie extends React.Component {
 
     return (
       <form>
-        <label>
+        <label htmlFor="title">
           Título
-          <input type="text" value={this.state.title} onChange={(e) => this.changeHandler(e,'title')} />
+          <input id="title" type="text" value={this.state.title} onChange={(e) => this.changeHandler(e,'title')} />
         </label>
-        <label>
+        <label htmlFor="subtitle">
           Subtítulo
-          <input type="text" value={this.state.subtitle} onChange={(e) => this.changeHandler(e,'subtitle')} />
+          <input id="subtitle" type="text" value={this.state.subtitle} onChange={(e) => this.changeHandler(e,'subtitle')} />
         </label>
-        <label>
+        <label htmlFor="imagePath">
           Imagem
-          <input type="text" value={this.state.imagePath} onChange={(e) => this.changeHandler(e,'imagePath')} />
+          <input id="imagePath" type="text" value={this.state.imagePath} onChange={(e) => this.changeHandler(e,'imagePath')} />
         </label>
-        <label>
+        <label htmlFor="storyline">
           Sinopse
-          <textarea value={this.state.storyline} onChange={(e) => this.changeHandler(e,'storyline')} />
+          <textarea id="storyline" value={this.state.storyline} onChange={(e) => this.changeHandler(e,'storyline')} />
         </label>
-        <label>
+        <label htmlFor="rating">
           Avaliação
-          <input type="number" value={this.state.rating} onChange={(e) => this.changeHandler(e,'rating')} />
+          <input id="rating" type="number" value={this.state.rating} onChange={(e) => this.changeHandler(e,'rating')} />
         </label>
-        <label>
+        <label htmlFor="genre">
           Gênero:
-          <select value={this.state.genre} onChange={(e) => this.changeHandler(e,'genre')}>
+          <select id="genre" value={this.state.genre} onChange={(e) => this.changeHandler(e,'genre')}>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
             <option value="thriller">Suspense</option>
