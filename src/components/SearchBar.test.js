@@ -81,7 +81,7 @@ describe('<SearchBar /> component', () => {
       expect(searchBar().find('form select').length).toEqual(1);
     });
 
-    it.skip('has a label with the text "Filtrar por gênero"', () => {
+    it('has a label with the text "Filtrar por gênero"', () => {
       expect(searchBar().find('label').at(2).text()).toMatch('Filtrar por gênero');
     });
 
