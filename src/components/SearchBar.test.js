@@ -58,7 +58,7 @@ describe('<SearchBar /> component', () => {
       expect(searchBar().find('form input[type="checkbox"]').length).toBe(1);
     });
 
-    it.skip('has a label with the text "Mostrar somente favoritos"', () => {
+    it('has a label with the text "Mostrar somente favoritos"', () => {
       expect(searchBar().find('label').at(1).text())
         .toMatch('Mostrar somente favoritos');
     });
