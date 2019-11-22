@@ -28,8 +28,7 @@ class MovieLibrary extends Component {
     return (
       <SearchBar searchText={this.state.searchText} onSearchTextChange={this.onSearchTextChange} 
       bookmarkedOnly={this.state.bookmarkedOnly} onBookmarkedChange={this.onBookmarkedChange}
-      selectedGenre={this.state.selectedGenre} onSelectedGenreChange={this.onSelectedGenreChange}
-      />
+      selectedGenre={this.state.selectedGenre} onSelectedGenreChange={this.onSelectedGenreChange}/>
       <AddMovie />
     )
   }
