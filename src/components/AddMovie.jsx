@@ -31,23 +31,23 @@ class AddMovie extends React.Component {
     return (
       <form>
         <label>
-          Título:
+          Título
           <input type="text" value={this.state.title} onChange={this.changeState} />
         </label>
         <label>
-          Subtítulo:
+          Subtítulo
           <input type="text" value={this.state.subtitle} onChange={this.changeState} />
         </label>
         <label>
-          Imagem:
+          Imagem
           <input type="text" value={this.state.imagePath} onChange={this.changeState} />
         </label>
         <label>
-          Sinopse:
+          Sinopse
           <textarea value={this.state.storyline} onChange={this.changeState} />
         </label>
         <label>
-          Avaliação:
+          Avaliação
           <input type="number" value={this.state.rating} onChange={this.changeState} />
         </label>
         <label>
@@ -57,7 +57,7 @@ class AddMovie extends React.Component {
             <option value="comedy">Comédia</option>
             <option value="thriller">Suspense</option>
           </select>
-          <button type="button" onClick={this.addMovie(onClick)}>Adicionar Filme</button>
+          <button type="button" onClick={this.addMovie(onClick)}>Adicionar filme</button>
         </label>
       </form>
     );
