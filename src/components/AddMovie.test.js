@@ -43,7 +43,7 @@ describe('<AddMovie /> component', () => {
       expect(addMovie().find('label').at(0).text()).toEqual('Título');
     });
 
-    it.skip('the title input initial value, "", comes from the AddMovie initial state, via "title"', () => {
+    it('the title input initial value, "", comes from the AddMovie initial state, via "title"', () => {
       expect(titleInput().prop('value')).toEqual(initialState.title);
     });
 
