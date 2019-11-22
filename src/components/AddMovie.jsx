@@ -14,54 +14,62 @@ class AddMovie extends React.Component {
     };
   }
 
-  change = (event) => {
-    const { value, id } = event.target;
+  change = (event, id) => {
+    const { value } = event.target;
     this.setState({
       [id]: value
     })
   }
 
+  changeNumber = (event, id) => {
+    const { value } = event.target;
+    this.setState({
+      [id]: Number(value)
+    })
+  }
 
-// func(f){
-//   func(this.state)
-//   this.setState={
-//     subtitle: '',
-//     title: '',
-//     imagePath: '',
-//     storyline: '',
-//     rating: 0,
-//     genre: 'action'
-//   }
-// }
+  // newState() {
+  //   newState(this.state)
+  //   this.setState = {
+  //     subtitle: '',
+  //     title: '',
+  //     imagePath: '',
+  //     storyline: '',
+  //     rating: 0,
+  //     genre: 'action'
+
+  //   }
+  // }
 
   render() {
     const { onClick } = this.props;
     return (
       <form>
         <label>Título
-            <input type="text" id="title" value={this.state.title} onChange={this.change} />
+            <input type="text" value={this.state.title} onChange={(e) => this.change(e, 'title')} />
         </label>
         <label>Subtítulo
-            <input type="text" id="subtitle" value={this.state.subtitle} onChange={this.change} />
+            <input type="text" value={this.state.subtitle} onChange={(e) => this.change(e, 'subtitle')} />
         </label>
         <label>Imagem
-            <input type="text" id="imagePath" value={this.state.imagePath} onChange={this.change} />
+            <input type="text" value={this.state.imagePath} onChange={(e) => this.change(e, 'imagePath')} />
         </label>
         <label>Sinopse
-            <textarea id="storyline" value={this.state.storyline} onChange={this.change} />
+            <textarea value={this.state.storyline} onChange={(e) => this.change(e, 'storyline')} />
         </label>
         <label>Avaliação
-            <input type="number" id="rating" value={this.state.rating} onChange={this.change} />
+            <input type="number" value={this.state.rating} onChange={(e) => this.changeNumber(e, 'rating')} />
         </label>
         <label>Gênero
-          <select id="genre" value={this.state.genre} onChange={this.change}>
+          <select value={this.state.genre} onChange={(e) => this.change(e, 'genre')}>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
             <option value="thriller">Suspense</option>
           </select>
-        </label>Adicionar Filme
-        <button type="button" onClick={() => funcsalvadados(onClick)}></button>
+        </label>
+        {/* <button type="button" onClick={() => newState()}>Adicionar filme</button> */}
       </form>
+
     )
   }
 }
