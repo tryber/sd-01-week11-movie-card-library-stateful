@@ -14,20 +14,30 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: props.movies,
     }
+
+    this.addNewFilm=this.addNewFilm.bind(this)
+    this.changeHandler=this.changeHandler.bind(this)
   }
 
-  addNewFilm = (values) => {
+  addNewFilm  (values) {
     this.setState((state) => ({
       movies: [...state.movies, values]
     }))
   }
 
 
-  changeHandler = (event, name) => {
-    const { value } = event.target
+  changeHandler (event, name) {
+    if(name==='bookmarkedOnly'){
+      const { checked } = event.target
+      this.setState(() => ({
+        [name]: checked
+      }))
+    }else{
+      const { value } = event.target
     this.setState(() => ({
       [name]: value
     }))
+  }
   }
 
   changeHandlerChecked = (event, name) => {
