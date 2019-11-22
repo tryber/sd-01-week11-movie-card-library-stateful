@@ -1,4 +1,5 @@
 import React from 'react';
+import { on } from 'cluster';
 
 class AddMovie extends React.Component {
 
@@ -12,15 +13,33 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action'
     };
-    
   }
   
-  changeHandler = (event) => {
-    const { name, value } = event.target
+  changeHandler = (event, name) => {
+    const { value } = event.target;
     this.setState({
       [name]: value
     })
   }
+
+  changeNumber = (event, name) => {
+    const { value } = event.target;
+    this.setState({
+      [name]: Number(value)
+    })
+  }
+
+  resetMoviesCard = onClick => {
+    onClick(this.state);
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action'
+    }
+  };
   
   render() {
     const { onClick } = this.props;
@@ -28,33 +47,33 @@ class AddMovie extends React.Component {
       <form>
         <label>
           Título
-          <input type="text" value={this.state.title} onChange={this.changeHandler} />
+          <input type="text"  value={this.state.title} onChange={event => this.changeHandler(event, 'title')} />
         </label>
         <label>
           Subtítulo
-          <input type="text" value={this.state.subtitle} onChange={this.changeHandler} />
+          <input type="text" value={this.state.subtitle} onChange={event => this.changeHandler(event, 'subtitle')} />
         </label>
         <label>
           Imagem
-          <input type="text" value={this.state.imagePath} onChange={this.changeHandler} />
+          <input type="text" value={this.state.imagePath} onChange={event => this.changeHandler(event, 'imagePath')} />
         </label>
         <label>
           Sinopse
-          <textarea value={this.getSnapshotBeforeUpdate.storyline} onChange={this.changeHandler}></textarea>
+          <textarea value={this.state.storyline} onChange={event => this.changeHandler(event, 'storyline')} />
         </label>
         <label>
           Avaliação
-          <input type="number" value={this.state.rating} onChange={this.changeHandler} />
+          <input type="number" value={this.state.rating} onChange={event => this.changeNumber(event, 'rating')} />
         </label>
         <label>
           Gênero
-        <select value={this.state.genre} onChange={this.changeHandler}>
+        <select  value={this.state.genre} onChange={event => this.changeHandler(event, 'genre')}>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
             <option value="thriller">Suspense</option>
           </select>
         </label>
-        <button onClick={onClick}>Adicionar filme</button>
+        <button onClick={() => this.resetMoviesCard(onClick)}>Adicionar filme</button>
       </form>
     );
   }
