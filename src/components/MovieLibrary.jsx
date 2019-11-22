@@ -15,36 +15,29 @@ class MovieLibrary extends Component {
       movies: props.movies,
     }
 
-    this.addNewFilm=this.addNewFilm.bind(this)
-    this.changeHandler=this.changeHandler.bind(this)
+    this.addNewFilm = this.addNewFilm.bind(this)
+    this.changeHandler = this.changeHandler.bind(this)
   }
 
-  addNewFilm  (values) {
+  addNewFilm(values) {
     this.setState((state) => ({
       movies: [...state.movies, values]
     }))
   }
 
 
-  changeHandler (event, name) {
-    if(name==='bookmarkedOnly'){
+  changeHandler(event, name) {
+    if (name === 'bookmarkedOnly') {
       const { checked } = event.target
       this.setState(() => ({
         [name]: checked
       }))
-    }else{
+    } else {
       const { value } = event.target
-    this.setState(() => ({
-      [name]: value
-    }))
-  }
-  }
-
-  changeHandlerChecked = (event, name) => {
-    const { checked } = event.target
-    this.setState(() => ({
-      [name]: checked
-    }))
+      this.setState(() => ({
+        [name]: value
+      }))
+    }
   }
 
   filterMoviesBySearchBox = (value, arr) => arr.filter((movie) =>
@@ -77,7 +70,7 @@ class MovieLibrary extends Component {
           searchText={this.state.searchText}
           onSearchTextChange={(e) => this.changeHandler(e, 'searchText')}
           bookmarkedOnly={this.state.bookmarkedOnly}
-          onBookmarkedChange={(e) => this.changeHandlerChecked(e, 'bookmarkedOnly')}
+          onBookmarkedChange={(e) => this.changeHandler(e, 'bookmarkedOnly')}
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={(e) => this.changeHandler(e, 'selectedGenre')} />
         <MovieList movies={this.finalList()} />
