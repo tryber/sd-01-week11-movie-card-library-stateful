@@ -14,16 +14,15 @@ class AddMovie extends React.Component {
     };
   }
 
-  changeHandler = event => {
-    const { name, value } = event.target
+  changeHandler = (event,name) => {
+    const { value } = event.target
     this.setState(() => ({
       [name]: value
     }))
   }
 
-
   btnSaveMovie(onClick){
-    onClick(this.state)
+    const value=this.state;
      this.setState({
         subtitle: '',
         title: '',
@@ -31,11 +30,9 @@ class AddMovie extends React.Component {
         storyline: '',
         rating: 0,
         genre: 'action',
-      })
+      });
+    onClick(value);
   }
-
-  
-  
 
   render() {
     const { onClick } = this.props;
@@ -45,38 +42,37 @@ class AddMovie extends React.Component {
         <fieldset>
           <label>
           Título
-            <input type="text" name="title" value={this.state.title} onChange={this.changeHandler} />
+            <input type="text"  value={this.state.title} onChange={(e)=>this.changeHandler(e,'title')} />
           </label>
           <label>
           Subtítulo
-            <input type="text" name="subtitle" value={this.state.subtitle} onChange={this.changeHandler} />
+            <input type="text" value={this.state.subtitle} onChange={(e)=>this.changeHandler(e,'subtitle')} />
           </label>
           <label>
           Imagem
-            <input type="img" name="imagePath" value={this.state.imagePath} onChange={this.changeHandler} />
+            <input type="img" value={this.state.imagePath} onChange={(e)=>this.changeHandler(e,'imagePath')}/>
           </label>
           <label>
           Sinopse
           <textarea
             value={this.state.storyline}
-            name="storyline"
-            onChange={this.changeHandler}
+            onChange={(e)=>this.changeHandler(e,'storyline')}
           />
           </label>
           <label>
           Avaliação
-            <input type="number" name="rating" value={this.state.rating} onChange={this.changeHandler} />
+            <input type="number" value={this.state.rating} onChange={(e)=>this.changeHandler(e,'rating')} />
           </label>
           <label>
           Gênero
-            <select onChange={this.changeHandler} value={this.state.genre} name="genre">
+            <select onChange={(e)=>this.changeHandler(e,'genre')} value={this.state.genre} >
               <option value="action">Ação</option>
               <option value="comedy">Comédia</option>
               <option value="thriller">Suspense</option>
             </select>
           </label>
         </fieldset>
-        <button type="button" onClick={() => this.btnSaveMovie(onClick) }>
+        <button type="button" onClick={()=>this.btnSaveMovie(onClick)}>
         Adicionar filme
       </button>
       </form>

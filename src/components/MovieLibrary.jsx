@@ -23,16 +23,15 @@ class MovieLibrary extends Component {
   }
 
 
-  changeHandler = event => {
-    const { name, value } = event.target
-    console.log(name,value)
+  changeHandler = (event,name) => {
+    const { value } = event.target
     this.setState(() => ({
       [name]: value
     }))
   }
 
-  changeHandlerChecked = event => {
-    const { name, checked } = event.target
+  changeHandlerChecked = (event,name) => {
+    const { checked } = event.target
     this.setState(() => ({
       [name]: checked
     }))
@@ -69,13 +68,13 @@ class MovieLibrary extends Component {
         <h2>My awesome movie library</h2>
         <SearchBar 
         searchText={this.state.searchText} 
-        onSearchTextChange={this.changeHandler} 
+        onSearchTextChange={(e)=> this.changeHandler(e,'searchText')} 
         bookmarkedOnly={this.state.bookmarkedOnly} 
-        onBookmarkedChange={this.changeHandlerChecked} 
+        onBookmarkedChange={(e)=> this.changeHandlerChecked(e,'bookmarkedOnly')} 
         selectedGenre={this.state.selectedGenre} 
-        onSelectedGenreChange={this.changeHandler}/>
+        onSelectedGenreChange={(e)=> this.changeHandler(e,'selectedGenre')}/>
         <MovieList movies={finalList()} />
-        <AddMovie onClick={this.addNewFilm}/>
+        <AddMovie onClick={(e) => this.addNewFilm(e)}/>
       </div>
     );
   }
