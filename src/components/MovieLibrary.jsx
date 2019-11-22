@@ -6,7 +6,8 @@ class MovieLibrary extends Component {
     super(props)
     this.state = {
       searchText: "",
-      bookmarkedOnly: ""
+      bookmarkedOnly: "",
+      selectedGenre: ''
     }
   }
 
@@ -20,7 +21,10 @@ class MovieLibrary extends Component {
 
   render() {
     return (
-      <SearchBar searchText={this.state.searchText} onSearchTextChange={this.onSearchTextChange} bookmarkedOnly={this.state.bookmarkedOnly} onBookmarkedChange={this.onBookmarkedChange}/>
+      <SearchBar searchText={this.state.searchText} onSearchTextChange={this.onSearchTextChange} 
+      bookmarkedOnly={this.state.bookmarkedOnly} onBookmarkedChange={this.onBookmarkedChange}
+      selectedGenre={this.state.selectedGenre}
+      />
     )
   }
 }

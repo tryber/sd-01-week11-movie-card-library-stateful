@@ -14,7 +14,7 @@ class SearchBar extends Component {
         </label>
         <label htmlFor="select">
         Filtrar por gênero:
-          <select  id="select">
+          <select  id="select" value={this.props.selectedGenre}>
 
           </select>
         </label>

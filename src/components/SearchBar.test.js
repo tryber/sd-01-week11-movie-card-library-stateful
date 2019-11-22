@@ -85,7 +85,7 @@ describe('<SearchBar /> component', () => {
       expect(searchBar().find('label').at(2).text()).toMatch('Filtrar por gênero');
     });
 
-    it.skip('passes the `selectedGenre` prop as the value of the select', () => {
+    it('passes the `selectedGenre` prop as the value of the select', () => {
       const select = searchBar().find('form select');
 
       expect(select.prop('value')).toEqual(props.selectedGenre);
