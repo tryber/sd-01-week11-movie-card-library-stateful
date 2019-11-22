@@ -18,7 +18,7 @@ Você deverá desenvolver uma aplicação que consiste em uma biblioteca de cart
 
 Uma possível implementação dessa biblioteca consta abaixo.
 
-![image](preview.png)
+![image](preview.gif)
 
 Você precisará implementar componentes que em conjunto resultarão na biblioteca de cartões de filmes dinâmica.
 
