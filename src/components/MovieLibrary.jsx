@@ -19,11 +19,15 @@ class MovieLibrary extends Component {
     console.log("hello")
   }
 
+  onSelectedGenreChange() {
+    console.log("andy")
+  }
+
   render() {
     return (
       <SearchBar searchText={this.state.searchText} onSearchTextChange={this.onSearchTextChange} 
       bookmarkedOnly={this.state.bookmarkedOnly} onBookmarkedChange={this.onBookmarkedChange}
-      selectedGenre={this.state.selectedGenre}
+      selectedGenre={this.state.selectedGenre} onSelectedGenreChange={this.onSelectedGenreChange}
       />
     )
   }

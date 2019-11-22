@@ -91,7 +91,7 @@ describe('<SearchBar /> component', () => {
       expect(select.prop('value')).toEqual(props.selectedGenre);
     });
 
-    it.skip('passes the `onSelectedGenreChange` prop to the `onChange` attribute of the select', () => {
+    it('passes the `onSelectedGenreChange` prop to the `onChange` attribute of the select', () => {
       const select = searchBar().find('form select');
 
       expect(select.prop('onChange')).toEqual(props.onSelectedGenreChange);
