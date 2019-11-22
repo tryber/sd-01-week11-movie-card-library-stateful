@@ -47,7 +47,7 @@ describe('<AddMovie /> component', () => {
       expect(titleInput().prop('value')).toEqual(initialState.title);
     });
 
-    it.skip('updates the component state when title input changes', () => {
+    it('updates the component state when title input changes', () => {
       const simulatedEvent = { target: { value: 'my awesome movie title' } };
 
       titleInput().simulate('change', simulatedEvent);
