@@ -9,17 +9,17 @@ class SearchBar extends Component {
       <form>
         <div>
           <label htmlFor="searchText">Inclui o texto:</label>
-          <input id="searchText" type="text" value={searchText} onChange={onSearchTextChange}></input>
+          <input name="searchText" type="text" value={searchText} onChange={onSearchTextChange}></input>
         </div>
 
         <div>
           <label htmlFor="checkbox">Mostrar somente favoritos</label>
-          <input id="checkbox" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+          <input name="checkbox" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
         </div>
 
         <div>
           <label htmlFor="selectedGenre">Filtrar por gênero</label>
-          <select id="selectedGenre" value={selectedGenre} onChange={onSelectedGenreChange}>
+          <select name="selectedGenre" value={selectedGenre} onChange={onSelectedGenreChange}>
             <option value="">Todos</option>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
