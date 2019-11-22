@@ -5,7 +5,8 @@ class MovieLibrary extends Component {
   constructor(props){
     super(props)
     this.state = {
-      searchText: ""
+      searchText: "",
+      bookmarkedOnly: ""
     }
   }
 
@@ -13,9 +14,13 @@ class MovieLibrary extends Component {
     console.log("hey")
   }
 
+  onBookmarkedChange() {
+    console.log("hello")
+  }
+
   render() {
     return (
-      <SearchBar searchText={this.state.searchText} onSearchTextChange={this.onSearchTextChange}/>
+      <SearchBar searchText={this.state.searchText} onSearchTextChange={this.onSearchTextChange} bookmarkedOnly={this.state.bookmarkedOnly} onBookmarkedChange={this.onBookmarkedChange}/>
     )
   }
 }

@@ -63,13 +63,13 @@ describe('<SearchBar /> component', () => {
         .toMatch('Mostrar somente favoritos');
     });
 
-    it.skip('passes the `bookMarkedOnly` prop to the `checked` attribute of the input', () => {
+    it('passes the `bookMarkedOnly` prop to the `checked` attribute of the input', () => {
       const input = searchBar().find('form input[type="checkbox"]');
 
       expect(input.prop('checked')).toBe(props.bookmarkedOnly);
     });
 
-    it.skip('passes the `onBookmarkedChange` to the `onChange` attribute of text input', () => {
+    it('passes the `onBookmarkedChange` to the `onChange` attribute of text input', () => {
       const input = searchBar().find('form input[type="checkbox"]');
 
       expect(input.prop('onChange')).toEqual(props.onBookmarkedChange);
