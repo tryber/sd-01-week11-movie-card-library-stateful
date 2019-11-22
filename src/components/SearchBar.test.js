@@ -44,7 +44,7 @@ describe('<SearchBar /> component', () => {
       expect(searchBar().find('label').at(0).text()).toMatch('Inclui o texto');
     });
 
-    it.skip('passes the `searchText` prop as the value of the input', () => {
+    it('passes the `searchText` prop as the value of the input', () => {
       expect(textInput().prop('value')).toBe(props.searchText);
     });
 
