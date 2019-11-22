@@ -15,15 +15,8 @@ class AddMovie extends React.Component {
   }
 
   changeHandler = (event, name) => {
-    const { value } = event.target
-    this.setState(() => ({
-      [name]: value
-    }));
-  }
-
-  changeHandlerRating = (event, name) => {
-    let { value } = event.target;
-    value = Number(value);
+    let { value } = event.target
+    if(name==='rating'){value = Number(value)};
     this.setState(() => ({
       [name]: value
     }));
@@ -56,7 +49,7 @@ class AddMovie extends React.Component {
             <textarea value={this.state.storyline} onChange={(e) => 
             this.changeHandler(e, 'storyline')}/></label>
             <label>Avaliação
-            <input type="number" value={this.state.rating} onChange={(e) => this.changeHandlerRating(e, 'rating')} /></label>
+            <input type="number" value={this.state.rating} onChange={(e) => this.changeHandler(e, 'rating')} /></label>
             <label>Gênero
             <select onChange={(e) => this.changeHandler(e, 'genre')} value={this.state.genre} >
                 <option value="action">Ação</option>
