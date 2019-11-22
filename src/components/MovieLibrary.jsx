@@ -16,7 +16,9 @@ class MovieLibrary extends Component {
     }
 
     this.addNewFilm = this.addNewFilm.bind(this)
-    this.changeHandler = this.changeHandler.bind(this)
+    this.changeHandlerSearch = this.changeHandlerSearch.bind(this)
+    this.changeHandlerMarked = this.changeHandlerMarked.bind(this)
+    this.changeHandlerGenre = this.changeHandlerGenre.bind(this)
   }
 
   addNewFilm(values) {
@@ -25,19 +27,22 @@ class MovieLibrary extends Component {
     }))
   }
 
+  changeHandlerSearch(event) {
+    this.setState(() => ({
+      searchText: event.target.value
+    }))
+  }
 
-  changeHandler(event, name) {
-    if (name === 'bookmarkedOnly') {
-      const { checked } = event.target
-      this.setState(() => ({
-        [name]: checked
-      }))
-    } else {
-      const { value } = event.target
-      this.setState(() => ({
-        [name]: value
-      }))
-    }
+  changeHandlerMarked(event) {
+    this.setState(() => ({
+      bookmarkedOnly: event.target.checked
+    }))
+  }
+
+  changeHandlerGenre(event) {
+    this.setState(() => ({
+      selectedGenre: event.target.value
+    }))
   }
 
   filterMoviesBySearchBox = (value, arr) => arr.filter((movie) =>
@@ -68,11 +73,11 @@ class MovieLibrary extends Component {
         <h2>My awesome movie library</h2>
         <SearchBar
           searchText={this.state.searchText}
-          onSearchTextChange={(e) => this.changeHandler(e, 'searchText')}
+          onSearchTextChange={(e) => this.changeHandlerSearch(e)}
           bookmarkedOnly={this.state.bookmarkedOnly}
-          onBookmarkedChange={(e) => this.changeHandler(e, 'bookmarkedOnly')}
+          onBookmarkedChange={(e) => this.changeHandlerMarked(e)}
           selectedGenre={this.state.selectedGenre}
-          onSelectedGenreChange={(e) => this.changeHandler(e, 'selectedGenre')} />
+          onSelectedGenreChange={(e) => this.changeHandlerGenre(e)} />
         <MovieList movies={this.finalList()} />
         <AddMovie onClick={this.addNewFilm} />
       </div>
