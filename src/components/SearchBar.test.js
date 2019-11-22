@@ -77,7 +77,7 @@ describe('<SearchBar /> component', () => {
   });
 
   describe('Movie Genre select', () => {
-    it.skip('renders a select inside the form', () => {
+    it('renders a select inside the form', () => {
       expect(searchBar().find('form select').length).toEqual(1);
     });
 
