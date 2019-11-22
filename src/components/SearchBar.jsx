@@ -10,6 +10,7 @@ class SearchBar extends Component {
       selectedGenre,
       onSelectedGenreChange,
     } = this.props;
+    
     return (
       <form>
         <fieldset>

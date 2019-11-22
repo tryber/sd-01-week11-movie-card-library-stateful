@@ -26,7 +26,6 @@ class MovieLibrary extends Component {
   changeHandler = event => {
     const { name, value } = event.target
     console.log(name,value)
-    console.log(event.target)
     this.setState(() => ({
       [name]: value
     }))
@@ -42,14 +41,14 @@ class MovieLibrary extends Component {
   
   render() {
 
-    const filterMoviesBySearchBox = (value,arr) => arr.filter((movie) => (movie.title.includes(value) || movie.subtitle.includes(value) || movie.storyline.includes(value))?true:false)
+    const filterMoviesBySearchBox = (value,arr) => arr.filter((movie) => 
+    (movie.title.includes(value) || movie.subtitle.includes(value) || movie.storyline.includes(value))?true:false)
 
     const filterMoviesByBookMarkedOnly = (arr) => 
       arr.filter((movie) => movie.bookmarked);
 
-    const filterMoviesBySelectedGenre = (value,arr) => {
-      arr.filter((movie) => movie.genre===value );
-    }
+    const filterMoviesBySelectedGenre = (value,arr) => 
+      arr.filter((movie) => movie.genre===value);
     
     const finalList = () => {
       let arrMovies=this.state.movies;

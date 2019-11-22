@@ -45,7 +45,7 @@ class AddMovie extends React.Component {
         <fieldset>
           <label>
           Título
-            <input type="text" id="title" name="title" value={this.state.title} onChange={this.changeHandler} />
+            <input type="text" name="title" value={this.state.title} onChange={this.changeHandler} />
           </label>
           <label>
           Subtítulo
