@@ -24,7 +24,7 @@ class SearchBar extends Component {
             />
           </label>
           <label htmlFor="genre">
-          Filtrar por gênero
+            Filtrar por gênero
             <select id="genre" onChange={onSelectedGenreChange} value={selectedGenre}>
               <option value="">Todos</option>
               <option value="action">Ação</option>
