@@ -62,19 +62,13 @@ class MovieLibrary extends Component {
   finalList() {
     let arrMovies = this.state.movies;
     if (this.state.searchText !== '') {
-      arrMovies = this.filterMoviesBySearchBox(
-        this.state.searchText,
-        arrMovies
-      );
+      arrMovies = this.filterMoviesBySearchBox( this.state.searchText, arrMovies );
     }
     if (this.state.bookmarkedOnly) {
       arrMovies = this.filterMoviesByBookMarkedOnly(arrMovies);
     }
     if (this.state.selectedGenre.length > 0) {
-      arrMovies = this.filterMoviesBySelectedGenre(
-        this.state.selectedGenre,
-        arrMovies
-      );
+      arrMovies = this.filterMoviesBySelectedGenre( this.state.selectedGenre, arrMovies);
     }
     return arrMovies;
   }
