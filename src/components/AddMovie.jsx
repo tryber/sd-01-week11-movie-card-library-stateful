@@ -19,7 +19,6 @@ class AddMovie extends React.Component {
     this.changeHandlerstoryline = this.changeHandlerstoryline.bind(this);
     this.changeHandlerrating = this.changeHandlerrating.bind(this);
     this.changeHandlergenre = this.changeHandlergenre.bind(this);
-
   }
 
   changeHandlerSubtitle(event) {
@@ -66,23 +65,47 @@ class AddMovie extends React.Component {
         <fieldset>
           <label htmlFor="tlt">
             Título
-            <input id="tlt" type="text" value={this.state.title} onChange={(e) => this.changeHandlerTitle(e)} />
+            <input
+              id="tlt"
+              type="text"
+              value={this.state.title}
+              onChange={(e) => this.changeHandlerTitle(e)}
+            />
           </label>
           <label htmlFor="sub">
             Subtítulo
-            <input type="text" id="sub" value={this.state.subtitle} onChange={(e) => this.changeHandlerSubtitle(e)} />
+            <input
+              type="text"
+              id="sub"
+              value={this.state.subtitle}
+              onChange={(e) => this.changeHandlerSubtitle(e)}
+            />
           </label>
           <label htmlFor="img">
           Imagem
-            <input type="text" id="img" value={this.state.imagePath} onChange={(e) => this.changeHandlerimagePath(e)} />
+            <input
+              type="text"
+              id="img"
+              value={this.state.imagePath}
+              onChange={(e) => this.changeHandlerimagePath(e)}
+            />
           </label>
           <label htmlFor="sps">
           Sinopse
-            <textarea id="sps" value={this.state.storyline} onChange={(e) => this.changeHandlerstoryline(e)} />
+            <textarea
+              id="sps"
+              value={this.state.storyline}
+              onChange={(e) => this.changeHandlerstoryline(e)}
+            />
           </label>
           <label htmlFor="num">
           Avaliação
-            <input id="num" type="number" value={this.state.rating} onChange={(e) => this.changeHandlerrating(e)} />
+            <input
+              id="num"
+              type="number"
+              value={this.state.rating}
+              onChange={(e) => this.changeHandlerrating(e)}
+            />
           </label>
           <label htmlFor="gen">
           Gênero

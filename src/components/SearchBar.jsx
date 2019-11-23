@@ -5,7 +5,8 @@ class SearchBar extends Component {
     const {
       searchText, onSearchTextChange,
       bookmarkedOnly, onBookmarkedChange,
-      selectedGenre, onSelectedGenreChange } = this.props;
+      selectedGenre, onSelectedGenreChange,
+    } = this.props;
     return (
       <form>
         <fieldset>
@@ -15,7 +16,12 @@ class SearchBar extends Component {
           </label>
           <label htmlFor="favorited">
           Mostrar somente favoritos:
-            <input id="favorited" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+            <input
+              id="favorited"
+              type="checkbox"
+              checked={bookmarkedOnly}
+              onChange={onBookmarkedChange}
+            />
           </label>
           <label htmlFor="genre">
           Filtrar por gênero
