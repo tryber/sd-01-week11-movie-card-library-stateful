@@ -51,7 +51,8 @@ class MovieLibrary extends Component {
       arrMovies = this.state.movies.filter((movie) => movie.bookmarked);
     }
     if (this.state.selectedGenre.length > 0) {
-      arrMovies = this.state.movies.filter((movie) => movie.genre === state.genre);
+      arrMovies = this.state.movies
+        .filter((movie) => movie.genre === this.state.genre);
     }
     return arrMovies;
   }
