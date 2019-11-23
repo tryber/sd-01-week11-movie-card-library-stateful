@@ -48,11 +48,11 @@ class MovieLibrary extends Component {
       ));
     }
     if (this.state.bookmarkedOnly) {
-      arrMovies = this.state.movies.filter((movie) => movie.bookmarked);
+      arrMovies = arrMovies.filter((movie) => movie.bookmarked);
     }
     if (this.state.selectedGenre.length > 0) {
-      arrMovies = this.state.movies
-        .filter((movie) => movie.genre === this.state.genre);
+      arrMovies = arrMovies
+        .filter((movie) => movie.genre === this.state.selectedGenre);
     }
     return arrMovies;
   }
