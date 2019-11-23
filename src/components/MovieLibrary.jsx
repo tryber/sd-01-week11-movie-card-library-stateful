@@ -54,16 +54,16 @@ class MovieLibrary extends Component {
       return arr.filter((movie) => movie.genre === value);
     }
 
-    function finalList() {
-      let arrMovies = this.state.movies;
-      if (this.state.searchText !== '') {
-        arrMovies = filterMoviesBySearchBox(this.state.searchText, arrMovies);
+    function finalList(state) {
+      let arrMovies = state.movies;
+      if (state.searchText !== '') {
+        arrMovies = filterMoviesBySearchBox(state.searchText, arrMovies);
       }
-      if (this.state.bookmarkedOnly) {
+      if (state.bookmarkedOnly) {
         arrMovies = filterMoviesByBookMarkedOnly(arrMovies);
       }
-      if (this.state.selectedGenre.length > 0) {
-        arrMovies = filterMoviesBySelectedGenre(this.state.selectedGenre, arrMovies);
+      if (state.selectedGenre.length > 0) {
+        arrMovies = filterMoviesBySelectedGenre(state.selectedGenre, arrMovies);
       }
       return arrMovies;
     }
@@ -79,7 +79,7 @@ class MovieLibrary extends Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={(e) => this.changeHandlerGenre(e)}
         />
-        <MovieList movies={finalList()} />
+        <MovieList movies={finalList(this.state)} />
         <AddMovie onClick={this.addNewFilm} />
       </div>
     );
