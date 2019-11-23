@@ -38,10 +38,6 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    function filterMoviesByBookMarkedOnly(arr) {
-      return arr.filter((movie) => movie.bookmarked);
-    }
-
     function filterMoviesBySearchBox(value, arr) {
       return arr.filter((movie) => (
         movie.title.includes(value)
@@ -50,20 +46,16 @@ class MovieLibrary extends Component {
       ));
     }
 
-    function filterMoviesBySelectedGenre(value, arr) {
-      return arr.filter((movie) => movie.genre === value);
-    }
-
     function finalList(state) {
       let arrMovies = state.movies;
       if (state.searchText !== '') {
         arrMovies = filterMoviesBySearchBox(state.searchText, arrMovies);
       }
       if (state.bookmarkedOnly) {
-        arrMovies = filterMoviesByBookMarkedOnly(arrMovies);
+        arrMovies = state.movies.filter((movie) => movie.bookmarked);
       }
       if (state.selectedGenre.length > 0) {
-        arrMovies = filterMoviesBySelectedGenre(state.selectedGenre, arrMovies);
+        arrMovies = state.movies.filter((movie) => movie.genre === state.genre);
       }
       return arrMovies;
     }
