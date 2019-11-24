@@ -122,8 +122,7 @@ class AddMovie extends React.Component {
             rows="10"
             value={this.state.storyline}
             onChange={(event) => this.changeHandlerstoryline(event)}
-          >
-          </textarea>
+          />
         </label>
       </div>
     );
@@ -161,7 +160,7 @@ class AddMovie extends React.Component {
           </select>
         </label>
       </div>
-    )
+    );
   }
 
   render() {
