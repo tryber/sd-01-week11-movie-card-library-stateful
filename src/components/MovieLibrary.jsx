@@ -15,14 +15,14 @@ class MovieLibrary extends Component {
     }
   }
 
-  sendNewData = (event, id) => {
+  sendNewData(event, id) {
     const { value } = event.target;
     this.setState({
       [id]: value
     })
   }
 
-  sendValueCheckbox = (event) => {
+  sendValueCheckbox(event) {
     this.setState({
       bookmarkedOnly: event.target.checked
     })
@@ -39,7 +39,7 @@ class MovieLibrary extends Component {
           onBookmarkedChange={(e) => this.sendValueCheckbox(e)}
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={(e) => this.sendNewData(e, 'selectedGenre')}
-          />
+        />
         <MovieList movies={this.props.movies} />
         <AddMovie />
       </div>
