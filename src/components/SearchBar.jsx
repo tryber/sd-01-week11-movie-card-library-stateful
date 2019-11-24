@@ -5,13 +5,13 @@ class SearchBar extends Component {
     return (
       <label htmlFor="searchText">
         Inclui o texto:
-          <input
-            id="searchText"
-            name="searchText"
-            type="text"
-            value={this.props.searchText}
-            onChange={this.props.onSearchTextChange} 
-          />
+        <input
+          id="searchText"
+          name="searchText"
+          type="text"
+          value={this.props.searchText}
+          onChange={this.props.onSearchTextChange}
+        />
       </label>
     );
   }
@@ -33,9 +33,10 @@ class SearchBar extends Component {
     return (
       <label htmlFor="selectedGenre">
         Filtrar por gênero
-          <select name="selectedGenre"
+        <select name="selectedGenre"
           value={this.props.selectedGenre}
-          onChange={this.props.onSelectedGenreChange}>
+          onChange={this.props.onSelectedGenreChange}
+        >
           <option value="">Todos</option>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
