@@ -58,7 +58,7 @@ class AddMovie extends React.Component {
       genre: 'action',
     });
     onClick(value);
-  };
+  }
 
   inputUniverse(id, value, call, text, type) {
     return (
@@ -69,7 +69,7 @@ class AddMovie extends React.Component {
         </label>
       </div>
     );
-  };
+  }
 
   inputTextArea() {
     return (
@@ -85,7 +85,7 @@ class AddMovie extends React.Component {
         </label>
       </div>
     );
-  };
+  }
 
   inputSelect() {
     return (
@@ -104,7 +104,7 @@ class AddMovie extends React.Component {
         </label>
       </div>
     );
-  };
+  }
 
   render() {
     const { onClick } = this.props;
