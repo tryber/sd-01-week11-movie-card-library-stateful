@@ -11,21 +11,17 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies
-    }
+      movies: this.props.movies,
+    };
   }
 
   sendNewData(event, id) {
     const { value } = event.target;
-    this.setState({
-      [id]: value
-    })
+    this.setState({ [id]: value });
   }
 
   sendValueCheckbox(event) {
-    this.setState({
-      bookmarkedOnly: event.target.checked
-    })
+    this.setState({ bookmarkedOnly: event.target.checked });
   }
 
   render() {
