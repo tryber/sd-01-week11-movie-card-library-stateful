@@ -33,23 +33,9 @@ class MovieLibrary extends Component {
   };
 
   listFilm = () => {
-    let parameter = this.state.searchText;
+    // let parameter = this.state.searchText;
     let list = this.state.movies;
-    while (parameter !== '') {
-      list = list.filter(
-        (filme) =>
-          filme.title.includes(parameter) ||
-          filme.subtitle.includes(parameter) ||
-          filme.storyline.includes(parameter)
-      );
-      break;
-    }
-    if (this.state.bookmarkedOnly) {
-      list = list.filter((filme) => filme.bookmarked);
-    }
-    if (this.state.selectedGenre.length > 0) {
-      list = list.filter((filme) => filme.genre === this.state.selectedGenre);
-    }
+
     return list;
   };
 
