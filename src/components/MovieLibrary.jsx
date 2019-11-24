@@ -16,6 +16,8 @@ class MovieLibrary extends Component {
     this.changeHandlerText = this.changeHandlerText.bind(this);
     this.changeHandlerCheckbox = this.changeHandlerCheckbox.bind(this);
     this.changeHandlerGenre = this.changeHandlerGenre.bind(this);
+    this.addFilm = this.addFilm.bind(this);
+    this.addMovieInList = this.addMovieInList.bind(this);
   }
 
   changeHandlerText(event) {
@@ -30,6 +32,31 @@ class MovieLibrary extends Component {
     this.setState({ selectedGenre: event.target.value });
   }
 
+  addFilm(event) {
+    this.setState({ movies: [...this.state.movies, event] });
+  }
+
+  addMovieInList() {
+    let searchMovie = this.state.searchText;
+    let moviesOnTheList = this.state.movies;
+    while (searchMovie !== '') {
+      moviesOnTheList = moviesOnTheList.filter(
+        (movies) =>
+          movies.title.includes(searchMovie) ||
+          movies.subtitle.includes(searchMovie) ||
+          movies.storyline.includes(searchMovie)
+      );
+      break;
+    }
+    if (this.state.bookmarkedOnly) {
+      moviesOnTheList = moviesOnTheList.filter((movies) => movies.bookmarked);
+    }
+    if (this.state.selectedGenre.length > 0) {
+      moviesOnTheList = moviesOnTheList.filter((movies) => movies.genre === this.state.selectedGenre);
+    }
+    return moviesOnTheList;
+  };
+
   render() {
     return (
       <div>
@@ -42,8 +69,8 @@ class MovieLibrary extends Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={(event) => this.changeHandlerGenre(event)}
         />
-        <MovieList movies={this.props.movies} />
-        <AddMovie />
+        <MovieList movies={this.addMovieInList(this.state)} />        
+        <AddMovie onClick={this.addFilm}/>
       </div>
     );
   }
