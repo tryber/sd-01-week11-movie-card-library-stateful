@@ -14,14 +14,14 @@ class AddMovie extends React.Component {
     };
   }
 
-  change = (event, id) => {
+  change(event, id) {
     const { value } = event.target;
     this.setState({
       [id]: value
     })
   }
 
-  changeNumber = (event, id) => {
+  changeNumber(event, id) {
     const { value } = event.target;
     this.setState({
       [id]: Number(value)
@@ -29,8 +29,8 @@ class AddMovie extends React.Component {
   }
 
   newState(onClick) {
-  const value = this.state
-    this.setState ({
+    const value = this.state
+    this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
