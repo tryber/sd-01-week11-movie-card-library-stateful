@@ -1,13 +1,13 @@
 .btn {
-  border-top: 1px solid #bff797;
   background: #b065d6;
-  padding: 13.5px 27px;
   border-radius: 26px;
+  border-top: 1px solid #bff797;
   box-shadow: black 0 1px 0;
   color: white;
-  text-shadow: black 0 1px 0;
   font-size: 19px;
+  padding: 13.5px 27px;
   text-decoration: none;
+  text-shadow: black 0 1px 0;
   vertical-align: middle;
 }
 
@@ -32,9 +32,9 @@ body {
 .form-addMovie {
   display: flex;
   flex-wrap: wrap;
-  max-width: 40%;
   margin: 0 auto;
-  padding: 1em; 
+  max-width: 40%;
+  padding: 1em;
 }
 
 input {
@@ -46,7 +46,7 @@ input {
   font-size: 1.5em;
   margin: 0 auto;
   padding: 1em;
-  text-align: center; 
+  text-align: center;
 }
 
 label {
