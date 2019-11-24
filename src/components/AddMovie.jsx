@@ -13,6 +13,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+    this.createSelect = this.createSelect.bind(this);
     this.createTextArea = this.createTextArea.bind(this);
     this.createInput = this.createInput.bind(this);
     this.changeHandlerSubtitle = this.changeHandlerSubtitle.bind(this);
@@ -87,6 +88,19 @@ class AddMovie extends React.Component {
     );
   }
 
+  createSelect() {
+    return (
+      <label htmlFor="gen">
+        Gênero
+        <select id="gen" onChange={(e) => this.changeHandlergenre(e)} value={this.state.genre} >
+          <option value="action">Ação</option>
+          <option value="comedy">Comédia</option>
+          <option value="thriller">Suspense</option>
+        </select>
+      </label>
+    );
+  }
+
   render() {
     const { onClick } = this.props;
     return (
@@ -97,14 +111,7 @@ class AddMovie extends React.Component {
           {this.createInput('img', 'imagePath', this.changeHandlerimagePath, 'Imagem', 'text')}
           {this.createTextArea()}
           {this.createInput('num', 'rating', this.changeHandlerrating, 'Avaliação', 'number')}
-          <label htmlFor="gen">
-            Gênero
-            <select id="gen" onChange={(e) => this.changeHandlergenre(e)} value={this.state.genre} >
-              <option value="action">Ação</option>
-              <option value="comedy">Comédia</option>
-              <option value="thriller">Suspense</option>
-            </select>
-          </label>
+          {this.createSelect()}
         </fieldset>
         <button type="button" onClick={() => this.btnSaveMovie(onClick)}>Adicionar filme</button>
       </form>
