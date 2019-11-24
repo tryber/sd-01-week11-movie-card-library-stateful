@@ -18,7 +18,7 @@ Você deverá desenvolver uma aplicação que consiste em uma biblioteca de cart
 
 Uma possível implementação dessa biblioteca consta abaixo.
 
-![image](preview.png)
+![image](preview.gif)
 
 Você precisará implementar componentes que em conjunto resultarão na biblioteca de cartões de filmes dinâmica.
 
@@ -154,7 +154,7 @@ Dentro desse formulário haverá campos usados na filtragem de cartões.
 
 - O input deve ter uma label associada com o texto: **"Mostrar somente favoritos"**;
 
-- A propriedade `checked` do input deve receber o valor da prop `bookMarkedOnly`;
+- A propriedade `checked` do input deve receber o valor da prop `bookmarkedOnly`;
 
 - A propriedade `onChange` do input deve receber o valor da prop `onBookmarkedChange`.
 
