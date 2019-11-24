@@ -13,6 +13,9 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: props.movies,
     };
+    this.changeHandlerText = this.changeHandlerText.bind(this);
+    this.changeHandlerCheckbox = this.changeHandlerCheckbox.bind(this);
+    this.changeHandlerGenre = this.changeHandlerGenre.bind(this);
   }
 
   changeHandlerText(event) {

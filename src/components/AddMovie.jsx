@@ -12,6 +12,18 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action'
     };
+    this.changeHandlerText = this.changeHandlerText.bind(this);
+    this.changeHandlerSubtitle = this.changeHandlerSubtitle.bind(this);
+    this.changeHandlerimagePath = this.changeHandlerimagePath.bind(this);
+    this.changeHandlerstoryline = this.changeHandlerstoryline.bind(this);
+    this.changeHandlerRating = this.changeHandlerRating.bind(this);
+    this.changeHandlerGenre = this.changeHandlerGenre.bind(this);
+    this.renderInputTitle = this.renderInputTitle.bind(this);
+    this.renderInputSubtitle = this.renderInputSubtitle.bind(this);
+    this.renderInputImagePath = this.renderInputImagePath.bind(this);
+    this.renderInputStoryline = this.renderInputStoryline.bind(this);
+    this.renderSelectGenre = this.renderSelectGenre.bind(this);
+    this.renderInputRating = this.renderInputRating.bind(this);
   }
 
   changeHandlerText(event) {
@@ -38,8 +50,8 @@ class AddMovie extends React.Component {
     this.setState({ genre: event.target.value });
   }
 
-  resetState = ((onClick) => {
-    onClick(this.state);
+  resetState(onClick) {
+    const value = this.state;
     this.setState({
       subtitle: "",
       title: "",
@@ -48,7 +60,8 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action'
     });
-  });
+    onClick(value);
+  };
 
   renderInputTitle() {
     return (
