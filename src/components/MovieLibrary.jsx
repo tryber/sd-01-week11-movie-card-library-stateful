@@ -70,8 +70,8 @@ class MovieLibrary extends Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={(event) => this.changeHandlerGenre(event)}
         />
-        <MovieList movies={ this.addMovieInList(this.state) } />        
-        <AddMovie onClick={ this.addFilm } />
+        <MovieList movies={this.addMovieInList(this.state)} />        
+        <AddMovie onClick={this.addFilm} />
       </div>
     );
   }
