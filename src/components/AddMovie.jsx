@@ -14,28 +14,28 @@ class AddMovie extends React.Component {
     };
   }
 
-  changeHandlerText = (event) => {
-    this.setState({ title: event.target.value })
+  changeHandlerText(event) {
+    this.setState({ title: event.target.value });
   }
 
-  changeHandlerSubtitle = (event) => {
-    this.setState({ subtitle: event.target.value })
+  changeHandlerSubtitle(event) {
+    this.setState({ subtitle: event.target.value });
   }
 
-  changeHandlerimagePath = (event) => {
-    this.setState({ imagePath: event.target.value })
+  changeHandlerimagePath(event) {
+    this.setState({ imagePath: event.target.value });
   }
 
-  changeHandlerstoryline = (event) => {
-    this.setState({ storyline: event.target.value })
+  changeHandlerstoryline(event) {
+    this.setState({ storyline: event.target.value });
   }
 
-  changeHandlerRating = (event) => {
-    this.setState({ rating: parseFloat(event.target.value) })
+  changeHandlerRating(event) {
+    this.setState({ rating: parseFloat(event.target.value) });
   }
 
-  changeHandlerGenre = (event) => {
-    this.setState({ genre: event.target.value })
+  changeHandlerGenre(event) {
+    this.setState({ genre: event.target.value });
   }
 
   resetState = ((onClick) => {
