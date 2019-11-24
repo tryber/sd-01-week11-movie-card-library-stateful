@@ -60,7 +60,7 @@ class AddMovie extends React.Component {
     onClick(value);
   }
 
-  createInput(id, value, func, label,type) {
+  createInput(id, value, func, label, type) {
     return (
       <label htmlFor={id}>
         {label}
@@ -84,7 +84,7 @@ class AddMovie extends React.Component {
           onChange={(e) => this.changeHandlerstoryline(e)}
         />
       </label>
-    )
+    );
   }
 
   render() {
