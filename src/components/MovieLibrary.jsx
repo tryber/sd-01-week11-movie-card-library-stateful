@@ -51,7 +51,7 @@ class MovieLibrary extends Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={(event) => this.changeHandlerSelectedGenre(event)}
         />
-        <MovieList movies={this.listFilm(this.state)} />
+        <MovieList movies={(event) => this.listFilm(event)} />
         <AddMovie movies={(event) => this.introduceMovie(event)} />
       </div>
     );
