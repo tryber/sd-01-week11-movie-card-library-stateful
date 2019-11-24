@@ -11,21 +11,28 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action'
     };
+    // this.changeHandlerTitle = this.changeHandlerTitle.bind(this)
+    // this.changeHandlerSubtitle = this.changeHandlerSubtitle.bind(this)
+    // this.changeHandlerImagePath = this.changeHandlerImagePath.bind(this)
+    // this.changeHandlerStoryline = this.changeHandlerStoryline.bind(this)
+    // this.changeHandlerRating = this.changeHandlerRating.bind(this)
+    // this.changeHandlerGenre = this.changeHandlerGenre.bind(this)
+    // this.resetarValores = this.resetarValores.bind(this)
   }
 
-  changeHandlerTitle = event => this.setState({ title: event.target.value });
+  changeHandlerTitle = (event) => this.setState({ title: event.target.value });
 
-  changeHandlerSubtitle = event => this.setState({ subtitle: event.target.value });
+  changeHandlerSubtitle = (event) => this.setState({ subtitle: event.target.value });
 
-  changeHandlerImagePath = event => this.setState({ imagePath: event.target.value });
+  changeHandlerImagePath = (event) => this.setState({ imagePath: event.target.value });
 
-  changeHandlerStoryline = event => this.setState({ storyline: event.target.value });
+  changeHandlerStoryline = (event) => this.setState({ storyline: event.target.value });
 
-  changeHandlerRating = event => this.setState({ rating: Number(event.target.value) });
+  changeHandlerRating = (event) => this.setState({ rating: Number(event.target.value) });
 
-  changeHandlerGenre = event => this.setState({ genre: event.target.value });
+  changeHandlerGenre = (event) => this.setState({ genre: event.target.value });
 
-  resetarValores = onClick => {
+  resetarValores = (onClick) => {
     onClick(this.state);
     this.setState({
       subtitle: '',
@@ -46,7 +53,7 @@ class AddMovie extends React.Component {
           <input
             type="text"
             value={this.state.title}
-            onChange={event => this.changeHandlerTitle(event)}
+            onChange={(event) => this.changeHandlerTitle(event)}
           />
         </label>
         <label htmlFor="subtitulo">
@@ -54,7 +61,7 @@ class AddMovie extends React.Component {
           <input
             type="text"
             value={this.state.subtitle}
-            onChange={event => this.changeHandlerSubtitle(event)}
+            onChange={(event) => this.changeHandlerSubtitle(event)}
           />
         </label>
         <label htmlFor="imagem">
@@ -62,7 +69,7 @@ class AddMovie extends React.Component {
           <input
             type="text"
             value={this.state.imagePath}
-            onChange={event => this.changeHandlerImagePath(event)}
+            onChange={(event) => this.changeHandlerImagePath(event)}
           />
         </label>
         <label htmlFor="sinopse">
@@ -71,7 +78,7 @@ class AddMovie extends React.Component {
             cols="30"
             rows="10"
             value={this.state.storyline}
-            onChange={event => this.changeHandlerStoryline(event)}
+            onChange={(event) => this.changeHandlerStoryline(event)}
           ></textarea>
         </label>
         <label htmlFor="avalia">
@@ -79,15 +86,12 @@ class AddMovie extends React.Component {
           <input
             type="number"
             value={this.state.rating}
-            onChange={event => this.changeHandlerRating(event)}
+            onChange={(event) => this.changeHandlerRating(event)}
           />
         </label>
         <label htmlFor="selectgenero">
           Gênero
-          <select
-            value={this.state.genre}
-            onChange={event => this.changeHandlerGenre(event)}
-          >
+          <select value={this.state.genre} onChange={(event) => this.changeHandlerGenre(event)}>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
             <option value="thriller">Suspense</option>
