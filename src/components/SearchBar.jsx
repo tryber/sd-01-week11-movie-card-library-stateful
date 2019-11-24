@@ -18,7 +18,8 @@ class SearchBar extends Component {
   showFavorites() {
     return (
       <label htmlFor="show-favorites">Mostrar somente favoritos
-        <input id="show-favorites"
+        <input 
+          id="show-favorites"
           type="checkbox"
           checked={this.props.bookmarkedOnly}
           onChange={this.props.onBookmarkedChange}
