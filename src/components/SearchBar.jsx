@@ -5,7 +5,8 @@ class SearchBar extends Component {
     return (
       <div>
         <label htmlFor="searchText">Inclui o texto:</label>
-        <input name="searchText" type="text" value={this.props.searchText} onChange={this.props.onSearchTextChange}></input>
+        <input name="searchText" type="text"
+          value={this.props.searchText} onChange={this.props.onSearchTextChange} />
       </div>
     );
   }
@@ -14,7 +15,8 @@ class SearchBar extends Component {
     return (
       <div>
         <label htmlFor="checkbox">Mostrar somente favoritos</label>
-        <input name="checkbox" type="checkbox" checked={this.props.bookmarkedOnly} onChange={this.props.onBookmarkedChange} />
+        <input name="checkbox" type="checkbox"
+          checked={this.props.bookmarkedOnly} onChange={this.props.onBookmarkedChange} />
       </div>
     );
   }
@@ -23,7 +25,8 @@ class SearchBar extends Component {
     return (
       <div>
         <label htmlFor="selectedGenre">Filtrar por gênero</label>
-        <select name="selectedGenre" value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange}>
+        <select name="selectedGenre"
+          value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange}>
           <option value="">Todos</option>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
