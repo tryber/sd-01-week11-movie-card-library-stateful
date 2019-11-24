@@ -37,14 +37,14 @@ class MovieLibrary extends Component {
   }
 
   addMovieInList() {
-    let searchMovie = this.state.searchText;
+    const searchMovie = this.state.searchText;
     let moviesOnTheList = this.state.movies;
     while (searchMovie !== '') {
       moviesOnTheList = moviesOnTheList.filter(
         (movies) =>
           movies.title.includes(searchMovie) ||
           movies.subtitle.includes(searchMovie) ||
-          movies.storyline.includes(searchMovie)
+          movies.storyline.includes(searchMovie);
       );
       break;
     }
@@ -52,10 +52,11 @@ class MovieLibrary extends Component {
       moviesOnTheList = moviesOnTheList.filter((movies) => movies.bookmarked);
     }
     if (this.state.selectedGenre.length > 0) {
-      moviesOnTheList = moviesOnTheList.filter((movies) => movies.genre === this.state.selectedGenre);
+      moviesOnTheList = moviesOnTheList.filter((movies) => 
+      movies.genre === this.state.selectedGenre);
     }
     return moviesOnTheList;
-  };
+  }
 
   render() {
     return (
@@ -69,8 +70,8 @@ class MovieLibrary extends Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={(event) => this.changeHandlerGenre(event)}
         />
-        <MovieList movies={this.addMovieInList(this.state)} />        
-        <AddMovie onClick={this.addFilm}/>
+        <MovieList movies={ this.addMovieInList(this.state) } />        
+        <AddMovie onClick={ this.addFilm } />
       </div>
     );
   }
