@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      subtitle: '',
-      imagePath: '',
-      storyline: '',
+      title: "",
+      subtitle: "",
+      imagePath: "",
+      storyline: "",
       rating: 0,
-      genre: 'action'
+      genre: "action"
     };
     this.changeHandlerTitle = this.changeHandlerTitle.bind(this);
     this.changeHandlerSubtitle = this.changeHandlerSubtitle.bind(this);
@@ -23,27 +23,31 @@ class AddMovie extends React.Component {
     this.inputSelect = this.inputSelect.bind(this);
   }
 
-  changeHandlerTitle = (event) => this.setState({ title: event.target.value });
+  changeHandlerTitle = event => this.setState({ title: event.target.value });
 
-  changeHandlerSubtitle = (event) => this.setState({ subtitle: event.target.value });
+  changeHandlerSubtitle = event =>
+    this.setState({ subtitle: event.target.value });
 
-  changeHandlerImagePath = (event) => this.setState({ imagePath: event.target.value });
+  changeHandlerImagePath = event =>
+    this.setState({ imagePath: event.target.value });
 
-  changeHandlerStoryline = (event) => this.setState({ storyline: event.target.value });
+  changeHandlerStoryline = event =>
+    this.setState({ storyline: event.target.value });
 
-  changeHandlerRating = (event) => this.setState({ rating: Number(event.target.value) });
+  changeHandlerRating = event =>
+    this.setState({ rating: Number(event.target.value) });
 
-  changeHandlerGenre = (event) => this.setState({ genre: event.target.value });
+  changeHandlerGenre = event => this.setState({ genre: event.target.value });
 
-  resetarValores = (onClick) => {
+  resetarValores = onClick => {
     let value = this.state;
     this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
+      subtitle: "",
+      title: "",
+      imagePath: "",
+      storyline: "",
       rating: 0,
-      genre: 'action'
+      genre: "action"
     });
     onClick(value);
   };
@@ -53,7 +57,12 @@ class AddMovie extends React.Component {
       <div className="item">
         <label htmlFor={id}>
           {text}
-          <input id={id} type={type} value={this.state[value]} onChange={(event) => call(event)} />
+          <input
+            id={id}
+            type={type}
+            value={this.state[value]}
+            onChange={event => call(event)}
+          />
         </label>
       </div>
     );
@@ -68,7 +77,7 @@ class AddMovie extends React.Component {
             className="spn"
             id="sinopse"
             value={this.state.storyline}
-            onChange={(event) => this.changeHandlerStoryline(event)}
+            onChange={event => this.changeHandlerStoryline(event)}
           />
         </label>
       </div>
@@ -82,7 +91,7 @@ class AddMovie extends React.Component {
           Gênero
           <select
             id="genre"
-            onChange={(event) => this.changeHandlerGenre(event)}
+            onChange={event => this.changeHandlerGenre(event)}
             value={this.state.genre}
           >
             <option value="action">Ação</option>
@@ -99,27 +108,43 @@ class AddMovie extends React.Component {
     return (
       <form className="form-addMovie">
         <fieldset>
-          {this.inputUniverse('Title', 'title', this.changeHandlerTitle, 'Título', 'text')}
           {this.inputUniverse(
-            'Subtitle',
-            'subtitle',
-            this.changeHandlerSubtitle,
-            'Subtítulo',
-            'text'
+            "Title",
+            "title",
+            this.changeHandlerTitle,
+            "Título",
+            "text"
           )}
-          {this.inputUniverse('Image', 'imagePath', this.changeHandlerImagePath, 'Imagem', 'text')}
+          {this.inputUniverse(
+            "Subtitle",
+            "subtitle",
+            this.changeHandlerSubtitle,
+            "Subtítulo",
+            "text"
+          )}
+          {this.inputUniverse(
+            "Image",
+            "imagePath",
+            this.changeHandlerImagePath,
+            "Imagem",
+            "text"
+          )}
           {this.inputTextArea()}
           {this.inputUniverse(
-            'Number-rating',
-            'rating',
+            "Number-rating",
+            "rating",
             this.changeHandlerRating,
-            'Avaliação',
-            'number'
+            "Avaliação",
+            "number"
           )}
           {this.inputSelect()}
         </fieldset>
         <div className="item">
-          <button className="btn" type="button" onClick={() => this.resetarValores(onClick)}>
+          <button
+            className="btn"
+            type="button"
+            onClick={() => this.resetarValores(onClick)}
+          >
             Adicionar filme
           </button>
         </div>

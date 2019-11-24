@@ -1,8 +1,45 @@
+.btn {
+  border-top: 1px solid #bff797;
+  background: #b065d6;
+  padding: 13.5px 27px;
+  -webkit-border-radius: 26px;
+  -moz-border-radius: 26px;
+  border-radius: 26px;
+  -webkit-box-shadow: black 0 1px 0;
+  -moz-box-shadow: black 0 1px 0;
+  box-shadow: black 0 1px 0;
+  text-shadow: black 0 1px 0;
+  color: white;
+  font-size: 19px;
+  font-family: "Lucida Grande", Helvetica, Arial, Sans-Serif;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.btn:hover {
+  border-top-color: #672878;
+  background: #672878;
+  color: #ccc;
+}
+
+.btn:active {
+  border-top-color: #1b435e;
+  background: #1b435e;
+}
+
 body {
-  background-image: url('http://i.stack.imgur.com/vhoa0.jpg');
+  background-image: url("http://i.stack.imgur.com/vhoa0.jpg");
   box-sizing: border-box;
   font-size: 16px;
   text-align: center;
+}
+
+.form-addMovie {
+  display: flex;
+  max-width: 40%;
+  margin: 0 auto;
+  padding: 1em;
+  flex-wrap: wrap;
 }
 
 input,
@@ -11,45 +48,21 @@ input,
   border-radius: 2em;
 }
 
+.item {
+  text-align: center;
+  font-size: 1.5em;
+  padding: 1em;
+  margin: 0 auto;
+}
+
 label {
   color: white;
   font-size: large;
 }
-.btn {
-  border-top: 1px solid #bff797;
-  background: #b065d6;
-  background: -webkit-gradient(linear, left top, left bottom, from(#9c753e), to(#b065d6));
-  background: -webkit-linear-gradient(top, #9c753e, #b065d6);
-  background: -moz-linear-gradient(top, #9c753e, #b065d6);
-  background: -ms-linear-gradient(top, #9c753e, #b065d6);
-  background: -o-linear-gradient(top, #9c753e, #b065d6);
-  padding: 13.5px 27px;
-  -webkit-border-radius: 26px;
-  -moz-border-radius: 26px;
-  border-radius: 26px;
-  -webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
-  -moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
-  box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
-  text-shadow: rgba(0, 0, 0, 0.4) 0 1px 0;
-  color: white;
-  font-size: 19px;
-  font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
-  text-decoration: none;
-  vertical-align: middle;
-}
-.btn:hover {
-  border-top-color: #672878;
-  background: #672878;
-  color: #ccc;
-}
-.btn:active {
-  border-top-color: #1b435e;
-  background: #1b435e;
-}
 
 .movie-card-header {
   align-items: center;
-  background-image: url('https://images8.alphacoders.com/940/940630.jpg');
+  background-image: url("https://images8.alphacoders.com/940/940630.jpg");
   display: flex;
   height: 100px;
   justify-content: center;
@@ -122,17 +135,4 @@ label {
   display: flex;
   justify-content: flex-end;
   padding: 12px 20px;
-}
-.form-addMovie {
-  display: flex;
-  max-width: 40%;
-  margin: 0 auto;
-  padding: 1em;
-  flex-wrap: wrap;
-}
-.item {
-  text-align: center;
-  font-size: 1.5em;
-  padding: 1em;
-  margin: 0 auto;
 }
