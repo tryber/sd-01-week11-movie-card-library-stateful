@@ -11,16 +11,41 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: "action"
     };
+
+    this.changeHandlerTitle = this.changeHandlerTitle.bind(this);
+    this.changeHandlerSubtitle = this.changeHandlerSubtitle.bind(this);
+    this.changeHandlerImagePath = this.changeHandlerImagePath.bind(this);
+    this.changeHandlerStoryline = this.changeHandlerStoryline.bind(this);
+    this.changeHandlerRating = this.changeHandlerRating.bind(this);
+    this.changeHandlerGenre = this.changeHandlerGenre.bind(this);
+    this.createTextArea = this.createTextArea.bind(this);
   }
 
-  changeHandler = event => {
-    const { value, id } = event.target;
-    this.setState({
-      [id]: value
-    });
-  };
+  changeHandlerTitle(event) {
+    this.setState({ title: event.target.value });
+  }
 
-  addAndRemoveMovie = (onClick, event) => {
+  changeHandlerSubtitle(event) {
+    this.setState({ subtitle: event.target.value });
+  }
+
+  changeHandlerImagePath(event) {
+    this.setState({ imagePath: event.target.value });
+  }
+
+  changeHandlerStoryline(event) {
+    this.setState({ storyline: event.target.value });
+  }
+
+  changeHandlerRating(event) {
+    this.setState({ rating: Number(event.target.value) });
+  }
+
+  changeHandlerGenre(event) {
+    this.setState({ genre: event.target.value });
+  }
+
+  addAndRemoveMovie = onClick => {
     onClick(this.state);
     this.setState({
       subtitle: "",
@@ -32,59 +57,78 @@ class AddMovie extends React.Component {
     });
   };
 
+  creatingInput = (value, func, label, type) => {
+    return (
+      <label htmlFor={label}>
+        {label}
+        <input
+          id={label}
+          type={type}
+          value={this.state[value]}
+          onChange={e => func(e)}
+        />
+      </label>
+    );
+  };
+
+  createTextArea() {
+    return (
+      <label htmlFor="Sinopse">
+        Sinopse
+        <textarea
+          id="Sinopse"
+          value={this.state.storyline}
+          onChange={event => this.changeHandlerStoryline(event)}
+        />
+      </label>
+    );
+  }
+
   render() {
     const { onClick } = this.props;
     return (
       <div>
         <form>
-          <label for="title">Título</label>
-          <input
-            type="text"
-            id="title"
-            value={this.state.title}
-            onChange={this.changeHandler}
-          />
-          <label for="subtitle">Subtítulo</label>
-          <input
-            type="text"
-            id="subtitle"
-            value={this.state.subtitle}
-            onChange={this.changeHandler}
-          />
-          <label for="imagePath">Imagem</label>
-          <input
-            type="text"
-            id="imagePath"
-            value={this.state.imagePath}
-            onChange={this.changeHandler}
-          />
-          <label for="storyline">Sinopse</label>
-          <input
-            type="text"
-            id="storyline"
-            value={this.state.storyline}
-            onChange={this.changeHandler}
-          />
-          <label for="rating">Avaliação</label>
-          <input
-            type="text"
-            id="rating"
-            value={this.state.rating}
-            onChange={this.changeHandler}
-          />
-          <label for="genre">Gênero</label>
-          <select
-            id="genre"
-            value={this.state.genre}
-            onChange={this.changeHandler}
-          >
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
-          </select>
-        <button type="button" onClick={() => this.addAndRemoveMovie(onClick)}>
-          Adicionar filme
-        </button>
+          {this.creatingInput(
+            "title",
+            this.changeHandlerTitle,
+            "Título",
+            "text"
+          )}
+          {this.creatingInput(
+            "subtitle",
+            this.changeHandlerSubtitle,
+            "Subtítulo",
+            "text"
+          )}
+          {this.creatingInput(
+            "imagePath",
+            this.changeHandlerImagePath,
+            "Imagem",
+            "text"
+          )}
+          {this.createTextArea()}
+          {this.creatingInput(
+            "rating",
+            this.changeHandlerRating,
+            "Avaliação",
+            "number"
+          )}
+          <label>
+            Gênero
+            <select
+              value={this.state.genre}
+              onChange={this.changeHandlerGenre}
+              id="genre"
+            >
+              <option value="action">Ação</option>
+              <option value="comedy">Comédia</option>
+              <option value="thriller">Suspense</option>
+            </select>
+          </label>
+          <button type="button" onClick={() => this.addAndRemoveMovie(onClick)}>
+            Adicionar filme
+          </button>
         </form>
       </div>
     );
