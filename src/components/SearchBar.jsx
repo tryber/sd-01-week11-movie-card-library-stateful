@@ -18,7 +18,7 @@ class SearchBar extends Component {
   showFavorites() {
     return (
       <label htmlFor="show-favorites">Mostrar somente favoritos
-        <input 
+        <input
           id="show-favorites"
           type="checkbox"
           checked={this.props.bookmarkedOnly}
@@ -34,8 +34,8 @@ class SearchBar extends Component {
         <select
           id="genre-filter"
           value={this.props.selectedGenre}
-          onChange={this.props.onSelectedGenreChange
-        }>
+          onChange={this.props.onSelectedGenreChange}
+        >
           <option value="">Todos</option>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
