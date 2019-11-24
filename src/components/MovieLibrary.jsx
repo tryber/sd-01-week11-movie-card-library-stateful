@@ -44,8 +44,8 @@ class MovieLibrary extends Component {
         (movies) =>
           movies.title.includes(searchMovie) ||
           movies.subtitle.includes(searchMovie) ||
-          movies.storyline.includes(searchMovie);
-      )
+          movies.storyline.includes(searchMovie)
+      );
       break;
     }
     if (this.state.bookmarkedOnly) {
