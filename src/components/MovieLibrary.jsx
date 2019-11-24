@@ -37,7 +37,7 @@ class MovieLibrary extends Component {
     this.setState({ movies: [...this.state.movies, event] });
   }
 
-  listFilm = () => {
+  listFilm() {
     let parameter = this.state.searchText;
     let list = this.state.movies;
     while (parameter !== '') {
