@@ -11,14 +11,14 @@ class MovieLibrary extends Component {
       searchText: "",
       bookmarkedOnly: false,
       selectedGenre: "",
-      movies: this.props.movies
+      movies: props.movies
     }
   }
 
   changeHandlerText = (event) => {
     this.setState({ searchText: event.target.value })
   }
-  
+
   changeHandlerCheckbox = (event) => {
     this.setState({ bookmarkedOnly: event.target.checked })
   }

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 class SearchBar extends Component {
   render() {
-    const { searchText,
+    const { 
+      searchText,
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
