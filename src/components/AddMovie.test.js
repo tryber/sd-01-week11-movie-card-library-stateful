@@ -198,11 +198,11 @@ describe('<AddMovie /> component', () => {
       genre: 'action',
     };
 
-    it.skip('has "Adicionar filme" as content', () => {
+    it('has "Adicionar filme" as content', () => {
       expect(button().text()).toEqual('Adicionar filme');
     });
 
-    it.skip('calls `onClick` received as props from AddMovie, using its current state as parameter', () => {
+    it('calls `onClick` received as props from AddMovie, using its current state as parameter', () => {
       addMovie().setState(currentState);
 
       button().simulate('click');
@@ -211,7 +211,7 @@ describe('<AddMovie /> component', () => {
     });
 
 
-    it.skip('resets AddMovie to its initial state when clicked by the user', () => {
+    it('resets AddMovie to its initial state when clicked by the user', () => {
       addMovie().setState(currentState);
 
       expect(addMovie().state()).toEqual(currentState);
@@ -223,7 +223,7 @@ describe('<AddMovie /> component', () => {
   });
 
   describe('state', () => {
-    it.skip('sets expected initial state', () => {
+    it('sets expected initial state', () => {
       expect(addMovie().state()).toEqual(initialState);
     });
   });
