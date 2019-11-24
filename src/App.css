@@ -4,21 +4,21 @@
   padding: 13.5px 27px;
   border-radius: 26px;
   box-shadow: black 0 1px 0;
-  text-shadow: black 0 1px 0;
   color: white;
+  text-shadow: black 0 1px 0;
   font-size: 19px;
   text-decoration: none;
   vertical-align: middle;
 }
 
 .btn:active {
-  border-top-color: #1b435e;
   background: #1b435e;
+  border-top-color: #1b435e;
 }
 
 .btn:hover {
-  border-top-color: #672878;
   background: #672878;
+  border-top-color: #672878;
   color: #ccc;
 }
 
@@ -31,22 +31,22 @@ body {
 
 .form-addMovie {
   display: flex;
+  flex-wrap: wrap;
   max-width: 40%;
   margin: 0 auto;
-  padding: 1em;
-  flex-wrap: wrap;
+  padding: 1em; 
 }
 
 input {
-  margin: 1em;
   border-radius: 2em;
+  margin: 1em;
 }
 
 .item {
-  text-align: center;
   font-size: 1.5em;
-  padding: 1em;
   margin: 0 auto;
+  padding: 1em;
+  text-align: center; 
 }
 
 label {
@@ -132,6 +132,6 @@ label {
 }
 
 .spn {
-  margin: 1em;
   border-radius: 2em;
+  margin: 1em;
 }
