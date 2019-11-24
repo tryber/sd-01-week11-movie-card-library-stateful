@@ -40,7 +40,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={(event) => this.changeHandlerGenre(event)}
         />
         <MovieList movies={this.props.movies} />
-        <AddMovie />
+        <AddMovie  />
       </div>
     );
   }
