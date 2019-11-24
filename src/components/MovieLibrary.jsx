@@ -45,14 +45,14 @@ class MovieLibrary extends Component {
           movies.title.includes(searchMovie) ||
           movies.subtitle.includes(searchMovie) ||
           movies.storyline.includes(searchMovie)
-      );
-      break;
-    }
+          );
+          break;
+        }
     if (this.state.bookmarkedOnly) {
       moviesOnTheList = moviesOnTheList.filter((movies) => movies.bookmarked);
     }
     if (this.state.selectedGenre.length > 0) {
-      moviesOnTheList = moviesOnTheList.filter((movies) => 
+      moviesOnTheList = moviesOnTheList.filter((movies) =>
       movies.genre === this.state.selectedGenre);
     }
     return moviesOnTheList;
@@ -70,7 +70,7 @@ class MovieLibrary extends Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={(event) => this.changeHandlerGenre(event)}
         />
-        <MovieList movies={this.addMovieInList(this.state)} />        
+        <MovieList movies={this.addMovieInList(this.state)} />
         <AddMovie onClick={this.addFilm} />
       </div>
     );
