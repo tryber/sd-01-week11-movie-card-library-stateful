@@ -15,15 +15,38 @@ class MovieLibrary extends Component {
     };
   }
 
-  changeHandlerSearchText = event => this.setState({ searchText: event.target.value });
+  changeHandlerSearchText = (event) => this.setState({ searchText: event.target.value });
 
-  changeHandlerBookmarkedOnly = event =>
-    this.setState({ bookmarkedOnly: event.target.checked });
+  changeHandlerBookmarkedOnly = (event) => this.setState({ bookmarkedOnly: event.target.checked });
 
-  changeHandlerSelectedGenre = event =>
-    this.setState({ selectedGenre: event.target.value });
+  changeHandlerSelectedGenre = (event) => this.setState({ selectedGenre: event.target.value });
 
-  changeHandlerMovies = event => this.setState({ movies: [ ...this.state.movies, event] });
+  introduceMovie = (event) => {
+    while (this.state.bookmarkedOnly !== false) {
+      return this.setState({ movies: [...this.state.movies, event] });
+    }
+  };
+
+  listFilm = () => {
+    let parameter = this.state.searchText;
+    let list = this.state.movies;
+    while (parameter !== '') {
+      list = list.filter(
+        (filme) =>
+          filme.title.includes(parameter) ||
+          filme.subtitle.includes(parameter) ||
+          filme.storyline.includes(parameter)
+      );
+      break;
+    }
+    if (this.state.bookmarkedOnly) {
+      list = list.filter((filme) => filme.bookmarked);
+    }
+    if (this.state.selectedGenre.length > 0) {
+      list = list.filter((filme) => filme.genre === this.state.selectedGenre);
+    }
+    return list;
+  };
 
   render() {
     return (
@@ -31,14 +54,14 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={this.state.searchText}
-          onSearchTextChange={event => this.changeHandlerSearchText(event)}
+          onSearchTextChange={(event) => this.changeHandlerSearchText(event)}
           bookmarkedOnly={this.state.bookmarkedOnly}
-          onBookmarkedChange={event => this.changeHandlerBookmarkedOnly(event)}
+          onBookmarkedChange={(event) => this.changeHandlerBookmarkedOnly(event)}
           selectedGenre={this.state.selectedGenre}
-          onSelectedGenreChange={event => this.changeHandlerSelectedGenre(event)}
+          onSelectedGenreChange={(event) => this.changeHandlerSelectedGenre(event)}
         />
-        <MovieList movies={this.state.movies} />
-        <AddMovie movies = {event => this.changeHandlerMovies(event)}/>
+        <MovieList movies={this.listFilm(this.state)} />
+        <AddMovie movies={(event) => this.introduceMovie(event)} />
       </div>
     );
   }
