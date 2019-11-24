@@ -39,7 +39,7 @@ class MovieLibrary extends Component {
           onBookmarkedChange={(e) => this.sendValueCheckbox(e)}
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={(e) => this.sendNewData(e, 'selectedGenre')}
-        />
+          />
         <MovieList movies={this.props.movies} />
         <AddMovie />
       </div>
