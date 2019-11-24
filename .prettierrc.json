@@ -1,9 +1,9 @@
-// {
-//   "printWidth": 100,
-//   "singleQuote": true,
-//   "arrowParens": "always",
-//   "editor.defaultFormatter": "esbenp.prettier-vscode",
-//   "[javascript]": {
-//     "editor.defaultFormatter": "esbenp.prettier-vscode"
-//   }
-// }
+{
+  "printWidth": 100,
+  "singleQuote": true,
+  "arrowParens": "always",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

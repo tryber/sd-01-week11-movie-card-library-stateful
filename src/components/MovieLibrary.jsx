@@ -21,7 +21,9 @@ class MovieLibrary extends Component {
     this.listFilm = this.listFilm.bind(this);
   }
 
-  changeHandlerSearchText = (event) => this.setState({ searchText: event.target.value });
+  changeHandlerSearchText(event) {
+    this.setState({ searchText: event.target.value });
+  }
 
   changeHandlerBookmarkedOnly = (event) => this.setState({ bookmarkedOnly: event.target.checked });
 

@@ -1,3 +1,14 @@
+.btn:active {
+  border-top-color: #1b435e;
+  background: #1b435e;
+}
+
+.btn:hover {
+  border-top-color: #672878;
+  background: #672878;
+  color: #ccc;
+}
+
 .btn {
   border-top: 1px solid #bff797;
   background: #b065d6;
@@ -10,17 +21,6 @@
   font-family: Helvetica, Arial, sans-serif;
   text-decoration: none;
   vertical-align: middle;
-}
-
-.btn:active {
-  border-top-color: #1b435e;
-  background: #1b435e;
-}
-
-.btn:hover {
-  border-top-color: #672878;
-  background: #672878;
-  color: #ccc;
 }
 
 body {
