@@ -8,8 +8,8 @@ class SearchBar extends React.Component {
         <input
           id="title"
           type="text"
-          value={this.props.searchText} 
-          onChange={this.props.onSearchTextChange} 
+          value={this.props.searchText}
+          onChange={this.props.onSearchTextChange}
         />
       </label>
     );
@@ -33,8 +33,11 @@ class SearchBar extends React.Component {
     return (
       <label htmlFor="genre">
         Filtrar por gênero
-        <select id="genre" onChange={this.props.onSelectedGenreChange}
-          value={this.props.selectedGenre}>
+        <select
+          id="genre"
+          onChange={this.props.onSelectedGenreChange}
+          value={this.props.selectedGenre}
+        >
           <option value="">Todos</option>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
