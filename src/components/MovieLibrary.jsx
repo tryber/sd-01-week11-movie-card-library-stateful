@@ -40,20 +40,18 @@ class MovieLibrary extends Component {
     const searchMovie = this.state.searchText;
     let moviesOnTheList = this.state.movies;
     while (searchMovie !== '') {
-      moviesOnTheList = moviesOnTheList.filter(
-        (movies) =>
-          movies.title.includes(searchMovie) ||
-          movies.subtitle.includes(searchMovie) ||
-          movies.storyline.includes(searchMovie)
-          );
-          break;
-        }
+      moviesOnTheList = moviesOnTheList.filter((movies) =>
+        movies.title.includes(searchMovie) ||
+        movies.subtitle.includes(searchMovie) ||
+        movies.storyline.includes(searchMovie));
+      break;
+    }
     if (this.state.bookmarkedOnly) {
       moviesOnTheList = moviesOnTheList.filter((movies) => movies.bookmarked);
     }
     if (this.state.selectedGenre.length > 0) {
       moviesOnTheList = moviesOnTheList.filter((movies) =>
-      movies.genre === this.state.selectedGenre);
+        movies.genre === this.state.selectedGenre);
     }
     return moviesOnTheList;
   }
