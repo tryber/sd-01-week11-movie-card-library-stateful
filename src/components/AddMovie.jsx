@@ -39,48 +39,87 @@ class AddMovie extends React.Component {
 
   addTitle() {
     return (
-      <label htmlFor="add-title">Título
-        <input id="add-title" type="text" value={this.state.title} onChange={(e) => this.change(e, 'title')} />
+      <label
+        htmlFor="add-title">
+        Título
+        <input
+          id="add-title"
+          type="text"
+          value={this.state.title}
+          onChange={(e) => this.change(event, 'title')}
+        />
       </label>
     );
   }
 
   addSubtitle() {
     return (
-      <label htmlFor="add-subtitle">Subtítulo
-        <input id="add-subtitle" type="text" value={this.state.subtitle} onChange={(e) => this.change(e, 'subtitle')} />
+      <label
+        htmlFor="add-subtitle">
+        Subtítulo
+        <input
+          id="add-subtitle"
+          type="text"
+          value={this.state.subtitle}
+          onChange={(e) => this.change(event, 'subtitle')}
+        />
       </label>
     );
   }
 
   addImage() {
     return (
-      <label htmlFor="add-image-link">Imagem
-        <input id="add-image-link" type="text" value={this.state.imagePath} onChange={(e) => this.change(e, 'imagePath')} />
+      <label
+        htmlFor="add-image-link">
+        Imagem
+        <input
+          id="add-image-link"
+          type="text"
+          value={this.state.imagePath}
+          onChange={(e) => this.change(event, 'imagePath')}
+        />
       </label>
     );
   }
 
   addSynopsis() {
     return (
-      <label htmlFor="add-synopsis">Sinopse
-        <textarea id="add-synopsis" value={this.state.storyline} onChange={(e) => this.change(e, 'storyline')} />
+      <label
+        htmlFor="add-synopsis">
+        Sinopse
+        <textarea
+          id="add-synopsis"
+          value={this.state.storyline}
+          onChange={(e) => this.change(event, 'storyline')}
+        />
       </label>
     );
   }
 
   addRating() {
     return (
-      <label htmlFor="add-rating">Avaliação
-        <input id="add-rating" type="number" value={this.state.rating} onChange={(e) => this.changeNumber(e, 'rating')} />
+      <label
+        htmlFor="add-rating">
+        Avaliação
+        <input
+          id="add-rating"
+          type="number"
+          value={this.state.rating}
+          onChange={(e) => this.changeNumber(event, 'rating')}
+        />
       </label>
     );
   }
 
   addGenre() {
     return (
-      <label htmlFor="add-genre">Gênero
-        <select id="add-genre" value={this.state.genre} onChange={(e) => this.change(e, 'genre')}>
+      <label
+        htmlFor="add-genre">
+        Gênero
+        <select
+          id="add-genre"
+          value={this.state.genre}
+          onChange={(e) => this.change(event, 'genre')}>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
