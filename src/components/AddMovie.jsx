@@ -1,5 +1,4 @@
 import React from 'react';
-import { on } from 'cluster';
 
 class AddMovie extends React.Component {
 
@@ -30,15 +29,16 @@ class AddMovie extends React.Component {
   }
 
   resetMoviesCard = onClick => {
-    onClick(this.state);
-    this.state = {
+    const value = this.state;
+    this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action'
-    }
+      genre: 'action',
+    });
+    onClick(value);
   };
   
   render() {
