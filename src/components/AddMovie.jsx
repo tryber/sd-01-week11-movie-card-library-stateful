@@ -9,8 +9,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action'
-    };
+      genre: 'action'};
     this.changeHandlerTitle = this.changeHandlerTitle.bind(this);
     this.changeHandlerSubtitle = this.changeHandlerSubtitle.bind(this);
     this.changeHandlerImagePath = this.changeHandlerImagePath.bind(this);
@@ -48,15 +47,14 @@ class AddMovie extends React.Component {
   }
 
   resetarValores(onClick) {
-    let value = this.state;
+    const value = this.state;
     this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action'
-    });
+      genre: 'action'});
     onClick(value);
   };
 
