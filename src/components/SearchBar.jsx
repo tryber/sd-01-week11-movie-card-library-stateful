@@ -2,25 +2,16 @@ import React, { Component } from 'react';
 
 class SearchBar extends Component {
   render() {
-    const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange
-    } = this.props;
-      
     return (
       <form>
-        <label>Inclui o texto
-          <input type="text" value={searchText} onChange={onSearchTextChange} />
+        <label htmlFor="text-inclusion">Inclui o texto
+          <input id="text-inclusion" type="text" value={this.props.searchText} onChange={this.props.onSearchTextChange} />
         </label>
-        <label>Mostrar somente favoritos
-          <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+        <label htmlFor="show-favorites">Mostrar somente favoritos
+          <input id="show-favorites" type="checkbox" checked={this.props.bookmarkedOnly} onChange={this.props.onBookmarkedChange} />
         </label>
-        <label>Filtrar por gênero
-          <select value={selectedGenre} onChange={onSelectedGenreChange}>
+        <label htmlFor="genre-filter">Filtrar por gênero
+          <select id="genre-filter"value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange}>
             <option value="">Todos</option>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
