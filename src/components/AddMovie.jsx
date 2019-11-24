@@ -18,6 +18,9 @@ class AddMovie extends React.Component {
     // this.changeHandlerRating = this.changeHandlerRating.bind(this)
     // this.changeHandlerGenre = this.changeHandlerGenre.bind(this)
     // this.resetarValores = this.resetarValores.bind(this)
+    // this.inputUniverse = this.inputUniverse.bind(this)
+    // this.inputTextArea = this.inputTextArea.bind(this)
+    // this.inputSelect = this.inputSelect.bind(this)
   }
 
   changeHandlerTitle = (event) => this.setState({ title: event.target.value });
@@ -33,7 +36,7 @@ class AddMovie extends React.Component {
   changeHandlerGenre = (event) => this.setState({ genre: event.target.value });
 
   resetarValores = (onClick) => {
-    onClick(this.state);
+    let value = this.state;
     this.setState({
       subtitle: '',
       title: '',
@@ -42,62 +45,73 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action'
     });
+    onClick(value);
+  };
+
+  inputUniverse = (id, value, call, text, type) => {
+    return (
+      <label htmlFor={id}>
+        {text}
+        <input id={id} type={type} value={this.state[value]} onChange={(event) => call(event)} />
+      </label>
+    );
+  };
+
+  inputTextArea = () => {
+    return (
+      <label htmlFor="sinopse">
+        Sinopse
+        <textarea
+          id="sinopse"
+          value={this.state.storyline}
+          onChange={(event) => this.changeHandlerStoryline(event)}
+        />
+      </label>
+    );
+  };
+
+  inputSelect = () => {
+    return (
+      <label htmlFor="genre">
+        Gênero
+        <select
+          id="genre"
+          onChange={(event) => this.changeHandlerGenre(event)}
+          value={this.state.genre}
+        >
+          <option value="action">Ação</option>
+          <option value="comedy">Comédia</option>
+          <option value="thriller">Suspense</option>
+        </select>
+      </label>
+    );
   };
 
   render() {
     const { onClick } = this.props;
     return (
       <form>
-        <label htmlFor="titulo">
-          Título
-          <input
-            type="text"
-            value={this.state.title}
-            onChange={(event) => this.changeHandlerTitle(event)}
-          />
-        </label>
-        <label htmlFor="subtitulo">
-          Subtítulo
-          <input
-            type="text"
-            value={this.state.subtitle}
-            onChange={(event) => this.changeHandlerSubtitle(event)}
-          />
-        </label>
-        <label htmlFor="imagem">
-          Imagem
-          <input
-            type="text"
-            value={this.state.imagePath}
-            onChange={(event) => this.changeHandlerImagePath(event)}
-          />
-        </label>
-        <label htmlFor="sinopse">
-          Sinopse
-          <textarea
-            cols="30"
-            rows="10"
-            value={this.state.storyline}
-            onChange={(event) => this.changeHandlerStoryline(event)}
-          ></textarea>
-        </label>
-        <label htmlFor="avalia">
-          Avaliação
-          <input
-            type="number"
-            value={this.state.rating}
-            onChange={(event) => this.changeHandlerRating(event)}
-          />
-        </label>
-        <label htmlFor="selectgenero">
-          Gênero
-          <select value={this.state.genre} onChange={(event) => this.changeHandlerGenre(event)}>
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
-          </select>
-        </label>
-        <button type="submit" onClick={() => this.resetarValores(onClick)}>
+        <fieldset>
+          {this.inputUniverse('Title', 'title', this.changeHandlerTitle, 'Título', 'text')}
+          {this.inputUniverse(
+            'Subtitle',
+            'subtitle',
+            this.changeHandlerSubtitle,
+            'Subtítulo',
+            'text'
+          )}
+          {this.inputUniverse('Image', 'imagePath', this.changeHandlerImagePath, 'Imagem', 'text')}
+          {this.inputTextArea()}
+          {this.inputUniverse(
+            'Number-rating',
+            'rating',
+            this.changeHandlerRating,
+            'Avaliação',
+            'number'
+          )}
+          {this.inputSelect()}
+        </fieldset>
+        <button type="button" onClick={() => this.resetarValores(onClick)}>
           Adicionar filme
         </button>
       </form>

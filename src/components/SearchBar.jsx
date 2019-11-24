@@ -1,34 +1,60 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class SearchBar extends Component {
+class SearchBar extends React.Component {
+  inputText() {
+    return (
+      <label htmlFor="title">
+        Inclui o texto:
+        <input
+          id="title"
+          type="text"
+          value={this.props.searchText}
+          onChange={this.props.onSearchTextChange}
+        />
+      </label>
+    );
+  }
+
+  inputChecker() {
+    return (
+      <label htmlFor="favor">
+        Mostrar somente favoritos:
+        <input
+          id="favor"
+          type="checkbox"
+          checked={this.props.bookmarkedOnly}
+          onChange={this.props.onBookmarkedChange}
+        />
+      </label>
+    );
+  }
+
+  inputSelect() {
+    return (
+      <label htmlFor="genre">
+        Filtrar por gênero
+        <select
+          id="genre"
+          onChange={this.props.onSelectedGenreChange}
+          value={this.props.selectedGenre}
+        >
+          <option value="">Todos</option>
+          <option value="action">Ação</option>
+          <option value="comedy">Comédia</option>
+          <option value="thriller">Suspense</option>
+        </select>
+      </label>
+    );
+  }
+
   render() {
-    const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange
-    } = this.props;
     return (
       <form>
-        <label htmlFor="incluitexto">
-          Inclui o texto
-          <input type="text" value={searchText} onChange={onSearchTextChange} />
-        </label>
-        <label htmlFor="checkbox">
-          Mostrar somente favoritos
-          <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
-        </label>
-        <label htmlFor="id_select">
-          Filtrar por gênero
-          <select value={selectedGenre} onChange={onSelectedGenreChange}>
-            <option value="">Todos</option>
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
-          </select>
-        </label>
+        <fieldset>
+          {this.inputText()}
+          {this.inputChecker()}
+          {this.inputSelect()}
+        </fieldset>
       </form>
     );
   }

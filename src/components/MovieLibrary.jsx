@@ -18,6 +18,7 @@ class MovieLibrary extends Component {
     // this.changeHandlerSelectedGenre = this.changeHandlerSelectedGenre.bind(this)
     // this.introduceMovie = this.introduceMovie.bind(this)
     // this.listFilm = this.listFilm.bind(this)
+    // this.listFilm = this.listFilm.bind(this)
   }
 
   changeHandlerSearchText = (event) => this.setState({ searchText: event.target.value });
@@ -29,9 +30,23 @@ class MovieLibrary extends Component {
   introduceMovie = (event) => this.setState({ movies: [...this.state.movies, event] });
 
   listFilm = () => {
-    // let parameter = this.state.searchText;
+    let parameter = this.state.searchText;
     let list = this.state.movies;
-
+    while (parameter !== '') {
+      list = list.filter(
+        (filme) =>
+          filme.title.includes(parameter) ||
+          filme.subtitle.includes(parameter) ||
+          filme.storyline.includes(parameter)
+      );
+      break;
+    }
+    if (this.state.bookmarkedOnly) {
+      list = list.filter((filme) => filme.bookmarked);
+    }
+    if (this.state.selectedGenre.length > 0) {
+      list = list.filter((filme) => filme.genre === this.state.selectedGenre);
+    }
     return list;
   };
 
@@ -47,8 +62,8 @@ class MovieLibrary extends Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={(event) => this.changeHandlerSelectedGenre(event)}
         />
-        <MovieList movies={(event) => this.listFilm(event)} />
-        <AddMovie movies={(event) => this.introduceMovie(event)} />
+        <MovieList movies={this.listFilm(this.state)} />
+        <AddMovie onClick={this.introduceMovie} />
       </div>
     );
   }
