@@ -25,11 +25,17 @@ class MovieLibrary extends Component {
     this.setState({ searchText: event.target.value });
   }
 
-  changeHandlerBookmarkedOnly = (event) => this.setState({ bookmarkedOnly: event.target.checked });
+  changeHandlerBookmarkedOnly(event) {
+    this.setState({ bookmarkedOnly: event.target.checked });
+  }
 
-  changeHandlerSelectedGenre = (event) => this.setState({ selectedGenre: event.target.value });
+  changeHandlerSelectedGenre(event) {
+    this.setState({ selectedGenre: event.target.value });
+  }
 
-  introduceMovie = (event) => this.setState({ movies: [...this.state.movies, event] });
+  introduceMovie(event) {
+    this.setState({ movies: [...this.state.movies, event] });
+  }
 
   listFilm = () => {
     let parameter = this.state.searchText;
