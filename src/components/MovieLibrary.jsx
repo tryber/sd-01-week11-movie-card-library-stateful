@@ -15,15 +15,15 @@ class MovieLibrary extends Component {
     }
   }
 
-  changeHandlerText = (event) => {
+  changeHandlerText(event) {
     this.setState({ searchText: event.target.value })
   }
 
-  changeHandlerCheckbox = (event) => {
+  changeHandlerCheckbox(event) {
     this.setState({ bookmarkedOnly: event.target.checked })
   }
 
-  changeHandlerGenre = (event) => {
+  changeHandlerGenre(event) {
     this.setState({ selectedGenre: event.target.value })
   }
 
@@ -40,7 +40,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={(event) => this.changeHandlerGenre(event)}
         />
         <MovieList movies={this.props.movies} />
-        <AddMovie  />
+        <AddMovie />
       </div>
     );
   }
