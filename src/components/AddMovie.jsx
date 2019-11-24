@@ -39,14 +39,13 @@ class AddMovie extends React.Component {
 
   addTitle() {
     return (
-      <label
-        htmlFor="add-title">
+      <label htmlFor="add-title">
         Título
         <input
           id="add-title"
           type="text"
           value={this.state.title}
-          onChange={(e) => this.change(event, 'title')}
+          onChange={(event) => this.change(event, 'title')}
         />
       </label>
     );
@@ -54,14 +53,13 @@ class AddMovie extends React.Component {
 
   addSubtitle() {
     return (
-      <label
-        htmlFor="add-subtitle">
+      <label htmlFor="add-subtitle">
         Subtítulo
         <input
           id="add-subtitle"
           type="text"
           value={this.state.subtitle}
-          onChange={(e) => this.change(event, 'subtitle')}
+          onChange={(event) => this.change(event, 'subtitle')}
         />
       </label>
     );
@@ -69,14 +67,13 @@ class AddMovie extends React.Component {
 
   addImage() {
     return (
-      <label
-        htmlFor="add-image-link">
+      <label htmlFor="add-image-link">
         Imagem
         <input
           id="add-image-link"
           type="text"
           value={this.state.imagePath}
-          onChange={(e) => this.change(event, 'imagePath')}
+          onChange={(event) => this.change(event, 'imagePath')}
         />
       </label>
     );
@@ -84,13 +81,12 @@ class AddMovie extends React.Component {
 
   addSynopsis() {
     return (
-      <label
-        htmlFor="add-synopsis">
+      <label htmlFor="add-synopsis">
         Sinopse
         <textarea
           id="add-synopsis"
           value={this.state.storyline}
-          onChange={(e) => this.change(event, 'storyline')}
+          onChange={(event) => this.change(event, 'storyline')}
         />
       </label>
     );
@@ -98,14 +94,13 @@ class AddMovie extends React.Component {
 
   addRating() {
     return (
-      <label
-        htmlFor="add-rating">
+      <label htmlFor="add-rating">
         Avaliação
         <input
           id="add-rating"
           type="number"
           value={this.state.rating}
-          onChange={(e) => this.changeNumber(event, 'rating')}
+          onChange={(event) => this.changeNumber(event, 'rating')}
         />
       </label>
     );
@@ -113,13 +108,13 @@ class AddMovie extends React.Component {
 
   addGenre() {
     return (
-      <label
-        htmlFor="add-genre">
+      <label htmlFor="add-genre">
         Gênero
         <select
           id="add-genre"
           value={this.state.genre}
-          onChange={(e) => this.change(event, 'genre')}>
+          onChange={(event) => this.change(event, 'genre')}
+        >
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
