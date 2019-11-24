@@ -11,16 +11,16 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action'
     };
-    // this.changeHandlerTitle = this.changeHandlerTitle.bind(this)
-    // this.changeHandlerSubtitle = this.changeHandlerSubtitle.bind(this)
-    // this.changeHandlerImagePath = this.changeHandlerImagePath.bind(this)
-    // this.changeHandlerStoryline = this.changeHandlerStoryline.bind(this)
-    // this.changeHandlerRating = this.changeHandlerRating.bind(this)
-    // this.changeHandlerGenre = this.changeHandlerGenre.bind(this)
-    // this.resetarValores = this.resetarValores.bind(this)
-    // this.inputUniverse = this.inputUniverse.bind(this)
-    // this.inputTextArea = this.inputTextArea.bind(this)
-    // this.inputSelect = this.inputSelect.bind(this)
+    this.changeHandlerTitle = this.changeHandlerTitle.bind(this);
+    this.changeHandlerSubtitle = this.changeHandlerSubtitle.bind(this);
+    this.changeHandlerImagePath = this.changeHandlerImagePath.bind(this);
+    this.changeHandlerStoryline = this.changeHandlerStoryline.bind(this);
+    this.changeHandlerRating = this.changeHandlerRating.bind(this);
+    this.changeHandlerGenre = this.changeHandlerGenre.bind(this);
+    this.resetarValores = this.resetarValores.bind(this);
+    this.inputUniverse = this.inputUniverse.bind(this);
+    this.inputTextArea = this.inputTextArea.bind(this);
+    this.inputSelect = this.inputSelect.bind(this);
   }
 
   changeHandlerTitle = (event) => this.setState({ title: event.target.value });
@@ -50,47 +50,54 @@ class AddMovie extends React.Component {
 
   inputUniverse = (id, value, call, text, type) => {
     return (
-      <label htmlFor={id}>
-        {text}
-        <input id={id} type={type} value={this.state[value]} onChange={(event) => call(event)} />
-      </label>
+      <div className="item">
+        <label htmlFor={id}>
+          {text}
+          <input id={id} type={type} value={this.state[value]} onChange={(event) => call(event)} />
+        </label>
+      </div>
     );
   };
 
   inputTextArea = () => {
     return (
-      <label htmlFor="sinopse">
-        Sinopse
-        <textarea
-          id="sinopse"
-          value={this.state.storyline}
-          onChange={(event) => this.changeHandlerStoryline(event)}
-        />
-      </label>
+      <div className="item">
+        <label htmlFor="sinopse">
+          Sinopse
+          <textarea
+            className="spn"
+            id="sinopse"
+            value={this.state.storyline}
+            onChange={(event) => this.changeHandlerStoryline(event)}
+          />
+        </label>
+      </div>
     );
   };
 
   inputSelect = () => {
     return (
-      <label htmlFor="genre">
-        Gênero
-        <select
-          id="genre"
-          onChange={(event) => this.changeHandlerGenre(event)}
-          value={this.state.genre}
-        >
-          <option value="action">Ação</option>
-          <option value="comedy">Comédia</option>
-          <option value="thriller">Suspense</option>
-        </select>
-      </label>
+      <div className="item">
+        <label htmlFor="genre">
+          Gênero
+          <select
+            id="genre"
+            onChange={(event) => this.changeHandlerGenre(event)}
+            value={this.state.genre}
+          >
+            <option value="action">Ação</option>
+            <option value="comedy">Comédia</option>
+            <option value="thriller">Suspense</option>
+          </select>
+        </label>
+      </div>
     );
   };
 
   render() {
     const { onClick } = this.props;
     return (
-      <form>
+      <form className="form-addMovie">
         <fieldset>
           {this.inputUniverse('Title', 'title', this.changeHandlerTitle, 'Título', 'text')}
           {this.inputUniverse(
@@ -111,9 +118,11 @@ class AddMovie extends React.Component {
           )}
           {this.inputSelect()}
         </fieldset>
-        <button type="button" onClick={() => this.resetarValores(onClick)}>
-          Adicionar filme
-        </button>
+        <div className="item">
+          <button className="btn" type="button" onClick={() => this.resetarValores(onClick)}>
+            Adicionar filme
+          </button>
+        </div>
       </form>
     );
   }

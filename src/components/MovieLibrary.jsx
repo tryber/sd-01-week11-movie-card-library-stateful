@@ -13,12 +13,12 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: props.movies
     };
-    // this.changeHandlerSearchText = this.changeHandlerSearchText.bind(this)
-    // this.changeHandlerBookmarkedOnly = this.changeHandlerBookmarkedOnly.bind(this)
-    // this.changeHandlerSelectedGenre = this.changeHandlerSelectedGenre.bind(this)
-    // this.introduceMovie = this.introduceMovie.bind(this)
-    // this.listFilm = this.listFilm.bind(this)
-    // this.listFilm = this.listFilm.bind(this)
+    this.changeHandlerSearchText = this.changeHandlerSearchText.bind(this);
+    this.changeHandlerBookmarkedOnly = this.changeHandlerBookmarkedOnly.bind(this);
+    this.changeHandlerSelectedGenre = this.changeHandlerSelectedGenre.bind(this);
+    this.introduceMovie = this.introduceMovie.bind(this);
+    this.listFilm = this.listFilm.bind(this);
+    this.listFilm = this.listFilm.bind(this);
   }
 
   changeHandlerSearchText = (event) => this.setState({ searchText: event.target.value });
