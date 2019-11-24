@@ -1,3 +1,16 @@
+.btn {
+  border-top: 1px solid #bff797;
+  background: #b065d6;
+  padding: 13.5px 27px;
+  border-radius: 26px;
+  box-shadow: black 0 1px 0;
+  text-shadow: black 0 1px 0;
+  color: white;
+  font-size: 19px;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
 .btn:active {
   border-top-color: #1b435e;
   background: #1b435e;
@@ -9,22 +22,8 @@
   color: #ccc;
 }
 
-.btn {
-  border-top: 1px solid #bff797;
-  background: #b065d6;
-  padding: 13.5px 27px;
-  border-radius: 26px;
-  box-shadow: black 0 1px 0;
-  text-shadow: black 0 1px 0;
-  color: white;
-  font-size: 19px;
-  font-family: Helvetica, Arial, sans-serif;
-  text-decoration: none;
-  vertical-align: middle;
-}
-
 body {
-  background-image: url("http://i.stack.imgur.com/vhoa0.jpg");
+  background-image: url('http://i.stack.imgur.com/vhoa0.jpg');
   box-sizing: border-box;
   font-size: 16px;
   text-align: center;
@@ -57,7 +56,7 @@ label {
 
 .movie-card-header {
   align-items: center;
-  background-image: url("https://images8.alphacoders.com/940/940630.jpg");
+  background-image: url('https://images8.alphacoders.com/940/940630.jpg');
   display: flex;
   height: 100px;
   justify-content: center;
