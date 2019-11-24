@@ -81,3 +81,10 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.form-new-movie, .filter-the-movie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 10mm;
+}

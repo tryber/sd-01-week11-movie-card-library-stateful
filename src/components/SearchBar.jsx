@@ -7,7 +7,7 @@ class SearchBar extends Component {
       onBookmarkedChange, selectedGenre, onSelectedGenreChange,
     } = this.props;
     return (
-      <form>
+      <form className="filter-the-movie">
         <label htmlFor="include-the-text">
           Inclui o texto:
           <input id="include-the-text" type="text" value={searchText} onChange={onSearchTextChange} />
