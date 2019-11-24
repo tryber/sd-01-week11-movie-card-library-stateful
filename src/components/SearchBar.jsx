@@ -5,7 +5,7 @@ class SearchBar extends Component {
   textInclusion() {
     return (
       <label htmlFor="text-inclusion">Inclui o texto
-      <input
+        <input
           id="text-inclusion"
           type="text"
           value={this.props.searchText}
@@ -18,7 +18,7 @@ class SearchBar extends Component {
   showFavorites() {
     return (
       <label htmlFor="show-favorites">Mostrar somente favoritos
-      <input id="show-favorites"
+        <input id="show-favorites"
           type="checkbox"
           checked={this.props.bookmarkedOnly}
           onChange={this.props.onBookmarkedChange}
@@ -30,11 +30,11 @@ class SearchBar extends Component {
   genreFilter() {
     return (
       <label htmlFor="genre-filter">Filtrar por gênero
-      <select
+        <select
           id="genre-filter"
           value={this.props.selectedGenre}
           onChange={this.props.onSelectedGenreChange
-          }>
+        }>
           <option value="">Todos</option>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
