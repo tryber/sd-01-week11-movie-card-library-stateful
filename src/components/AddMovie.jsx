@@ -28,18 +28,17 @@ class AddMovie extends React.Component {
     })
   }
 
-  // newState() {
-  //   newState(this.state)
-  //   this.setState = {
-  //     subtitle: '',
-  //     title: '',
-  //     imagePath: '',
-  //     storyline: '',
-  //     rating: 0,
-  //     genre: 'action'
-
-  //   }
-  // }
+  newState(onClick) {
+    onClick(this.state)
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action'
+    }
+  }
 
   render() {
     const { onClick } = this.props;
@@ -67,7 +66,7 @@ class AddMovie extends React.Component {
             <option value="thriller">Suspense</option>
           </select>
         </label>
-        {/* <button type="button" onClick={() => newState()}>Adicionar filme</button> */}
+        <button type="button" onClick={() => this.newState(onClick)}>Adicionar filme</button>
       </form>
 
     )
