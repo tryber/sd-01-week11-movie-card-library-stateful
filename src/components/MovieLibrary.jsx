@@ -11,7 +11,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies
+      movies: props.movies,
     };
     this.changeHandlerSearchText = this.changeHandlerSearchText.bind(this);
     this.changeHandlerBookmarkedOnly = this.changeHandlerBookmarkedOnly.bind(this);
@@ -38,14 +38,14 @@ class MovieLibrary extends Component {
   }
 
   listFilm() {
-    let parameter = this.state.searchText;
+    const parameter = this.state.searchText;
     let list = this.state.movies;
     while (parameter !== '') {
       list = list.filter(
         (filme) =>
           filme.title.includes(parameter) ||
           filme.subtitle.includes(parameter) ||
-          filme.storyline.includes(parameter)
+          filme.storyline.includes(parameter),
       );
       break;
     }
@@ -56,7 +56,7 @@ class MovieLibrary extends Component {
       list = list.filter((filme) => filme.genre === this.state.selectedGenre);
     }
     return list;
-  };
+  }
 
   render() {
     return (
