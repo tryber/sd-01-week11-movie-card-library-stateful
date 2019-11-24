@@ -5,12 +5,12 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: 'action'
+      genre: 'action',
     };
     this.changeHandlerText = this.changeHandlerText.bind(this);
     this.changeHandlerSubtitle = this.changeHandlerSubtitle.bind(this);
@@ -53,15 +53,15 @@ class AddMovie extends React.Component {
   resetState(onClick) {
     const value = this.state;
     this.setState({
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: 'action'
+      genre: 'action',
     });
     onClick(value);
-  };
+  }
 
   renderInputTitle() {
     return (
@@ -76,7 +76,7 @@ class AddMovie extends React.Component {
           />
         </label>
       </div>
-    )
+    );
   }
 
   renderInputSubtitle() {
@@ -92,7 +92,7 @@ class AddMovie extends React.Component {
           />
         </label>
       </div>
-    )
+    );
   }
 
   renderInputImagePath() {
@@ -108,7 +108,7 @@ class AddMovie extends React.Component {
           />
         </label>
       </div>
-    )
+    );
   }
 
   renderInputStoryline() {
@@ -121,11 +121,12 @@ class AddMovie extends React.Component {
             cols="30"
             rows="10"
             value={this.state.storyline}
-            onChange={(event) => this.changeHandlerstoryline(event)}>
+            onChange={(event) => this.changeHandlerstoryline(event)}
+          >
           </textarea>
         </label>
       </div>
-    )
+    );
   }
 
   renderInputRating() {
@@ -133,14 +134,15 @@ class AddMovie extends React.Component {
       <div>
         <label htmlFor="rating">
           Avaliação
-          <input name="rating"
+          <input
+            name="rating"
             type="number"
             value={this.state.rating}
             onChange={(event) => this.changeHandlerRating(event)}
           />
         </label>
       </div>
-    )
+    );
   }
 
   renderSelectGenre() {
@@ -176,7 +178,7 @@ class AddMovie extends React.Component {
           <button type="button" onClick={() => this.resetState(onClick)}>Adicionar filme</button>
         </div>
       </form>
-    )
+    );
   }
 }
 
