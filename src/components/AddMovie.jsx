@@ -47,7 +47,7 @@ class AddMovie extends React.Component {
     this.setState({ genre: event.target.value });
   }
 
-  resetarValores = (onClick) => {
+  resetarValores(onClick) {
     let value = this.state;
     this.setState({
       subtitle: '',
@@ -60,7 +60,7 @@ class AddMovie extends React.Component {
     onClick(value);
   };
 
-  inputUniverse = (id, value, call, text, type) => {
+  inputUniverse(id, value, call, text, type) {
     return (
       <div className="item">
         <label htmlFor={id}>
@@ -71,7 +71,7 @@ class AddMovie extends React.Component {
     );
   };
 
-  inputTextArea = () => {
+  inputTextArea() {
     return (
       <div className="item">
         <label htmlFor="sinopse">
@@ -87,7 +87,7 @@ class AddMovie extends React.Component {
     );
   };
 
-  inputSelect = () => {
+  inputSelect() {
     return (
       <div className="item">
         <label htmlFor="genre">
@@ -112,22 +112,12 @@ class AddMovie extends React.Component {
       <form className="form-addMovie">
         <fieldset>
           {this.inputUniverse('Title', 'title', this.changeHandlerTitle, 'Título', 'text')}
-          {this.inputUniverse(
-            'Subtitle',
-            'subtitle',
-            this.changeHandlerSubtitle,
-            'Subtítulo',
-            'text'
-          )}
+          {this.inputUniverse('Subtitle', 'subtitle', this.changeHandlerSubtitle, 'Subtítulo',
+            'text')}
           {this.inputUniverse('Image', 'imagePath', this.changeHandlerImagePath, 'Imagem', 'text')}
           {this.inputTextArea()}
-          {this.inputUniverse(
-            'Number-rating',
-            'rating',
-            this.changeHandlerRating,
-            'Avaliação',
-            'number'
-          )}
+          {this.inputUniverse('Number-rating', 'rating', this.changeHandlerRating, 'Avaliação',
+            'number')}
           {this.inputSelect()}
         </fieldset>
         <div className="item">
