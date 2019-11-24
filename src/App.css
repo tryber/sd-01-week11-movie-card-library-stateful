@@ -2,29 +2,25 @@
   border-top: 1px solid #bff797;
   background: #b065d6;
   padding: 13.5px 27px;
-  -webkit-border-radius: 26px;
-  -moz-border-radius: 26px;
   border-radius: 26px;
-  -webkit-box-shadow: black 0 1px 0;
-  -moz-box-shadow: black 0 1px 0;
   box-shadow: black 0 1px 0;
   text-shadow: black 0 1px 0;
   color: white;
   font-size: 19px;
-  font-family: "Lucida Grande", Helvetica, Arial, Sans-Serif;
+  font-family: Helvetica, Arial, sans-serif;
   text-decoration: none;
   vertical-align: middle;
+}
+
+.btn:active {
+  border-top-color: #1b435e;
+  background: #1b435e;
 }
 
 .btn:hover {
   border-top-color: #672878;
   background: #672878;
   color: #ccc;
-}
-
-.btn:active {
-  border-top-color: #1b435e;
-  background: #1b435e;
 }
 
 body {
@@ -42,8 +38,7 @@ body {
   flex-wrap: wrap;
 }
 
-input,
-.spn {
+input {
   margin: 1em;
   border-radius: 2em;
 }
@@ -75,12 +70,6 @@ label {
   text-align: center;
 }
 
-.movie-list {
-  display: flex;
-  flex-flow: row wrap;
-  padding: 48px 30px;
-}
-
 .movie-card {
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.125);
@@ -91,6 +80,14 @@ label {
   margin: 5px;
   overflow: hidden;
   width: 300px;
+}
+
+.movie-card-rating {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 20px;
 }
 
 .movie-card-image {
@@ -120,6 +117,12 @@ label {
   text-align: justify;
 }
 
+.movie-list {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 48px 30px;
+}
+
 .rating {
   background-color: #007bff;
   border-radius: 25px;
@@ -129,10 +132,7 @@ label {
   padding: 3px 9px;
 }
 
-.movie-card-rating {
-  background-color: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
-  display: flex;
-  justify-content: flex-end;
-  padding: 12px 20px;
+.spn {
+  margin: 1em;
+  border-radius: 2em;
 }
