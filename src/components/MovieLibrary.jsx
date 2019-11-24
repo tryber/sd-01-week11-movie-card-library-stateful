@@ -26,11 +26,7 @@ class MovieLibrary extends Component {
 
   changeHandlerSelectedGenre = (event) => this.setState({ selectedGenre: event.target.value });
 
-  introduceMovie = (event) => {
-    while (this.state.bookmarkedOnly !== false) {
-      return this.setState({ movies: [...this.state.movies, event] });
-    }
-  };
+  introduceMovie = (event) => this.setState({ movies: [...this.state.movies, event] });
 
   listFilm = () => {
     // let parameter = this.state.searchText;
