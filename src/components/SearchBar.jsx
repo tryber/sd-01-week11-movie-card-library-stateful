@@ -20,7 +20,8 @@ class SearchBar extends Component {
     return (
       <label htmlFor="checkbox">
         Mostrar somente favoritos
-        <input name="checkbox"
+        <input
+          name="checkbox"
           type="checkbox"
           checked={this.props.bookmarkedOnly}
           onChange={this.props.onBookmarkedChange}
@@ -33,7 +34,8 @@ class SearchBar extends Component {
     return (
       <label htmlFor="selectedGenre">
         Filtrar por gênero
-        <select name="selectedGenre"
+        <select
+          name="selectedGenre"
           value={this.props.selectedGenre}
           onChange={this.props.onSelectedGenreChange}
         >
@@ -56,4 +58,5 @@ class SearchBar extends Component {
     );
   }
 }
+
 export default SearchBar;

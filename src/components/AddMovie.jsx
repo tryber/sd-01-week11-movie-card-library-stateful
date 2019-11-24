@@ -50,39 +50,116 @@ class AddMovie extends React.Component {
     });
   });
 
+  renderInputTitle() {
+    return (
+      <div>
+        <label htmlFor="title">
+          Título
+          <input
+            name="title"
+            type="text"
+            value={this.state.title}
+            onChange={(event) => this.changeHandlerText(event)}
+          />
+        </label>
+      </div>
+    )
+  }
+
+  renderInputSubtitle() {
+    return (
+      <div>
+        <label htmlFor="subtitle">
+          Subtítulo
+          <input
+            name="subtitle"
+            type="text"
+            value={this.state.subtitle}
+            onChange={(event) => this.changeHandlerSubtitle(event)}
+          />
+        </label>
+      </div>
+    )
+  }
+
+  renderInputImagePath() {
+    return (
+      <div>
+        <label htmlFor="image">
+          Imagem
+          <input
+            name="imagePath"
+            type="text"
+            value={this.state.imagePath}
+            onChange={(event) => this.changeHandlerimagePath(event)}
+          />
+        </label>
+      </div>
+    )
+  }
+
+  renderInputStoryline() {
+    return (
+      <div>
+        <label htmlFor="storyLine">
+          Sinopse
+          <textarea
+            name="storyline"
+            cols="30"
+            rows="10"
+            value={this.state.storyline}
+            onChange={(event) => this.changeHandlerstoryline(event)}>
+          </textarea>
+        </label>
+      </div>
+    )
+  }
+
+  renderInputRating() {
+    return (
+      <div>
+        <label htmlFor="rating">
+          Avaliação
+          <input name="rating"
+            type="number"
+            value={this.state.rating}
+            onChange={(event) => this.changeHandlerRating(event)}
+          />
+        </label>
+      </div>
+    )
+  }
+
+  renderSelectGenre() {
+    return (
+      <div>
+        <label htmlFor="genre">
+          Gênero
+          <select
+            name="genre"
+            value={this.state.genre}
+            onChange={(event) => this.changeHandlerGenre(event)}
+          >
+            <option value="action">Ação</option>
+            <option value="comedy">Comédia</option>
+            <option value="thriller">Suspense</option>
+          </select>
+        </label>
+      </div>
+    )
+  }
+
   render() {
     const { onClick } = this.props;
     return (
       <form>
         <div>
-          <label htmlFor="title">Título</label>
-          <input name="title" type="text" value={this.state.title} onChange={(event) => this.changeHandlerText(event)} />
-        </div>
-        <div>
-          <label htmlFor="subtitle">Subtítulo</label>
-          <input name="subtitle" type="text" value={this.state.subtitle} onChange={(event) => this.changeHandlerSubtitle(event)} />
-        </div>
-        <div>
-          <label htmlFor="image">Imagem</label>
-          <input name="imagePath" type="text" value={this.state.imagePath} onChange={(event) => this.changeHandlerimagePath(event)} />
-        </div>
-        <div>
-          <label htmlFor="storyLine">Sinopse</label>
-          <textarea name="storyline" cols="30" rows="10" value={this.state.storyline} onChange={(event) => this.changeHandlerstoryline(event)}></textarea>
-        </div>
-        <div>
-          <label htmlFor="rating">Avaliação</label>
-          <input name="rating" type="number" value={this.state.rating} onChange={(event) => this.changeHandlerRating(event, 'rating')} />
-        </div>
-        <div>
-          <label htmlFor="genre">Gênero</label>
-          <select name="genre" value={this.state.genre} onChange={(event) => this.changeHandlerGenre(event)}>
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
-          </select>
-        </div>
-        <div>
+          {this.renderInputTitle()}
+          {this.renderInputSubtitle()}
+          {this.renderInputImagePath()}
+          {this.renderInputStoryline()}
+          {this.renderInputRating()}
+          {this.renderSelectGenre()}
           <button type="button" onClick={() => this.resetState(onClick)}>Adicionar filme</button>
         </div>
       </form>
