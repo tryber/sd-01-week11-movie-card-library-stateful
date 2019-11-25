@@ -172,7 +172,6 @@ describe('<MovieLibrary /> component', () => {
     it('it only passes to MovieList bookmarked movies', () => {
       movieLibrary().setState({ bookmarkedOnly: true });
       const passedMovies = movieLibrary().find('MovieList').props().movies;
-
       expect(passedMovies.length).toBe(1);
       expect(passedMovies[0]).toEqual(movies[0]);
     });
@@ -192,7 +191,6 @@ describe('<MovieLibrary /> component', () => {
     it('passes to MovieList only movies matching the genre', () => {
       movieLibrary().setState({ selectedGenre: 'comedy' });
       const passedMovies = movieLibrary().find('MovieList').props().movies;
-
       expect(passedMovies.length).toBe(1);
       expect(passedMovies[0]).toEqual(movies[1]);
     });
@@ -212,7 +210,6 @@ describe('<MovieLibrary /> component', () => {
     it('passes to MovieList movies with titles matching the text', () => {
       movieLibrary().setState({ searchText: 'awesome' });
       const passedMovies = movieLibrary().find('MovieList').props().movies;
-
       expect(passedMovies.length).toBe(1);
       expect(passedMovies[0]).toEqual(movies[0]);
     });
