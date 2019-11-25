@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import movies from '../data';
+
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -7,30 +7,42 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    this.movies = movies;
+    const { movies } = this.props;
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: [...movies],
+    };
 
-    this.onClick = this.onClick.bind(this);
+    this.changeSearchText = this.changeSearchText.bind(this);
+    this.changeBookmarked = this.changeBookmarked.bind(this);
+    this.changeGenre = this.changeGenre.bind(this);
   }
 
-  onClick(state) {
-    const { title, subtitle, imagePath, storyline, rating, genre } = state;
-    this.setState({
-      [subtitle]: '',
-      [title]: '',
-      [imagePath]: '',
-      [storyline]: '',
-      [rating]: 0,
-      [genre]: 'action',
-    });
+  changeSearchText(event) {
+    const { value } = event.target;
+    this.setState({ searchText: value });
+  }
+
+  changeBookmarked(event) {
+    const { checked } = event.target;
+    this.setState({ bookmarkedOnly: checked });
+  }
+
+  changeGenre(event) {
+    const { value } = event.target;
+    this.setState({ selectedGenre: value });
   }
 
   render() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
+        <SearchBar searchText={searchText} onSearchTextChange={this.changeSearchText} bookmarkedOnly={bookmarkedOnly} onBookmarkedChange={this.changeBookmarked} selectedGenre={selectedGenre} onSelectedGenreChange={this.changeGenre} />
         <MovieList movies={movies} />
-        <AddMovie onClick={this.onClick} />
+        <AddMovie />
       </div>
     );
   }
