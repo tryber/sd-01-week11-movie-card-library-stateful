@@ -172,7 +172,6 @@ describe('<MovieLibrary /> component', () => {
     it('it only passes to MovieList bookmarked movies', () => {
       movieLibrary().setState({ bookmarkedOnly: true });
       const passedMovies = movieLibrary().find('MovieList').props().movies;
-      console.log(passedMovies)
       expect(passedMovies.length).toBe(1);
       expect(passedMovies[0]).toEqual(movies[0]);
     });

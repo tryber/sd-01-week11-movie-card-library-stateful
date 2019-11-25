@@ -15,32 +15,15 @@ class MovieLibrary extends Component {
   }
 
   onSearchTextChange = event => {
-    this.setState({searchText: event.target.value})
-    if (event.target.value === '') {
-      this.setState({ movies: this.props.movies })
-    } else {
-      this.setState({ movies: this.props.movies.filter((obj) => obj.title.toLocaleLowerCase().includes(event.target.value.toLocaleLowerCase())
-        || obj.subtitle.toLocaleLowerCase().includes(event.target.value.toLocaleLowerCase())
-        || obj.storyline.toLocaleLowerCase().includes(event.target.value.toLocaleLowerCase()))})
-    }
+    this.setState({ searchText: event.target.value })
   }
 
   onBookmarkedChange = event => {
     this.setState({ bookmarkedOnly: event.target.checked })
-    if (event.target.checked === true) {
-      this.setState({ movies: this.props.movies.filter((obj) => obj.bookmarked === event.target.checked) })
-    } else {
-      this.setState({ movies: this.props.movies })
-    }
   }
 
   onSelectedGenreChange = event => {
-    this.setState({selectedGenre: event.target.value})
-    if (event.target.value === '') {
-      this.setState({ movies: this.props.movies })
-    } else {
-      this.setState({ movies: this.props.movies.filter((obj) => obj.genre === event.target.value) })
-    }
+    this.setState({ selectedGenre: event.target.value })
   }
 
   onClick = value => {
@@ -49,13 +32,30 @@ class MovieLibrary extends Component {
     }))
   }
 
+  filterList = () => {
+    const array = this.state.movies;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    if (bookmarkedOnly) {
+      return array.filter((obj) => obj.bookmarked === bookmarkedOnly)
+    }
+    if (searchText !== '') {
+      return array.filter((obj) => obj.title.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
+        || obj.subtitle.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
+        || obj.storyline.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()))
+    }
+    if (selectedGenre !== '') {
+      return array.filter((obj) => obj.genre === selectedGenre)
+    } 
+    return array
+  }
+
   render() {
     return (
       <div>
         <SearchBar searchText={this.state.searchText} onSearchTextChange={this.onSearchTextChange}
           bookmarkedOnly={this.state.bookmarkedOnly} onBookmarkedChange={this.onBookmarkedChange}
           selectedGenre={this.state.selectedGenre} onSelectedGenreChange={this.onSelectedGenreChange} />
-        <MovieList movies={this.state.movies} />
+        <MovieList movies={this.filterList(this.state)} />
         <AddMovie onClick={this.onClick} />
       </div>
     )
