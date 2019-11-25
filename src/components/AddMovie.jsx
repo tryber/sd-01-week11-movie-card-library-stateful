@@ -18,7 +18,6 @@ class AddMovie extends React.Component {
     this.onStoryChange = this.onStoryChange.bind(this);
     this.onGenreChange = this.onGenreChange.bind(this);
     this.clickHere = this.clickHere.bind(this);
-    this.renderInput = this.renderInput.bind(this);
   }
 
   onTitleChange(event) {
@@ -66,24 +65,24 @@ class AddMovie extends React.Component {
   renderInput(id, text, type, value, handleChange) {
     return (
       <label htmlFor={id}>{text}
-        <input type={type} id={id} value={value} onChange={handleChange}/>
+        <input type={type} id={id} value={value} onChange={handleChange} />
       </label>
     )
-  }
+  };
   render() {
     const genreOptions = [
       { value: 'action', text: 'Ação' }, { value: 'comedy', text: 'Comédia' },
       { value: 'thriller', text: 'Suspense' }];
     return (
       <form>
-        {this.renderInput("film-title", "Título", "text", this.state.title, this.onTitleChange)}
-        {this.renderInput("film-subtitle", "Subtítulo", "text", this.state.subtitle, this.onSubChange)}
-        {this.renderInput("film-img", "Imagem", "text", this.state.imagePath, this.onImageChange)}
+        {this.renderInput('film-title', 'Título', 'text', this.state.title, this.onTitleChange)}
+        {this.renderInput('film-subtitle', 'Subtítulo', 'text', this.state.subtitle, this.onSubChange)}
+        {this.renderInput('film-img', 'Imagem', 'text', this.state.imagePath, this.onImageChange)}
         <label htmlFor="film-storyline">Sinopse
         <textarea 
         id="film-storyline" name="storyline" value={this.state.storyline} onChange={this.onStoryChange} 
         /></label>
-        {this.renderInput("film-subtitle", "Avaliação", "number", this.state.rating, this.onRatingChange)}
+        {this.renderInput('film-subtitle', 'Avaliação', 'number', this.state.rating, this.onRatingChange)}
         <label htmlFor="film-genre">Gênero
         <select name="genre" value={this.state.genre} onChange={this.onGenreChange}>
           {genreOptions.map((option) => <option key={option.text} value={option.value}>{option.text}</option>)}
