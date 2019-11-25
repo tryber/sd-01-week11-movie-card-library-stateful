@@ -20,6 +20,7 @@ class AddMovie extends React.Component {
     this.changeGenre = this.changeGenre.bind(this);
     this.addMovie = this.addMovie.bind(this);
     this.renderForm = this.renderForm.bind(this);
+    this.inputMaker = this.inputMaker.bind(this);
   }
 
   changeTitle(event) {
@@ -58,26 +59,10 @@ class AddMovie extends React.Component {
     this.setState(this.originalState);
   }
 
-  renderForm() {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+  peripheralFormElements() {
+    const { rating, genre } = this.state;
     return (
-      <form>
-        <label htmlFor="title">
-          Título
-          <input id="title" type="text" value={title} onChange={this.changeTitle} />
-        </label>
-        <label htmlFor="subtitle">
-          Subtítulo
-          <input id="subtitle" type="text" value={subtitle} onChange={this.changeSubtitle} />
-        </label>
-        <label htmlFor="imagePath">
-          Imagem
-          <input id="imagePath" type="text" value={imagePath} onChange={this.changeImagePath} />
-        </label>
-        <label htmlFor="storyline">
-          Sinopse
-          <textarea id="storyline" value={storyline} onChange={this.changeStoryline} />
-        </label>
+      <fieldset>
         <label htmlFor="rating">
           Avaliação
           <input id="rating" type="number" value={rating} onChange={this.changeRating} />
@@ -89,9 +74,37 @@ class AddMovie extends React.Component {
           </select>
         </label>
         <button id="submit" type="submit" onClick={this.addMovie}>Adicionar filme</button>
+      </fieldset>
+    );
+  }
+
+  renderForm() {
+    const { title, subtitle, imagePath, storyline } = this.state;
+    return (
+      <form>
+        <fieldset>
+          <label htmlFor="title">
+            Título
+            <input id="title" type="text" value={title} onChange={this.changeTitle} />
+          </label>
+          <label htmlFor="subtitle">
+            Subtítulo
+            <input id="subtitle" type="text" value={subtitle} onChange={this.changeSubtitle} />
+          </label>
+          <label htmlFor="imagePath">
+            Imagem
+            <input id="imagePath" type="text" value={imagePath} onChange={this.changeImagePath} />
+          </label>
+          <label htmlFor="storyline">
+            Sinopse
+            <textarea id="storyline" value={storyline} onChange={this.changeStoryline} />
+          </label>
+        </fieldset>
+        {this.peripheralFormElements()}
       </form>
     );
   }
+
 
   render() {
     return (

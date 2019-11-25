@@ -12,14 +12,9 @@ class SearchBar extends Component {
           Inclui o texto:
           <input id="filterText" type="text" value={searchText} onChange={onSearchTextChange} />
         </label>
-        <label htmlFor="bookmarkCheckbox">
+        <label htmlFor="bk">
           Mostrar somente favoritos
-          <input
-            id="bookmarkCheckbox"
-            type="checkbox"
-            checked={bookmarkedOnly}
-            onChange={onBookmarkedChange}
-          />
+          <input id="bk" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
         </label>
         <label htmlFor="selectedGenre">
           Filtrar por gênero
