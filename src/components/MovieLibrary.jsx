@@ -5,16 +5,16 @@ import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies
-    }
+      movies: this.props.movies,
+    };
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onSelectedGenreChange =this.onSelectedGenreChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onClick = this.onClick.bind(this);
     this.filterList = this.filterList.bind(this);
   }
@@ -32,9 +32,7 @@ class MovieLibrary extends Component {
   }
 
   onClick(value) {
-    this.setState((state) => ({
-      movies: state.movies.concat(value)
-    }));
+    this.setState((state) => ({movies: state.movies.concat(value)}));
   }
 
   filterList() {
@@ -65,6 +63,6 @@ class MovieLibrary extends Component {
       </div>
     )
   }
-}
+};
 
 export default MovieLibrary;

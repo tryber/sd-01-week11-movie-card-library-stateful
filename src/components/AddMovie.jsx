@@ -2,15 +2,15 @@ import React from 'react';
 
 class AddMovie extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       title: '',
       subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action'
-    }
+      genre: 'action',
+    };
     this.onTitleChange = this.onTitleChange.bind(this);
     this.onSubChange = this.onSubChange.bind(this);
     this.onImageChange = this.onImageChange.bind(this);
@@ -58,8 +58,8 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action'
-    })
+      genre: 'action',
+    });
   }
 
   render() {
@@ -80,11 +80,12 @@ class AddMovie extends React.Component {
         <input type="number" id="film-avalation" name="rating" value={this.state.rating} onChange={this.onRatingChange} /></label>
         <label htmlFor="film-genre">Gênero
         <select name="genre" value={this.state.genre} onChange={this.onGenreChange}>
-            {genreOptions.map((option, index) => <option key={index} value={option.value}>{option.text}</option>)}
-          </select></label>
-        <button type='button' onClick={this.clickHere}>Adicionar filme</button>
+            {genreOptions.map((option) => <option key={option.text} value={option.value}>{option.text}</option>)}
+          </select>
+        </label>
+        <button type="button" onClick={this.clickHere}>Adicionar filme</button>
       </form>
-    )
+    );
   }
 }
 
