@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import SearchBar from "./SearchBar";
-import MovieList from "./MovieList";
-import AddMovie from "./AddMovie";
+import React, { Component } from 'react';
+import SearchBar from './SearchBar';
+import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -22,20 +22,20 @@ class MovieLibrary extends Component {
 
   findingMovies() {
     let arrMovies = this.state.movies;
-    if (this.state.searchText !== "") {
+    if (this.state.searchText !== '') {
       arrMovies = this.state.movies.filter(
-        movie =>
+        (movie) =>
           movie.title.includes(this.state.searchText) ||
           movie.subtitle.includes(this.state.searchText) ||
           movie.storyline.includes(this.state.searchText)
       );
     }
     if (this.state.bookmarkedOnly) {
-      arrMovies = arrMovies.filter(movie => movie.bookmarked);
+      arrMovies = arrMovies.filter((movie) => movie.bookmarked);
     }
     if (this.state.selectedGenre.length > 0) {
       arrMovies = arrMovies.filter(
-        movie => movie.genre === this.state.selectedGenre
+        (movie) => movie.genre === this.state.selectedGenre
       );
     }
     return arrMovies;
@@ -54,7 +54,7 @@ class MovieLibrary extends Component {
   }
 
   pushingNewMovie(values) {
-    this.setState(state => ({ movies: [...state.movies, values] }));
+    this.setState((state) => ({ movies: [...state.movies, values] }));
   }
 
   render() {
@@ -64,9 +64,9 @@ class MovieLibrary extends Component {
           searchText={this.state.searchText}
           bookmarkedOnly={this.state.bookmarkedOnly}
           selectedGenre={this.state.selectedGenre}
-          onSearchTextChange={event => this.changeHandlerSearch(event)}
-          onBookmarkedChange={event => this.changeHandlerMarked(event)}
-          onSelectedGenreChange={event => this.changeHandlerGenre(event)}
+          onSearchTextChange={(event) => this.changeHandlerSearch(event)}
+          onBookmarkedChange={(event) => this.changeHandlerMarked(event)}
+          onSelectedGenreChange={(event) => this.changeHandlerGenre(event)}
         />
         <MovieList movies={this.findingMovies(this.state)} />
         <AddMovie onClick={this.pushingNewMovie} />

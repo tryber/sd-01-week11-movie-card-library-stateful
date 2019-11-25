@@ -128,7 +128,7 @@ class AddMovie extends React.Component {
           {this.createGenreSelect(
             this.state.genre,
             this.changeHandGenre,
-            "Gênero"
+            'Gênero'
           )};
           <button type="button" onClick={() => this.addAndRemoveMovie(onClick)}>
             Adicionar filme
