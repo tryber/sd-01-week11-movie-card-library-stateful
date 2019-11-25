@@ -27,7 +27,7 @@ class SearchBar extends Component {
     const genreOptions = [
       { text: 'Todos', value: '' }, { text: 'Ação', value: 'action' },
       { text: 'Comédia', value: 'comedy' }, { text: 'Suspense', value: 'thriller' }];
-    const {selectedGenre, onSelectedGenreChange} = this.props;
+    const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <form>
         {this.renderInput('fsearch-bar', 'Inclui o texto:', 'text', this.props.searchText, this.props.onSearchTextChange)}
