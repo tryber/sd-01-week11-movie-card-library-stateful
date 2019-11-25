@@ -63,7 +63,7 @@ describe('<SearchBar /> component', () => {
         .toMatch('Mostrar somente favoritos');
     });
 
-    it('passes the `bookMarkedOnly` prop to the `checked` attribute of the input', () => {
+    it('passes the `bookmarkedOnly` prop to the `checked` attribute of the input', () => {
       const input = searchBar().find('form input[type="checkbox"]');
 
       expect(input.prop('checked')).toBe(props.bookmarkedOnly);
