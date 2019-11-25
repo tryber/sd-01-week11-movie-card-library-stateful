@@ -1,42 +1,59 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class SearchBar extends Component {
-  render() {
-    const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange
-    } = this.props;
+  createInput() {
     return (
-      <form>
-        <label for="searchText">Inclui o texto</label>
+      <label htmlFor="title">
+        Inclui o texto:
         <input
-          id="searchText"
+          id="title"
           type="text"
-          value={searchText}
-          onChange={onSearchTextChange}
+          value={this.props.searchText}
+          onChange={this.props.onSearchTextChange}
         />
-        <label for="bookmarkedOnly">Mostrar somente favoritos</label>
+      </label>
+    );
+  }
+
+  createInputChecked() {
+    return (
+      <label htmlFor="favorited">
+        Mostrar somente favoritos:
         <input
-          id="bookmarkedOnly"
+          id="favorited"
           type="checkbox"
-          checked={bookmarkedOnly}
-          onChange={onBookmarkedChange}
+          checked={this.props.bookmarkedOnly}
+          onChange={this.props.onBookmarkedChange}
         />
-        <label for="selectedGenre">Filtrar por gênero</label>
+      </label>
+    );
+  }
+
+  createSelect() {
+    return (
+      <label htmlFor="genre">
+        Filtrar por gênero
         <select
-          id="selectedGenre"
-          value={selectedGenre}
-          onChange={onSelectedGenreChange}
+          id="genre"
+          onChange={this.props.onSelectedGenreChange}
+          value={this.props.selectedGenre}
         >
           <option value="">Todos</option>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
         </select>
+      </label>
+    );
+  }
+  render() {
+    return (
+      <form>
+        <fieldset>
+          {this.createInput()}
+          {this.createInputChecked()}
+          {this.createSelect()}
+        </fieldset>
       </form>
     );
   }
