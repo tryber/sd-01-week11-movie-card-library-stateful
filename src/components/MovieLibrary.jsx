@@ -23,15 +23,15 @@ class MovieLibrary extends Component {
   filterFilms() {
     let films = this.state.movies;
     if (this.state.searchText !== '') {
-        films = films.filter((film) =>
-        film.title.includes(this.state.searchText) ||
-        film.subtitle.includes(this.state.searchText) ||
-        film.storyline.includes(this.state.searchText),
+      films = films.filter((film) =>
+      film.title.includes(this.state.searchText) ||
+      film.subtitle.includes(this.state.searchText) ||
+      film.storyline.includes(this.state.searchText),
       );
-      }
+    }
 
     if (this.state.bookmarkedOnly) {
-      films = films.filter(film => film.bookmarked);
+      films = films.filter((film) => film.bookmarked);
     }
 
     if (this.state.selectedGenre.length > 0) {
