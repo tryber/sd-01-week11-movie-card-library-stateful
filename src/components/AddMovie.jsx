@@ -9,7 +9,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action'
+      genre: 'action',
     };
 
     this.changeHandTitle = this.changeHandTitle.bind(this);
@@ -57,7 +57,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action'
+      genre: 'action',
     });
   }
 
@@ -128,7 +128,7 @@ class AddMovie extends React.Component {
           {this.createGenreSelect(
             this.state.genre,
             this.changeHandGenre,
-            'Gênero'
+            'Gênero',
           )};
           <button type="button" onClick={() => this.addAndRemoveMovie(onClick)}>
             Adicionar filme
