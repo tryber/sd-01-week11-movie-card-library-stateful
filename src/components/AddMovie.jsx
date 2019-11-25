@@ -18,6 +18,9 @@ class AddMovie extends React.Component {
     this.onStoryChange = this.onStoryChange.bind(this);
     this.onGenreChange = this.onGenreChange.bind(this);
     this.clickHere = this.clickHere.bind(this);
+    this.renderOption = this.renderOption.bind(this);
+    this.renderStoryline = this.renderStoryline.bind(this);
+    this.renderInput = this.renderInput.bind(this);
   }
 
   onTitleChange(event) {
@@ -65,7 +68,7 @@ class AddMovie extends React.Component {
   renderInput(id, text, type, value, handleChange) {
     return (
       <label htmlFor={id}>{text}
-        <input type={type} id={id} value={value} onChange={handleChange} />
+        <input type={type} id={id} value={this.state[value]} onChange={handleChange} />
       </label>
     );
   }
@@ -79,7 +82,7 @@ class AddMovie extends React.Component {
   renderStoryline(id, text, value, onChange) {
     return (
       <label htmlFor={id}>{text}
-        <textarea id={id} value={value} onChange={onChange} />
+        <textarea id={id} value={this.state[value]} onChange={onChange} />
       </label>
     );
   }
@@ -89,11 +92,11 @@ class AddMovie extends React.Component {
       { value: 'thriller', text: 'Suspense' }];
     return (
       <form>
-        {this.renderInput('film-title', 'Título', 'text', this.state.title, this.onTitleChange)}
-        {this.renderInput('film-subtitle', 'Subtítulo', 'text', this.state.subtitle, this.onSubChange)}
-        {this.renderInput('film-img', 'Imagem', 'text', this.state.imagePath, this.onImageChange)}
-        {this.renderStoryline('film-storyline', 'Sinopse', this.state.storyline, this.onStoryChange)}
-        {this.renderInput('film-subtitle', 'Avaliação', 'number', this.state.rating, this.onRatingChange)}
+        {this.renderInput('film-title', 'Título', 'text', 'title', this.onTitleChange)}
+        {this.renderInput('film-subtitle', 'Subtítulo', 'text', 'subtitle', this.onSubChange)}
+        {this.renderInput('film-img', 'Imagem', 'text', 'imagePath', this.onImageChange)}
+        {this.renderStoryline('film-storyline', 'Sinopse', 'storyline', this.onStoryChange)}
+        {this.renderInput('film-subtitle', 'Avaliação', 'number', 'rating', this.onRatingChange)}
         <label htmlFor="film-genre">Gênero
         <select name="genre" value={this.state.genre} onChange={this.onGenreChange}>
           {genreOptions.map((option) => this.renderOption(option.text, option.value, option.text))}
