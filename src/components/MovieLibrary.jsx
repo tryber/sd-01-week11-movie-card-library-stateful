@@ -64,11 +64,11 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={this.state.searchText}
-          onSearchTextChange={e => this.changeHandler(e)}
+          onSearchTextChange={e => this.changeHandler(e, 'searchText')}
           bookmarkedOnly={this.state.bookmarkedOnly}
-          onBookmarkedChange={e => this.changeHandler(e)}
+          onBookmarkedChange={e => this.changeHandler(e, 'bookmarkedOnly')}
           selectedGenre={this.state.selectedGenre}
-          onSelectedGenreChange={e => this.changeHandler(e)}
+          onSelectedGenreChange={e => this.changeHandler(e, 'selectedGenre')}
         />
         <MovieList movies={this.finalList()} />
         <AddMovie onClick={this.addNewMovie} />
