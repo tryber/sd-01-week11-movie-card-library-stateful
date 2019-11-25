@@ -71,7 +71,7 @@ class AddMovie extends React.Component {
   render() {
     const { onClick } = this.props;
     return (
-      <form className="selected-new-movie">
+      <form>
         {this.elementsInput('title', 'Título', 'text', this.state.title, 'title')}
         {this.elementsInput('subtitle', 'Subtítulo', 'text', this.state.subtitle, 'subtitle')}
         {this.elementsInput('imagePath', 'Imagem', 'text', this.state.imagePath, 'imagePath')}

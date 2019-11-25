@@ -32,7 +32,7 @@ class SearchBar extends Component {
   render() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
-      <form className="selected-the-movie">
+      <form>
         {this.addTopForm()}
         {this.showFavorities()}
         <label htmlFor="include-genre">
