@@ -11,7 +11,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-
+    this.originalState = this.state;
     this.changeTitle = this.changeTitle.bind(this);
     this.changeSubtitle = this.changeSubtitle.bind(this);
     this.changeImagePath = this.changeImagePath.bind(this);
@@ -54,14 +54,7 @@ class AddMovie extends React.Component {
   addMovie() {
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
+    this.setState(this.originalState);
   }
 
   render() {
