@@ -4,13 +4,6 @@ body {
   font-size: 16px;
 }
 
-.selected-the-movie {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 10mm;
-}
-
 .movie-card-header {
   align-items: center;
   background-color: #343a40;
@@ -89,3 +82,9 @@ body {
   padding: 12px 20px;
 }
 
+.selected-the-movie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 10mm;
+}
