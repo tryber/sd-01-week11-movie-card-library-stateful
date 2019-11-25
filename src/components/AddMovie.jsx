@@ -69,6 +69,12 @@ class AddMovie extends React.Component {
       </label>
     )
   };
+
+  renderOption(key, value, text) {
+    return (
+      <option key={key} value={value}>{text}</option>
+    )
+  };
   render() {
     const genreOptions = [
       { value: 'action', text: 'Ação' }, { value: 'comedy', text: 'Comédia' },
@@ -79,13 +85,12 @@ class AddMovie extends React.Component {
         {this.renderInput('film-subtitle', 'Subtítulo', 'text', this.state.subtitle, this.onSubChange)}
         {this.renderInput('film-img', 'Imagem', 'text', this.state.imagePath, this.onImageChange)}
         <label htmlFor="film-storyline">Sinopse
-        <textarea 
-        id="film-storyline" name="storyline" value={this.state.storyline} onChange={this.onStoryChange} 
+        <textarea id="film-storyline" name="storyline" value={this.state.storyline} onChange={this.onStoryChange} 
         /></label>
         {this.renderInput('film-subtitle', 'Avaliação', 'number', this.state.rating, this.onRatingChange)}
         <label htmlFor="film-genre">Gênero
         <select name="genre" value={this.state.genre} onChange={this.onGenreChange}>
-          {genreOptions.map((option) => <option key={option.text} value={option.value}>{option.text}</option>)}
+          {genreOptions.map((option) => this.renderOption(option.text, option.value, option.text))}
         </select>
         </label>
         <button type="button" onClick={this.clickHere}>Adicionar filme</button>
