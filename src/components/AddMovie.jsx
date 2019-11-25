@@ -43,7 +43,7 @@ class AddMovie extends React.Component {
     return (
       <label htmlFor="title">
         Título
-        <input id="title" type="text" value={this.state.title} onChange={(e) => this.changeHandler(e,'title')} />
+        <input id="title" type="text" value={this.state.title} onChange={(e) => this.changeHandler(e, 'title')} />
       </label>
     );
   }
@@ -84,7 +84,7 @@ class AddMovie extends React.Component {
     );
   }
 
-  inputGenre() {
+  inputGenre(onClick) {
     return (
       <label htmlFor="genre">
         Gênero:
@@ -107,7 +107,7 @@ class AddMovie extends React.Component {
         {this.inputImagePath()}
         {this.inputStoryline()}
         {this.inputRating()}
-        {this.inputGenre()}
+        {this.inputGenre(onClick)}
       </form>
     );
   }
