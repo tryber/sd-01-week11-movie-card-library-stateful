@@ -1,5 +1,11 @@
 import React from 'react';
 
+function renderOption(key, value, text) {
+  return (
+    <option key={key} value={value}>{text}</option>
+  );
+}
+
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +24,6 @@ class AddMovie extends React.Component {
     this.onStoryChange = this.onStoryChange.bind(this);
     this.onGenreChange = this.onGenreChange.bind(this);
     this.clickHere = this.clickHere.bind(this);
-    this.renderOption = this.renderOption.bind(this);
     this.renderStoryline = this.renderStoryline.bind(this);
     this.renderInput = this.renderInput.bind(this);
   }
@@ -73,12 +78,6 @@ class AddMovie extends React.Component {
     );
   }
 
-  renderOption(key, value, text) {
-    return (
-      <option key={key} value={value}>{text}</option>
-    );
-  }
-
   renderStoryline(id, text, value, onChange) {
     return (
       <label htmlFor={id}>{text}
@@ -99,7 +98,7 @@ class AddMovie extends React.Component {
         {this.renderInput('film-subtitle', 'Avaliação', 'number', 'rating', this.onRatingChange)}
         <label htmlFor="film-genre">Gênero
         <select name="genre" value={this.state.genre} onChange={this.onGenreChange}>
-          {genreOptions.map((option) => this.renderOption(option.text, option.value, option.text))}
+          {genreOptions.map((option) => renderOption(option.text, option.value, option.text))}
         </select>
         </label>
         <button type="button" onClick={this.clickHere}>Adicionar filme</button>
@@ -107,5 +106,8 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+
+
 
 export default AddMovie;
