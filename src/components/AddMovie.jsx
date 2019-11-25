@@ -13,7 +13,11 @@ class AddMovie extends React.Component {
     }
     this.onTitleChange = this.onTitleChange.bind(this);
     this.onSubChange = this.onSubChange.bind(this);
-    
+    this.onImageChange = this.onImageChange.bind(this);
+    this.onRatingChange = this.onRatingChange.bind(this);
+    this.onStoryChange = this.onStoryChange.bind(this);
+    this.onGenreChange = this.onGenreChange.bind(this);
+    this.clickHere = this.clickHere.bind(this);
   }
 
   onTitleChange(event) {
@@ -26,27 +30,27 @@ class AddMovie extends React.Component {
     this.setState({ subtitle: value })
   }
 
-  onImageChange = event => {
+  onImageChange(event) {
     const { value } = event.target
     this.setState({ imagePath: value })
   }
 
-  onStoryChange = event => {
+  onStoryChange(event) {
     const { value } = event.target
     this.setState({ storyline: value })
   }
 
-  onRatingChange = event => {
+  onRatingChange(event) {
     const { value } = event.target
     this.setState({ rating: Number(value) })
   }
 
-  onGenreChange = event => {
+  onGenreChange(event) {
     const { value } = event.target
     this.setState({ genre: value })
   }
 
-  clickHere = () => {
+  clickHere() {
     this.props.onClick(this.state);
     this.setState({
       title: '',
