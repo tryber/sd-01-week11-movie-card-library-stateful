@@ -32,7 +32,7 @@ class MovieLibrary extends Component {
   }
 
   onClick(value) {
-    this.setState((state) => ({movies: state.movies.concat(value)}));
+    this.setState((state) => ({ movies: state.movies.concat(value) }));
   }
 
   filterList() {
@@ -61,8 +61,8 @@ class MovieLibrary extends Component {
         <MovieList movies={this.filterList(this.state)} />
         <AddMovie onClick={this.onClick} />
       </div>
-    )
+    );
   }
-};
+}
 
 export default MovieLibrary;
