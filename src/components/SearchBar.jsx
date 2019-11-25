@@ -14,8 +14,7 @@ class SearchBar extends Component {
           <input type="checkbox" name="checkbox" id="checkbox" checked={this.props.bookmarkedOnly} onChange={this.props.onBookmarkedChange} />
         </label>
         <label htmlFor="select">Filtrar por gênero:
-          <select id="select" value={this.props.selectedGenre}
-            onChange={this.props.onSelectedGenreChange}>
+          <select id="select" value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange}>
             {genreOptions.map((option) =>
               <option key={option.text} value={option.value}>{option.text}</option>)}
           </select>

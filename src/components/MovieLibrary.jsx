@@ -15,6 +15,7 @@ class MovieLibrary extends Component {
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onSelectedGenreChange =this.onSelectedGenreChange.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   onSearchTextChange(event) {
@@ -29,7 +30,7 @@ class MovieLibrary extends Component {
     this.setState({ selectedGenre: event.target.value })
   }
 
-  onClick = value => {
+  onClick(value) {
     this.setState((state) => ({
       movies: state.movies.concat(value)
     }))

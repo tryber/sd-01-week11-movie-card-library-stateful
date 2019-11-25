@@ -11,14 +11,17 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action'
     }
+    this.onTitleChange = this.onTitleChange.bind(this);
+    this.onSubChange = this.onSubChange.bind(this);
+    
   }
 
-  onTitleChange = event => {
+  onTitleChange(event) {
     const { value } = event.target
     this.setState({ title: value })
   }
 
-  onSubChange = event => {
+  onSubChange(event) {
     const { value } = event.target
     this.setState({ subtitle: value })
   }
@@ -57,7 +60,7 @@ class AddMovie extends React.Component {
 
   render() {
     const genreOptions = [
-      { value: 'action', text: 'Ação' },{ value: 'comedy', text: 'Comédia' },
+      { value: 'action', text: 'Ação' }, { value: 'comedy', text: 'Comédia' },
       { value: 'thriller', text: 'Suspense' }];
     return (
       <form>
