@@ -14,9 +14,6 @@ class MovieLibrary extends Component {
     };
     this.changeHandler = this.changeHandler.bind(this);
     this.addNewMovie = this.addNewMovie.bind(this);
-    this.moviesByBookMarkedOnly = this.moviesByBookMarkedOnly.bind(this);
-    this.moviesBySearchBox = this.moviesBySearchBox.bind(this);
-    this.moviesBySelectedGenre = this.moviesBySelectedGenre.bind(this);
     this.finalList = this.finalList.bind(this);
   }
 
@@ -31,37 +28,26 @@ class MovieLibrary extends Component {
   }
 
   addNewMovie(values) {
-    this.setState((state) =>({ movies: [...state.movies, values] }))
+    this.setState((state) => ({ movies: [...state.movies, values] }));
   }
 
-  moviesByBookMarkedOnly(arr) {
-    return arr.filter(movie => movie.bookmarked);
-  }
-
-  moviesBySearchBox(value, arr) {
-    return arr.filter(movie => (
-      movie.title.includes(value) ||
-      movie.subtitle.includes(value) ||
-      movie.storyline.includes(value) ? true : false
-    ));
-  }
-
-  moviesBySelectedGenre(value, arr) {
-    return arr.filter(movie => movie.genre === value);
-  }
-
-  finalList() {
-    let arrMovies = this.state.movies;
+  movieList() {
+    let movieArray = this.state.movies;
     if (this.state.searchText !== '') {
-      arrMovies = this.moviesBySearchBox(this.state.searchText, arrMovies);
+      movieArray = this.state.movies.filter((movie) => (
+        movie.title.includes(this.state.searchText)
+        || movie.subtitle.includes(this.state.searchText)
+        || movie.storyline.includes(this.state.searchText)
+      ));
     }
     if (this.state.bookmarkedOnly) {
-      arrMovies = this.moviesByBookMarkedOnly(arrMovies);
+      movieArray = movieArray.filter((movie) => movie.bookmarked);
     }
     if (this.state.selectedGenre.length > 0) {
-      arrMovies = this.moviesBySelectedGenre(this.state.selectedGenre, arrMovies);
+      movieArray = movieArray
+        .filter((movie) => movie.genre === this.state.selectedGenre);
     }
-    return arrMovies;
+    return movieArray;
   }
 
   render() {
@@ -76,7 +62,7 @@ class MovieLibrary extends Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={e => this.changeHandler(e, 'selectedGenre')}
         />
-        <MovieList movies={this.finalList()} />
+        <MovieList movies={this.movieList()} />
         <AddMovie onClick={this.addNewMovie} />
       </div>
     );
