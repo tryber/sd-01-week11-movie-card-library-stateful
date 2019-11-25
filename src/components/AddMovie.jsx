@@ -10,24 +10,28 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action'
+      genre: 'action',
     };
+    this.elementsInput = this.elementsInput.bind(this);
+    this.changeHandler = this.changeHandler.bind(this);
+    this.changeNumber = this.changeNumber.bind(this);
+    this.resetMoviesCard = this.resetMoviesCard.bind(this);
   }
-  
-  changeHandler = (event, name) => {
+
+  changeHandler(event, name) {
     const { value } = event.target;
-    this.setState({
-      [name]: value
-    })
+    this.setState(
+      { [name]: value },
+    );
   }
 
-  changeNumber = (event) => {
-    this.setState({
-      rating: Number(event.target.value)
-    })
+  changeNumber(event) {
+    this.setState(
+      { rating: Number(event.target.value) },
+    );
   }
 
-  resetMoviesCard = onClick => {
+  resetMoviesCard(onClick) {
     const value = this.state;
     this.setState({
       subtitle: '',
@@ -38,18 +42,41 @@ class AddMovie extends React.Component {
       genre: 'action',
     });
     onClick(value);
-  };
-  
-  elementsInput = ( label, type, value, element ) => {
+  }
+
+
+  elementsInput(id, label, type, value, element) {
     return (
-    <label>
-      { label }
-      <input 
-      type= { type }
-      value={value}
-      onChange={event => this.changeHandler(event, element)}
-      />
-    </label>
+      <label htmlFor={id}>
+        {label}
+        <input
+          type={type}
+          value={value}
+          onChange={event => this.changeHandler(event, element)}
+        />
+      </label>
+    )
+  }
+
+  elementTextarea() {
+    return (
+      <label htmlFor="storyline">
+        Sinopse
+        <textarea id="storyline" value={this.state.storyline} onChange={event => this.changeHandler(event, 'storyline')} />
+      </label>
+    )
+  }
+
+  elementCheckbox() {
+    return (
+      <label htmlFor="genre">
+        Gênero
+        <select id="genre" value={this.state.genre} onChange={event => this.changeHandler(event, 'genre')}>
+          <option value="action">Ação</option>
+          <option value="comedy">Comédia</option>
+          <option value="thriller">Suspense</option>
+        </select>
+      </label>
     )
   }
 
@@ -57,26 +84,16 @@ class AddMovie extends React.Component {
     const { onClick } = this.props;
     return (
       <form className="form-new-movie">
-        {this.elementsInput('Título', 'text', this.state.title, 'title')}
-        {this.elementsInput('Subtítulo', 'text', this.state.subtitle, 'subtitle')}
-        {this.elementsInput('Imagem', 'text', this.state.imagePath, 'imagePath')}
-        <label> 
-          Sinopse
-          <textarea value={this.state.storyline} onChange={event => this.changeHandler(event, 'storyline')} />
-        </label>
-        <label>
+        {this.elementsInput('title', 'Título', 'text', this.state.title, 'title')}
+        {this.elementsInput('subtitle', 'Subtítulo', 'text', this.state.subtitle, 'subtitle')}
+        {this.elementsInput('imagePath', 'Imagem', 'text', this.state.imagePath, 'imagePath')}
+        {this.elementTextarea()}
+        <label htmlFor="rating">
           Avaliação
-          <input type="number" value={this.state.rating} onChange={event => this.changeNumber(event, 'rating')} />
+          <input id="rating" type="number" value={this.state.rating} onChange={event => this.changeNumber(event, 'rating')} />
         </label>
-        <label>
-          Gênero
-        <select  value={this.state.genre} onChange={event => this.changeHandler(event, 'genre')}>
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
-          </select>
-        </label>
-        <button onClick={() => this.resetMoviesCard(onClick)}>Adicionar filme</button>
+        {this.elementCheckbox()}
+        <button type="button" onClick={() => this.resetMoviesCard(onClick)}>Adicionar filme</button>
       </form>
     );
   }
