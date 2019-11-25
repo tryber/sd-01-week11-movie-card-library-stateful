@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import SearchBar from './SearchBar';
-import MovieList from './MovieList';
-import AddMovie from './AddMovie';
+import React, { Component } from "react";
+import SearchBar from "./SearchBar";
+import MovieList from "./MovieList";
+import AddMovie from "./AddMovie";
 
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchText: "",
+      searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: "",
+      selectedGenre: '',
       movies: props.movies
     };
 
@@ -55,7 +55,7 @@ class MovieLibrary extends Component {
 
   pushingNewMovie(values) {
     this.setState(state => ({ movies: [...state.movies, values] }));
-  };
+  }
 
   render() {
     return (

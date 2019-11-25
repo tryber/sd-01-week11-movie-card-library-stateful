@@ -4,12 +4,12 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action"
+      genre: 'action'
     };
 
     this.changeHandTitle = this.changeHandTitle.bind(this);
@@ -52,12 +52,12 @@ class AddMovie extends React.Component {
   addAndRemoveMovie(onClick) {
     onClick(this.state);
     this.setState({
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action"
+      genre: 'action'
     });
   }
 
@@ -69,7 +69,7 @@ class AddMovie extends React.Component {
           id={label}
           type="text"
           value={this.state[value]}
-          onChange={e => func(e)}
+          onChange={(e) => func(e)}
         />
       </label>
     );
@@ -83,7 +83,7 @@ class AddMovie extends React.Component {
           id={label}
           type="number"
           value={this.state[value]}
-          onChange={e => func(e)}
+          onChange={(e) => func(e)}
         />
       </label>
     );
@@ -96,7 +96,7 @@ class AddMovie extends React.Component {
         <textarea
           id="Sinopse"
           value={this.state.storyline}
-          onChange={event => this.changeHandStoryline(event)}
+          onChange={(event) => this.changeHandStoryline(event)}
         />
       </label>
     );
@@ -120,16 +120,16 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form>
-          {this.createInput("title", this.changeHandTitle, "Título")}
-          {this.createInput("subtitle", this.changeHandSubtitle, "Subtítulo")}
-          {this.createInput("imagePath", this.changeHandImage, "Imagem")}
-          {this.createTextArea()}
-          {this.createInputRating("rating", this.changeHandRating, "Avaliação")}
+          {this.createInput('title', this.changeHandTitle, 'Título')};
+          {this.createInput('subtitle', this.changeHandSubtitle, 'Subtítulo')};
+          {this.createInput('imagePath', this.changeHandImage, 'Imagem')};
+          {this.createTextArea()};
+          {this.createInputRating('rating', this.changeHandRating, 'Avaliação')};
           {this.createGenreSelect(
             this.state.genre,
             this.changeHandGenre,
             "Gênero"
-          )}
+          )};
           <button type="button" onClick={() => this.addAndRemoveMovie(onClick)}>
             Adicionar filme
           </button>
