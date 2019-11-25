@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
 class SearchBar extends Component {
-  constructor(props) {
-    super(props);
-    this.addTopForm = this.addTopForm.bind(this);
-  }
 
   addTopForm(id, label, type, value, onChange) {
     return (
@@ -19,21 +15,30 @@ class SearchBar extends Component {
       </label>
     );
   }
+
+  showFavorities() {
+    return (
+      <label htmlFor="include-the-favorities">
+        Mostrar somente favoritos
+        <input
+          id="include-the-favorities"
+          type="checkbox"
+          checked={this.props.bookmarkedOnly}
+          onChange={this.props.onBookmarkedChange}
+        />
+      </label>
+    );
+  }
+
   render() {
     const {
-      searchText, onSearchTextChange, bookmarkedOnly,
-      onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
+      searchText, onSearchTextChange, selectedGenre, onSelectedGenreChange,
+    } = this.props;
     return (
       <form className="filter-the-movie">
-        {this.addTopForm('include-the-text', 'Inclui o texto:', 'text', searchText, onSearchTextChange)}
-        <label htmlFor="include-the-favorities">
-          Mostrar somente favoritos
-          <input
-            id="include-the-favorities"
-            type="checkbox"
-            checked={bookmarkedOnly}
-            onChange={onBookmarkedChange} />
-        </label>
+        {this.addTopForm('include-the-text', 'Inclui o texto:',
+          'text', searchText, onSearchTextChange)}
+        {this.showFavorities()}
         <label htmlFor="include-genre">
           Filtrar por gênero
           <select id="include-genre" value={selectedGenre} onChange={onSelectedGenreChange}>

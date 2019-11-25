@@ -58,19 +58,6 @@ class AddMovie extends React.Component {
     );
   }
 
-  elementInput(id, label, type, value, element) {
-    return (
-      <label htmlFor={id}>
-        {label}
-        <input
-          type={type}
-          value={value}
-          onChange={(event) => this.changeHandler(event, element)}
-        />
-      </label>
-    );
-  }
-
   elementCheckbox(id, value, element) {
     return (
       <select id={id} value={value} onChange={(event) => this.changeHandler(event, element)}>
@@ -94,7 +81,7 @@ class AddMovie extends React.Component {
         </label>
         <label htmlFor="rating">
           Avaliação
-            <input id="rating" type="number" value={this.state.rating} onChange={(event) => this.changeNumber(event, 'rating')} />
+          <input id="rating" type="number" value={this.state.rating} onChange={(event) => this.changeNumber(event, 'rating')} />
         </label>
         <label htmlFor="genre">
           Gênero
