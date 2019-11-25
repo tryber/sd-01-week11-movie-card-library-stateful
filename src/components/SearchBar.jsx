@@ -17,7 +17,7 @@ class SearchBar extends Component {
     );
   }
 
-  renderOption(key, value, text) {
+  renOption(key, value, text) {
     return (
       <option key={key} value={value}>{text}</option>
     );
@@ -27,13 +27,14 @@ class SearchBar extends Component {
     const genreOptions = [
       { text: 'Todos', value: '' }, { text: 'Ação', value: 'action' },
       { text: 'Comédia', value: 'comedy' }, { text: 'Suspense', value: 'thriller' }];
+    const {selectedGenre, onSelectedGenreChange} = this.props;
     return (
       <form>
         {this.renderInput('fsearch-bar', 'Inclui o texto:', 'text', this.props.searchText, this.props.onSearchTextChange)}
         {this.renderCheckbox('checkbox', 'Mostrar somente favoritos:', 'checkbox', this.props.bookmarkedOnly, this.props.onBookmarkedChange)}
         <label htmlFor="select">Filtrar por gênero:
-          <select id="select" value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange}>
-            {genreOptions.map((option) => this.renderOption(option.text, option.value, option.text))}
+          <select id="select" value={selectedGenre} onChange={onSelectedGenreChange}>
+            {genreOptions.map((option) => this.renOption(option.text, option.value, option.text))}
           </select>
         </label>
       </form>
