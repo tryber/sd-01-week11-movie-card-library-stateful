@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 
 class SearchBar extends Component {
-
-  addTopForm(id, label, type, value, onChange) {
+  addTopForm() {
     return (
-      <label htmlFor={id}>
-        {label}
+      <label htmlFor="include-the-text">
+        Inclui o texto
         <input
-          id={id}
-          type={type}
-          value={value}
-          onChange={onChange}
+          id="include-the-text"
+          type="text"
+          value={this.props.searchText}
+          onChange={this.props.onSearchTextChange}
         />
       </label>
     );
@@ -31,13 +30,10 @@ class SearchBar extends Component {
   }
 
   render() {
-    const {
-      searchText, onSearchTextChange, selectedGenre, onSelectedGenreChange,
-    } = this.props;
+    const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
-      <form className="filter-the-movie">
-        {this.addTopForm('include-the-text', 'Inclui o texto:',
-          'text', searchText, onSearchTextChange)}
+      <form className="selected-the-movie">
+        {this.addTopForm()}
         {this.showFavorities()}
         <label htmlFor="include-genre">
           Filtrar por gênero
