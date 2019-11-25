@@ -12,9 +12,10 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: this.props.movies,
     };
+    this.changeHandler = this.changeHandler.bind(this);
   }
 
-  changeHandler = (event, name) => {
+  changeHandler(event, name) {
     if (name === 'bookmarkedOnly') {
       const { checked } = event.target;
       this.setState({ [name]: checked });
