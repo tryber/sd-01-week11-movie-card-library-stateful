@@ -10,7 +10,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies,
+      movies: this.props.movies,
     };
   }
 
@@ -24,8 +24,38 @@ class MovieLibrary extends Component {
     }
   }
 
-  addNewMovie = values => {
-    this.setState((state) => ({ movies: [...state.movies, values] }))
+  addNewMovie = values => (
+    this.setState((state) =>({ movies: [...state.movies, values] }))
+  )
+
+  moviesByBookMarkedOnly = (arr) => {
+    return arr.filter(movie => movie.bookmarked);
+  }
+
+  moviesBySearchBox = (value, arr) => {
+    return arr.filter(movie => (
+      movie.title.includes(value) ||
+      movie.subtitle.includes(value) ||
+      movie.storyline.includes(value) ? true : false
+    ));
+  }
+
+  moviesBySelectedGenre = (value, arr) => {
+    return arr.filter(movie => movie.genre === value);
+  }
+
+  finalList = () => {
+    let arrMovies = this.state.movies;
+    if (this.state.searchText !== '') {
+      arrMovies = this.moviesBySearchBox(this.state.searchText, arrMovies);
+    }
+    if (this.state.bookmarkedOnly) {
+      arrMovies = this.moviesByBookMarkedOnly(arrMovies);
+    }
+    if (this.state.selectedGenre.length > 0) {
+      arrMovies = this.moviesBySelectedGenre(this.state.selectedGenre, arrMovies);
+    }
+    return arrMovies;
   }
 
   render() {
@@ -34,13 +64,13 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={this.state.searchText}
-          onSearchTextChange={(e) => this.changeHandler(e, 'searchText')}
+          onSearchTextChange={e => this.changeHandler(e)}
           bookmarkedOnly={this.state.bookmarkedOnly}
-          onBookmarkedChange={(e) => this.changeHandler(e, 'bookmarkedOnly')}
+          onBookmarkedChange={e => this.changeHandler(e)}
           selectedGenre={this.state.selectedGenre}
-          onSelectedGenreChange={(e) => this.changeHandler(e, 'selectedGenre')}
+          onSelectedGenreChange={e => this.changeHandler(e)}
         />
-        <MovieList movies={this.props.movies} />
+        <MovieList movies={this.finalList()} />
         <AddMovie onClick={this.addNewMovie} />
       </div>
     );
