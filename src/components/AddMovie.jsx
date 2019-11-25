@@ -11,7 +11,8 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-    this.addMovie = this.addMovie.bind(this)
+    this.addMovie = this.addMovie.bind(this);
+    this.changeHandler = this.changeHandler.bind(this);
   }
 
   addMovie(onClick) {
@@ -26,33 +27,45 @@ class AddMovie extends React.Component {
     });
   }
 
-  changeHandler = (event, name) => {
-    let { value } = event.target
-    if(name === 'rating') value = Number(value);
-    this.setState({ [name]: value })
+  changeHandler(event, name) {
+    let { value } = event.target;
+    if (name === 'rating') value = Number(value);
+    this.setState({ [name]: value });
   }
 
   render() {
     const { onClick } = this.props;
     return (
       <form>
-        <label htmlFor="title">Título</label>
+        <label htmlFor="title">
+          Título
           <input id="title" type="text" value={this.state.title} onChange={(e) => this.changeHandler(e,'title')} />
-        <label htmlFor="subtitle">Subtítulo</label>
+        </label>
+        <label htmlFor="subtitle">
+          Subtítulo
           <input id="subtitle" type="text" value={this.state.subtitle} onChange={(e) => this.changeHandler(e,'subtitle')} />
-        <label htmlFor="imagePath">Imagem</label>
+        </label>
+        <label htmlFor="imagePath">
+          Imagem
           <input id="imagePath" type="text" value={this.state.imagePath} onChange={(e) => this.changeHandler(e,'imagePath')} />
-        <label htmlFor="storyline">Sinopse</label>
+        </label>
+        <label htmlFor="storyline">
+          Sinopse
           <textarea id="storyline" value={this.state.storyline} onChange={(e) => this.changeHandler(e,'storyline')} />
-        <label htmlFor="rating">Avaliação</label>
+        </label>
+        <label htmlFor="rating">
+          Avaliação
           <input id="rating" type="number" value={this.state.rating} onChange={(e) => this.changeHandler(e,'rating')} />
-        <label htmlFor="genre">Gênero:</label>
+        </label>
+        <label htmlFor="genre">
+          Gênero:
           <select id="genre" value={this.state.genre} onChange={(e) => this.changeHandler(e,'genre')}>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
             <option value="thriller">Suspense</option>
           </select>
           <button type="button" onClick={() => this.addMovie(onClick)}>Adicionar filme</button>
+        </label>
       </form>
     );
   }

@@ -13,6 +13,11 @@ class MovieLibrary extends Component {
       movies: this.props.movies,
     };
     this.changeHandler = this.changeHandler.bind(this);
+    this.addNewMovie = this.addNewMovie.bind(this);
+    this.moviesByBookMarkedOnly = this.moviesByBookMarkedOnly.bind(this);
+    this.moviesBySearchBox = this.moviesBySearchBox.bind(this);
+    this.moviesBySelectedGenre = this.moviesBySelectedGenre.bind(this);
+    this.finalList = this.finalList.bind(this);
   }
 
   changeHandler(event, name) {
@@ -25,15 +30,15 @@ class MovieLibrary extends Component {
     }
   }
 
-  addNewMovie = values => (
+  addNewMovie(values) {
     this.setState((state) =>({ movies: [...state.movies, values] }))
-  )
+  }
 
-  moviesByBookMarkedOnly = (arr) => {
+  moviesByBookMarkedOnly(arr) {
     return arr.filter(movie => movie.bookmarked);
   }
 
-  moviesBySearchBox = (value, arr) => {
+  moviesBySearchBox(value, arr) {
     return arr.filter(movie => (
       movie.title.includes(value) ||
       movie.subtitle.includes(value) ||
@@ -41,11 +46,11 @@ class MovieLibrary extends Component {
     ));
   }
 
-  moviesBySelectedGenre = (value, arr) => {
+  moviesBySelectedGenre(value, arr) {
     return arr.filter(movie => movie.genre === value);
   }
 
-  finalList = () => {
+  finalList() {
     let arrMovies = this.state.movies;
     if (this.state.searchText !== '') {
       arrMovies = this.moviesBySearchBox(this.state.searchText, arrMovies);
