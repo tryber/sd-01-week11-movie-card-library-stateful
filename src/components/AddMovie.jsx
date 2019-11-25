@@ -18,7 +18,7 @@ class AddMovie extends React.Component {
     this.changeStoryline = this.changeStoryline.bind(this);
     this.changeRating = this.changeRating.bind(this);
     this.changeGenre = this.changeGenre.bind(this);
-    this.resetState = this.resetState.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   changeTitle(event) {
@@ -51,7 +51,7 @@ class AddMovie extends React.Component {
     this.setState({ genre: value });
   }
 
-  resetState() {
+  addMovie() {
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -94,7 +94,7 @@ class AddMovie extends React.Component {
             {[['Ação', 'action'], ['Comédia', 'comedy'], ['Suspense', 'thriller']].map((genres) => <option key={genres[1]} value={genres[1]}>{genres[0]}</option>)}
           </select>
         </label>
-        <button id="submit" type="submit" onClick={this.resetState}>Adicionar filme</button>
+        <button id="submit" type="submit" onClick={this.addMovie}>Adicionar filme</button>
       </form>
     );
   }
