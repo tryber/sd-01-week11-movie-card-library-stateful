@@ -16,6 +16,7 @@ class AddMovie extends React.Component {
     this.changeHandler = this.changeHandler.bind(this);
     this.changeNumber = this.changeNumber.bind(this);
     this.resetMoviesCard = this.resetMoviesCard.bind(this);
+    this.elementCheckbox = this.elementCheckbox.bind(this);
   }
 
   changeHandler(event, name) {
@@ -44,7 +45,6 @@ class AddMovie extends React.Component {
     onClick(value);
   }
 
-
   elementsInput(id, label, type, value, element) {
     return (
       <label htmlFor={id}>
@@ -52,32 +52,33 @@ class AddMovie extends React.Component {
         <input
           type={type}
           value={value}
-          onChange={event => this.changeHandler(event, element)}
+          onChange={(event) => this.changeHandler(event, element)}
         />
       </label>
-    )
+    );
   }
 
-  elementTextarea() {
+  elementInput(id, label, type, value, element) {
     return (
-      <label htmlFor="storyline">
-        Sinopse
-        <textarea id="storyline" value={this.state.storyline} onChange={event => this.changeHandler(event, 'storyline')} />
+      <label htmlFor={id}>
+        {label}
+        <input
+          type={type}
+          value={value}
+          onChange={(event) => this.changeHandler(event, element)}
+        />
       </label>
-    )
+    );
   }
 
-  elementCheckbox() {
+  elementCheckbox(id, value, element) {
     return (
-      <label htmlFor="genre">
-        Gênero
-        <select id="genre" value={this.state.genre} onChange={event => this.changeHandler(event, 'genre')}>
-          <option value="action">Ação</option>
-          <option value="comedy">Comédia</option>
-          <option value="thriller">Suspense</option>
-        </select>
-      </label>
-    )
+      <select id={id} value={value} onChange={(event) => this.changeHandler(event, element)}>
+        <option value="action">Ação</option>
+        <option value="comedy">Comédia</option>
+        <option value="thriller">Suspense</option>
+      </select>
+    );
   }
 
   render() {
@@ -87,16 +88,22 @@ class AddMovie extends React.Component {
         {this.elementsInput('title', 'Título', 'text', this.state.title, 'title')}
         {this.elementsInput('subtitle', 'Subtítulo', 'text', this.state.subtitle, 'subtitle')}
         {this.elementsInput('imagePath', 'Imagem', 'text', this.state.imagePath, 'imagePath')}
-        {this.elementTextarea()}
+        <label htmlFor="storyline">
+          Sinopse
+          <textarea id="storyline" value={this.state.storyline} onChange={(event) => this.changeHandler(event, 'storyline')} />
+        </label>
         <label htmlFor="rating">
           Avaliação
-          <input id="rating" type="number" value={this.state.rating} onChange={event => this.changeNumber(event, 'rating')} />
+            <input id="rating" type="number" value={this.state.rating} onChange={(event) => this.changeNumber(event, 'rating')} />
         </label>
-        {this.elementCheckbox()}
+        <label htmlFor="genre">
+          Gênero
+          {this.elementCheckbox('genre', this.state.genre, 'genre')}
+        </label>
         <button type="button" onClick={() => this.resetMoviesCard(onClick)}>Adicionar filme</button>
       </form>
     );
   }
-};
+}
 
 export default AddMovie;
