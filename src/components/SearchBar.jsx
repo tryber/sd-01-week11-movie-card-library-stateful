@@ -20,13 +20,15 @@ class SearchBar extends Component {
         </label>
         <label htmlFor="select">
           Filtrar por gênero:
-          <select id="select" value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange}>
-            {genreOptions.map((option, index) => <option key={index} value={option.value}>{option.text}</option>)}
+          <select id="select" value={this.props.selectedGenre}
+            onChange={this.props.onSelectedGenreChange}>
+            {genreOptions.map((option) =>
+              <option key={option.text} value={option.value}>{option.text}</option>)}
           </select>
         </label>
 
       </form>
-    )
+    );
   }
 }
 
