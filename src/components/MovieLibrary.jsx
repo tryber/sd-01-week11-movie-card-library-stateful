@@ -42,7 +42,8 @@ class MovieLibrary extends Component {
       return array.filter((obj) => obj.bookmarked === bookmarkedOnly);
     }
     if (searchText !== '') {
-      return array.filter((obj) => obj.title.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
+      return array.filter((obj) =>
+        obj.title.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
         || obj.subtitle.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
         || obj.storyline.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()));
     }
@@ -55,7 +56,8 @@ class MovieLibrary extends Component {
   render() {
     return (
       <div>
-        <SearchBar searchText={this.state.searchText}
+        <SearchBar
+          searchText={this.state.searchText}
           onSearchTextChange={this.onSearchTextChange}
           bookmarkedOnly={this.state.bookmarkedOnly}
           onBookmarkedChange={this.onBookmarkedChange}

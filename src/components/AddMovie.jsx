@@ -69,19 +69,30 @@ class AddMovie extends React.Component {
     return (
       <form>
         <label htmlFor="film-title">Título
-        <input type="text" id="film-title" name="title" value={this.state.title} onChange={this.onTitleChange} /></label>
+        <input type="text" id="film-title" name="title"
+        value={this.state.title} onChange={this.onTitleChange} 
+        /></label>
         <label htmlFor="film-subtitle">Subtítulo
-        <input type="text" id="film-subtitle" name="subtitle" value={this.state.subtitle} onChange={this.onSubChange} /></label>
+        <input type="text" id="film-subtitle" name="subtitle" 
+        value={this.state.subtitle} onChange={this.onSubChange} 
+        /></label>
         <label htmlFor="film-img">Imagem
-        <input type="text" id="film-img" name="imagePath" value={this.state.imagePath} onChange={this.onImageChange} /></label>
+        <input type="text" id="film-img" name="imagePath" 
+        value={this.state.imagePath} onChange={this.onImageChange} 
+        /></label>
         <label htmlFor="film-storyline">Sinopse
-        <textarea id="film-storyline" name="storyline" value={this.state.storyline} onChange={this.onStoryChange} /></label>
+        <textarea id="film-storyline" name="storyline" 
+        value={this.state.storyline} onChange={this.onStoryChange} 
+        /></label>
         <label htmlFor="film-avalation">Avaliação
-        <input type="number" id="film-avalation" name="rating" value={this.state.rating} onChange={this.onRatingChange} /></label>
+        <input type="number" id="film-avalation" name="rating" 
+        value={this.state.rating} onChange={this.onRatingChange} 
+        /></label>
         <label htmlFor="film-genre">Gênero
         <select name="genre" value={this.state.genre} onChange={this.onGenreChange}>
-            {genreOptions.map((option) => <option key={option.text} value={option.value}>{option.text}</option>)}
-          </select>
+          {genreOptions.map((option) => 
+          <option key={option.text} value={option.value}>{option.text}</option>)}
+        </select>
         </label>
         <button type="button" onClick={this.clickHere}>Adicionar filme</button>
       </form>
