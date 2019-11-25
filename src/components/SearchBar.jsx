@@ -1,6 +1,20 @@
 import React, { Component } from 'react';
 
 class SearchBar extends Component {
+
+  addTopForm = (id, label, type, value, onChange) => {
+    return (
+      <label htmlFor={id}>
+        {label}
+        <input
+          id={id}
+          type={type}
+          value={value}
+          onChange={onChange}
+        />
+      </label>
+    )
+  }
   render() {
     const {
       searchText, onSearchTextChange, bookmarkedOnly,
@@ -8,13 +22,16 @@ class SearchBar extends Component {
     } = this.props;
     return (
       <form className="filter-the-movie">
-        <label htmlFor="include-the-text">
-          Inclui o texto:
-          <input id="include-the-text" type="text" value={searchText} onChange={onSearchTextChange} />
-        </label>
+        {this.addTopForm('include-the-text', 'Inclui o texto:',
+          'text', searchText, onSearchTextChange)}
         <label htmlFor="include-the-favorities">
           Mostrar somente favoritos
-          <input id="include-the-favorities" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+          <input
+            id="include-the-favorities"
+            type="checkbox"
+            checked={bookmarkedOnly}
+            onChange={onBookmarkedChange}
+          />
         </label>
         <label htmlFor="include-genre">
           Filtrar por gênero

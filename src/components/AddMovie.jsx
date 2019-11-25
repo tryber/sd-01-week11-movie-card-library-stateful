@@ -21,10 +21,9 @@ class AddMovie extends React.Component {
     })
   }
 
-  changeNumber = (event, name) => {
-    const { value } = event.target;
+  changeNumber = (event) => {
     this.setState({
-      [name]: Number(value)
+      rating: Number(event.target.value)
     })
   }
 
@@ -41,32 +40,36 @@ class AddMovie extends React.Component {
     onClick(value);
   };
   
+  elementsInput = ( label, type, value, element ) => {
+    return (
+    <label>
+      { label }
+      <input 
+      type= { type }
+      value={value}
+      onChange={event => this.changeHandler(event, element)}
+      />
+    </label>
+    )
+  }
+
   render() {
     const { onClick } = this.props;
     return (
       <form className="form-new-movie">
-        <label>
-          Título:
-          <input type="text" value={this.state.title} onChange={event => this.changeHandler(event, 'title')} />
-        </label>
-        <label>
-          Subtítulo:
-          <input type="text" value={this.state.subtitle} onChange={event => this.changeHandler(event, 'subtitle')} />
-        </label>
-        <label>
-          Imagem:
-          <input type="text" value={this.state.imagePath} onChange={event => this.changeHandler(event, 'imagePath')} />
-        </label>
-        <label>
-          Sinopse:
+        {this.elementsInput('Título', 'text', this.state.title, 'title')}
+        {this.elementsInput('Subtítulo', 'text', this.state.subtitle, 'subtitle')}
+        {this.elementsInput('Imagem', 'text', this.state.imagePath, 'imagePath')}
+        <label> 
+          Sinopse
           <textarea value={this.state.storyline} onChange={event => this.changeHandler(event, 'storyline')} />
         </label>
         <label>
-          Avaliação:
+          Avaliação
           <input type="number" value={this.state.rating} onChange={event => this.changeNumber(event, 'rating')} />
         </label>
         <label>
-          Gênero:
+          Gênero
         <select  value={this.state.genre} onChange={event => this.changeHandler(event, 'genre')}>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
