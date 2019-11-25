@@ -10,7 +10,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies
+      movies: props.movies,
     };
 
     this.changeHandlerSearch = this.changeHandlerSearch.bind(this);
@@ -27,7 +27,7 @@ class MovieLibrary extends Component {
         (movie) =>
           movie.title.includes(this.state.searchText) ||
           movie.subtitle.includes(this.state.searchText) ||
-          movie.storyline.includes(this.state.searchText)
+          movie.storyline.includes(this.state.searchText),
       );
     }
     if (this.state.bookmarkedOnly) {
@@ -35,7 +35,7 @@ class MovieLibrary extends Component {
     }
     if (this.state.selectedGenre.length > 0) {
       arrMovies = arrMovies.filter(
-        (movie) => movie.genre === this.state.selectedGenre
+        (movie) => movie.genre === this.state.selectedGenre,
       );
     }
     return arrMovies;
