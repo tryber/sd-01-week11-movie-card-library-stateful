@@ -20,7 +20,7 @@ class AddMovie extends React.Component {
     this.changeGenre = this.changeGenre.bind(this);
     this.addMovie = this.addMovie.bind(this);
     this.renderForm = this.renderForm.bind(this);
-    this.inputMaker = this.inputMaker.bind(this);
+    this.peripheralFormElements = this.peripheralFormElements.bind(this);
   }
 
   changeTitle(event) {
