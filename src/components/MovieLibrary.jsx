@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import SearchBar from "./SearchBar";
-import MovieList from "./MovieList";
-import AddMovie from "./AddMovie";
+import React, { Component } from 'react';
+import SearchBar from './SearchBar';
+import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -17,6 +17,7 @@ class MovieLibrary extends Component {
     this.changeHandlerMarked = this.changeHandlerMarked.bind(this);
     this.changeHandlerGenre = this.changeHandlerGenre.bind(this);
     this.findingMovies = this.findingMovies.bind(this);
+    this.pushingNewMovie = this.pushingNewMovie.bind(this);
   }
 
   findingMovies() {
@@ -52,7 +53,7 @@ class MovieLibrary extends Component {
     this.setState({ selectedGenre: event.target.value });
   }
 
-  pushingNewMovie = values => {
+  pushingNewMovie(values) {
     this.setState(state => ({ movies: [...state.movies, values] }));
   };
 

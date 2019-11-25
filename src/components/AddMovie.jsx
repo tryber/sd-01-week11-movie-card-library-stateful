@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -20,6 +20,9 @@ class AddMovie extends React.Component {
     this.changeHandGenre = this.changeHandGenre.bind(this);
     this.createTextArea = this.createTextArea.bind(this);
     this.createGenreSelect = this.createGenreSelect.bind(this);
+    this.createInput = this.createInput.bind(this);
+    this.createInputRating = this.createInputRating.bind(this);
+    this.addAndRemoveMovie = this.addAndRemoveMovie.bind(this);
   }
 
   changeHandTitle(event) {
@@ -46,7 +49,7 @@ class AddMovie extends React.Component {
     this.setState({ genre: event.target.value });
   }
 
-  addAndRemoveMovie = onClick => {
+  addAndRemoveMovie(onClick) {
     onClick(this.state);
     this.setState({
       subtitle: "",
@@ -56,9 +59,9 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: "action"
     });
-  };
+  }
 
-  createInput = (value, func, label) => {
+  createInput(value, func, label) {
     return (
       <label htmlFor={label}>
         {label}
@@ -70,9 +73,9 @@ class AddMovie extends React.Component {
         />
       </label>
     );
-  };
+  }
 
-  createInputRating = (value, func, label) => {
+  createInputRating(value, func, label) {
     return (
       <label htmlFor={label}>
         {label}
@@ -84,7 +87,7 @@ class AddMovie extends React.Component {
         />
       </label>
     );
-  };
+  }
 
   createTextArea() {
     return (
