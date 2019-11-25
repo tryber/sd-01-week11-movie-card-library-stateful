@@ -79,9 +79,9 @@ class AddMovie extends React.Component {
   renderStoryline(id, text, value, onChange) {
     return (
       <label htmlFor={id}>{text}
-        <textarea id={id} value={value} onChange={onChange}/>
+        <textarea id={id} value={value} onChange={onChange} />
       </label>
-    )
+    );
   }
   render() {
     const genreOptions = [
