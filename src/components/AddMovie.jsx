@@ -19,6 +19,7 @@ class AddMovie extends React.Component {
     this.changeRating = this.changeRating.bind(this);
     this.changeGenre = this.changeGenre.bind(this);
     this.addMovie = this.addMovie.bind(this);
+    this.renderForm = this.renderForm.bind(this);
   }
 
   changeTitle(event) {
@@ -57,7 +58,7 @@ class AddMovie extends React.Component {
     this.setState(this.originalState);
   }
 
-  render() {
+  renderForm() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form>
@@ -89,6 +90,12 @@ class AddMovie extends React.Component {
         </label>
         <button id="submit" type="submit" onClick={this.addMovie}>Adicionar filme</button>
       </form>
+    );
+  }
+
+  render() {
+    return (
+      this.renderForm()
     );
   }
 }
