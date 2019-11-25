@@ -48,7 +48,7 @@ class SearchBar extends Component {
   render() {
     return (
       <form>
-        <fieldset>
+        <fieldset className="search-bar">
           {this.textInclusion()}
           {this.showFavorites()}
           {this.genreFilter()}
