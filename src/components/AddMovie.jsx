@@ -102,11 +102,11 @@ class AddMovie extends React.Component {
     );
   }
 
-  createGenreSelect(value, onChange, id) {
+  createGenreSelect(id) {
     return (
       <label htmlFor={id}>
         {id}
-        <select value={value} onChange={onChange} id={id}>
+        <select value={this.state.genre} onChange={this.changeHandGenre} id={id}>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
@@ -125,11 +125,7 @@ class AddMovie extends React.Component {
           {this.createInput('imagePath', this.changeHandImage, 'Imagem')};
           {this.createTextArea()};
           {this.createInputRating('rating', this.changeHandRating, 'Avaliação')};
-          {this.createGenreSelect(
-            this.state.genre,
-            this.changeHandGenre,
-            'Gênero',
-          )};
+          {this.createGenreSelect('Gênero')};
           <button type="button" onClick={() => this.addAndRemoveMovie(onClick)}>
             Adicionar filme
           </button>
