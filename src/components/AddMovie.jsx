@@ -69,24 +69,24 @@ class AddMovie extends React.Component {
     return (
       <form>
         <label htmlFor="film-title">Título
-        <input type="text" id="film-title" name="title"
-        value={this.state.title} onChange={this.onTitleChange} 
+        <input 
+        type="text" id="film-title" name="title" value={this.state.title} onChange={this.onTitleChange} 
         /></label>
         <label htmlFor="film-subtitle">Subtítulo
-        <input type="text" id="film-subtitle" name="subtitle" 
-        value={this.state.subtitle} onChange={this.onSubChange} 
+        <input 
+        type="text" id="film-subtitle" name="subtitle" value={this.state.subtitle} onChange={this.onSubChange} 
         /></label>
         <label htmlFor="film-img">Imagem
-        <input type="text" id="film-img" name="imagePath" 
-        value={this.state.imagePath} onChange={this.onImageChange} 
+        <input 
+        type="text" id="film-img" name="imagePath" value={this.state.imagePath} onChange={this.onImageChange} 
         /></label>
         <label htmlFor="film-storyline">Sinopse
-        <textarea id="film-storyline" name="storyline" 
-        value={this.state.storyline} onChange={this.onStoryChange} 
+        <textarea 
+        id="film-storyline" name="storyline" value={this.state.storyline} onChange={this.onStoryChange} 
         /></label>
         <label htmlFor="film-avalation">Avaliação
-        <input type="number" id="film-avalation" name="rating" 
-        value={this.state.rating} onChange={this.onRatingChange} 
+        <input 
+        type="number" id="film-avalation" name="rating" value={this.state.rating} onChange={this.onRatingChange} 
         /></label>
         <label htmlFor="film-genre">Gênero
         <select name="genre" value={this.state.genre} onChange={this.onGenreChange}>
