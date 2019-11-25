@@ -16,41 +16,42 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onSelectedGenreChange =this.onSelectedGenreChange.bind(this);
     this.onClick = this.onClick.bind(this);
+    this.filterList = this.filterList.bind(this);
   }
 
   onSearchTextChange(event) {
-    this.setState({ searchText: event.target.value })
+    this.setState({ searchText: event.target.value });
   }
 
   onBookmarkedChange(event) {
-    this.setState({ bookmarkedOnly: event.target.checked })
+    this.setState({ bookmarkedOnly: event.target.checked });
   }
 
   onSelectedGenreChange(event) {
-    this.setState({ selectedGenre: event.target.value })
+    this.setState({ selectedGenre: event.target.value });
   }
 
   onClick(value) {
     this.setState((state) => ({
       movies: state.movies.concat(value)
-    }))
+    }));
   }
 
-  filterList = () => {
+  filterList() {
     const array = this.state.movies;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     if (bookmarkedOnly) {
-      return array.filter((obj) => obj.bookmarked === bookmarkedOnly)
+      return array.filter((obj) => obj.bookmarked === bookmarkedOnly);
     }
     if (searchText !== '') {
       return array.filter((obj) => obj.title.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
         || obj.subtitle.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
-        || obj.storyline.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()))
+        || obj.storyline.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()));
     }
     if (selectedGenre !== '') {
-      return array.filter((obj) => obj.genre === selectedGenre)
+      return array.filter((obj) => obj.genre === selectedGenre);
     }
-    return array
+    return array;
   }
 
   render() {

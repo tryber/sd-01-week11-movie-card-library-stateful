@@ -21,33 +21,33 @@ class AddMovie extends React.Component {
   }
 
   onTitleChange(event) {
-    const { value } = event.target
-    this.setState({ title: value })
+    const { value } = event.target;
+    this.setState({ title: value });
   }
 
   onSubChange(event) {
-    const { value } = event.target
-    this.setState({ subtitle: value })
+    const { value } = event.target;
+    this.setState({ subtitle: value });
   }
 
   onImageChange(event) {
-    const { value } = event.target
-    this.setState({ imagePath: value })
+    const { value } = event.target;
+    this.setState({ imagePath: value });
   }
 
   onStoryChange(event) {
-    const { value } = event.target
-    this.setState({ storyline: value })
+    const { value } = event.target;
+    this.setState({ storyline: value });
   }
 
   onRatingChange(event) {
-    const { value } = event.target
-    this.setState({ rating: Number(value) })
+    const { value } = event.target;
+    this.setState({ rating: Number(value) });
   }
 
   onGenreChange(event) {
-    const { value } = event.target
-    this.setState({ genre: value })
+    const { value } = event.target;
+    this.setState({ genre: value });
   }
 
   clickHere() {
