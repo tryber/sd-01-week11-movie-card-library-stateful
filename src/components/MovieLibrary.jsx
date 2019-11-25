@@ -12,17 +12,20 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: this.props.movies
     }
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onSelectedGenreChange =this.onSelectedGenreChange.bind(this);
   }
 
-  onSearchTextChange = (event) => {
+  onSearchTextChange(event) {
     this.setState({ searchText: event.target.value })
   }
 
-  onBookmarkedChange = (event) => {
+  onBookmarkedChange(event) {
     this.setState({ bookmarkedOnly: event.target.checked })
   }
 
-  onSelectedGenreChange = (event) => {
+  onSelectedGenreChange(event) {
     this.setState({ selectedGenre: event.target.value })
   }
 
@@ -45,7 +48,7 @@ class MovieLibrary extends Component {
     }
     if (selectedGenre !== '') {
       return array.filter((obj) => obj.genre === selectedGenre)
-    } 
+    }
     return array
   }
 

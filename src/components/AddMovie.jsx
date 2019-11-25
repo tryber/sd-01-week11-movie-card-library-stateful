@@ -57,10 +57,8 @@ class AddMovie extends React.Component {
 
   render() {
     const genreOptions = [
-      { value: 'action', text: 'Ação' },
-      { value: 'comedy', text: 'Comédia' },
-      { value: 'thriller', text: 'Suspense' },
-    ];
+      { value: 'action', text: 'Ação' },{ value: 'comedy', text: 'Comédia' },
+      { value: 'thriller', text: 'Suspense' }];
     return (
       <form>
         <label htmlFor="film-title">Título
