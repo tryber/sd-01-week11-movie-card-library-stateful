@@ -1,0 +1,15 @@
+.movie-list {
+    background-color: #800080;
+    border-radius: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    padding:10px 15px;
+    justify-content: space-around;
+    margin:10px;
+}
+
+@media only screen and (max-width: 800px) {
+    .movie-list {
+        margin:0;
+    }
+}
