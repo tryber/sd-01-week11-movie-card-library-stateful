@@ -1,0 +1,17 @@
+input#show-favorites, #genre-filter {
+  margin: 0.5%;
+}
+
+input#text-inclusion {
+  justify-content: space-between;
+  margin: 0.5%;
+  width: 90%;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 1%;
+  width: 100%;
+}
