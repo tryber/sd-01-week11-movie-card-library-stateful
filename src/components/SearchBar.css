@@ -4,9 +4,9 @@
     }
 
     .search {
+        align-items: center;
         display: flex;
         flex-direction: column;
-        align-items: center;
     }
 
     .title,
@@ -17,39 +17,39 @@
 
     .genre,
     .favorited {
-        display: flex;
         align-items: center;
+        display: flex;
         justify-content: center;
     }
 }
 
 @media only screen and (min-width: 770px) {
     .search label {
-        width: 25%;
         padding: 10px;
+        width: 25%;
     }
 
     .title {
-        width: 50%;
         min-width: 400px;
         padding: 10px;
+        width: 50%;
     }
 }
 
 .genre select {
-    box-sizing: border-box;
-    border: 1px blue solid;
-    border-radius: 5px;
-    border-bottom: 4px solid cornflowerblue;
     background: white;
+    border: 1px blue solid;
+    border-bottom: 4px solid cornflowerblue;
+    border-radius: 5px;
+    box-sizing: border-box;
     margin-left: 2px;
 }
 
 .title input {
-    width: 100%;
     border: none;
-    border-radius: 5px;
     border-bottom: 4px solid cornflowerblue;
+    border-radius: 5px;
+    width: 100%;
 }
 
 .favorited {

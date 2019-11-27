@@ -1,9 +1,9 @@
 .size-rating {
-    width: 90%;
-    height: 50px;
-    display: flex;
     align-items: center;
+    display: flex;
+    height: 50px;
     justify-content: center;
+    width: 90%;
 }
 
 .size-rating img {
@@ -11,25 +11,25 @@
 }
 
 .rating {
+    border-radius: 100%;
     color: #2667E7;
     font-size: 30px;
     font-weight: bold;
     text-align: center;
-    border-radius: 100%;
-    width: 40px;
     margin: 0 4px;
+    width: 40px;
 }
 
 .bar-rating {
-    width: 100%;
-    margin: 10px 0;
-    border-radius: 15px;
     background: rgb(194, 193, 193);
-    height: 90%
+    border-radius: 15px;
+    height: 90%;
+    margin: 10px 0;
+    width: 100%;
 }
 
 .bar-rating-child {
-    border-radius: 15px;
     background: #2667E7;
+    border-radius: 15px;
     height: 100%;
 }
