@@ -15,58 +15,58 @@
 @media only screen and ( max-width: 800px ) {
   
   .movie-card {
-  width: 90%;
+    width: 90%;
   }
 
   .movie-card-body {
-  width: 80%;
+    width: 80%;
   }
 
   .movie-card-image {
-  width: 80%;
+    width: 80%;
   }
 
   .movie-card-storyline {
-  font-size: 20px;
-  text-align: justify;
+    font-size: 20px;
+    text-align: justify;
   }
 
   .movie-card-subtitle {
-  font-size: 24px;
-  font-weight: 500;
+    font-size: 24px;
+    font-weight: 500;
   }
 
   .movie-card-title {
-  font-size: 30px;
+    font-size: 30px;
   }
 }
 
 @media only screen and ( max-width: 1100px ) and ( min-width: 800px ) {
   
   .movie-card {
-  width: 45%;
+    width: 45%;
   }
 
   .movie-card-body {
-  width: 80%;
+    width: 80%;
   }
 
   .movie-card-image {
-  width: 80%;
+    width: 80%;
   }
   
   .movie-card-subtitle {
-  font-size: 24px;
-  font-weight: 500;
+    font-size: 24px;
+    font-weight: 500;
   }
 
   .movie-card-storyline {
-  font-size: 19px;
-  text-align: justify;
+    font-size: 19px;
+    text-align: justify;
   }
 
   .movie-card-title {
-  font-size: 30px;
+    font-size: 30px;
   }
 }
 
@@ -106,7 +106,7 @@
 .movie-card-title {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 30px;
-  font-weight: bold;
+  font-weight: 900;
   margin: 0 0 12px;
 }
 
