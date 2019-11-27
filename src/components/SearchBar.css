@@ -1,7 +1,6 @@
 @media only screen and (max-width: 770px) {
-  
-  .genre,
-  .favorited {
+
+  .genre,.favorited {
     align-items: center;
     display: flex;
     justify-content: center;
@@ -17,15 +16,14 @@
     flex-direction: column;
   }
 
-  .title,
-  .genre,
-  .favorited {
+  .title,.genre,.favorited {
     width: 100%;
   }
 
 }
 
 @media only screen and (min-width: 770px) {
+
   .search label {
     padding: 10px;
     width: 25%;

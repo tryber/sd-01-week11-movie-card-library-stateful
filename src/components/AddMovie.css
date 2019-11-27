@@ -1,39 +1,39 @@
 .add-movie {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .add-movie label input {
-    border: 0.5px cornflowerblue solid;
-    border-bottom: 4px solid cornflowerblue;
-    border-radius: 5px;
-    min-width: 400px;
-    width: 100%;
+  border: 0.5px cornflowerblue solid;
+  border-bottom: 4px solid cornflowerblue;
+  border-radius: 5px;
+  min-width: 400px;
+  width: 100%;
 }
 
-.add-movie label input[type=number] {
-    border: 0.5px cornflowerblue solid;
-    border-bottom: 4px solid cornflowerblue;
-    border-radius: 5px;
-    min-width: 80px;
-    width: 50%;
+.add-movie label input[type = "number"] {
+  border: 0.5px cornflowerblue solid;
+  border-bottom: 4px solid cornflowerblue;
+  border-radius: 5px;
+  min-width: 80px;
+  width: 50%;
 }
 
 .add-movie label textarea {
-    border: 0.5px cornflowerblue solid;
-    border-bottom: 4px solid cornflowerblue;
-    border-radius: 5px;
-    min-width: 400px;
-    width: 100%;
+  border: 0.5px cornflowerblue solid;
+  border-bottom: 4px solid cornflowerblue;
+  border-radius: 5px;
+  min-width: 400px;
+  width: 100%;
 }
 
 .add-movie select {
-    background: white;
-    border: 1px blue solid;
-    border-bottom: 4px solid cornflowerblue;
-    border-radius: 5px;
-    box-sizing: border-box;
-    margin-left: 2px;
+  background: white;
+  border: 1px blue solid;
+  border-bottom: 4px solid cornflowerblue;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-left: 2px;
 }
 
 
