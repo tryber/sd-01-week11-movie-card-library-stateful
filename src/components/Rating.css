@@ -18,12 +18,12 @@
     text-align: center;
     border-radius: 100%;
     width:40px;
-    margin: 0px 4px;
+    margin: 0 4px;
   }
 
 .bar-rating {
     width:100%;
-    margin:10px 0px;
+    margin:10px 0;
     border-radius: 15px;
     background: rgb(194, 193, 193);
     height: 90%

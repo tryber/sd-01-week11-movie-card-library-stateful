@@ -5,7 +5,7 @@ import Star from '../star.png';
 class Rating extends React.Component {
 
   showRating() {
-    const porcRating = ((this.props.rating/5) * 100);
+    const porcRating = ((this.props.rating / 5) * 100);
     return (
       <div className="size-rating">
         <img src={Star} alt="estrela" />
