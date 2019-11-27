@@ -1,4 +1,12 @@
 @media only screen and (max-width: 770px) {
+    
+    .genre,
+    .favorited {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
     .search label {
         width: 100%;
     }
@@ -15,12 +23,6 @@
         width: 100%;
     }
 
-    .genre,
-    .favorited {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-    }
 }
 
 @media only screen and (min-width: 770px) {
@@ -36,6 +38,11 @@
     }
 }
 
+.favorited {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
 .genre select {
     background: white;
     border: 1px blue solid;
@@ -45,19 +52,14 @@
     margin-left: 2px;
 }
 
+input {
+    background: white;
+    padding-left: 15px;
+}
+
 .title input {
     border: none;
     border-bottom: 4px solid cornflowerblue;
     border-radius: 5px;
     width: 100%;
-}
-
-.favorited {
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-input {
-    background: white;
-    padding-left: 15px;
 }

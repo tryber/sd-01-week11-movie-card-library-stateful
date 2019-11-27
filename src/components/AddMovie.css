@@ -7,8 +7,8 @@
     border: 0.5px cornflowerblue solid;
     border-bottom: 4px solid cornflowerblue;
     border-radius: 5px;
-    min-width: 400px;
     width: 100%;
+    min-width: 400px;
 }
 
 .add-movie label input[type=number] {
@@ -17,6 +17,14 @@
     border-radius: 5px;
     min-width: 80px;
     width: 50%;
+}
+
+.add-movie label textarea {
+    border: 0.5px cornflowerblue solid;
+    border-bottom: 4px solid cornflowerblue;
+    border-radius: 5px;
+    min-width: 400px;
+    width: 100%;
 }
 
 .add-movie select {
@@ -28,10 +36,4 @@
     margin-left: 2px;
 }
 
-.add-movie label textarea {
-    border: 0.5px cornflowerblue solid;
-    border-bottom: 4px solid cornflowerblue;
-    border-radius: 5px;
-    min-width: 400px;
-    width: 100%;
-}
+

@@ -1,25 +1,3 @@
-.size-rating {
-    align-items: center;
-    display: flex;
-    height: 50px;
-    justify-content: center;
-    width: 90%;
-}
-
-.size-rating img {
-    height: 100%;
-}
-
-.rating {
-    border-radius: 100%;
-    color: #2667E7;
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-    margin: 0 4px;
-    width: 40px;
-}
-
 .bar-rating {
     background: rgb(194, 193, 193);
     border-radius: 15px;
@@ -33,3 +11,28 @@
     border-radius: 15px;
     height: 100%;
 }
+
+.rating {
+    border-radius: 100%;
+    color: #2667E7;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 4px;
+    width: 40px;
+}
+
+.size-rating {
+    align-items: center;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    width: 90%;
+}
+
+.size-rating img {
+    height: 100%;
+}
+
+
+
