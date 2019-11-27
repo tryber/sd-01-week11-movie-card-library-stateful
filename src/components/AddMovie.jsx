@@ -70,6 +70,7 @@ class AddMovie extends React.Component {
           type={type}
           value={this.state[value]}
           onChange={(e) => func(e)}
+          className={`input-${type}`}
         />
       </label>
     );

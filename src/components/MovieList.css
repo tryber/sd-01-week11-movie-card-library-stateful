@@ -6,7 +6,7 @@
 }
 
 .movie-list {
-  background-color: #2A468E;
+  background-color: #2a468e;
   border-radius: 20px;
   display: flex;
   flex-flow: row wrap;
@@ -14,4 +14,3 @@
   margin: 10px;
   padding: 10px 15px;
 }
-
