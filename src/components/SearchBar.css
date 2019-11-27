@@ -1,4 +1,3 @@
-
 @media only screen and (max-width: 770px) {
     .search label {
         width: 100%;
@@ -10,17 +9,22 @@
         align-items: center;
     }
 
-    .title, .genre, .favorited {
+    .title,
+    .genre,
+    .favorited {
         width: 100%;
     }
-    .genre, .favorited {
+
+    .genre,
+    .favorited {
         display: flex;
         align-items: center;
         justify-content: center;
     }
 }
+
 @media only screen and (min-width: 770px) {
-    .search label{
+    .search label {
         width: 25%;
         padding: 10px;
     }
@@ -32,7 +36,7 @@
     }
 }
 
-.genre select{
+.genre select {
     box-sizing: border-box;
     border: 1px blue solid;
     border-radius: 5px;
@@ -41,19 +45,19 @@
     margin-left: 2px;
 }
 
-.title input{
+.title input {
     width: 100%;
     border: none;
     border-radius: 5px;
-    border-bottom: 4px solid cornflowerblue; 
+    border-bottom: 4px solid cornflowerblue;
 }
 
-.favorited{
+.favorited {
     cursor: pointer;
     margin-right: 10px;
 }
 
 input {
     background: white;
-    padding-left:15px;
+    padding-left: 15px;
 }
