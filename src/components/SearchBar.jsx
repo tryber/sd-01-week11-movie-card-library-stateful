@@ -1,13 +1,15 @@
 import React from 'react';
+import './SearchBar.css';
 
 class SearchBar extends React.Component {
   createInput() {
     return (
-      <label htmlFor="title">
+      <label htmlFor="title" className="title">
         Inclui o texto:
         <input
           id="title"
           type="text"
+          placeholder="O que está procurando ?"
           value={this.props.searchText}
           onChange={this.props.onSearchTextChange}
         />
@@ -17,21 +19,21 @@ class SearchBar extends React.Component {
 
   createInputChecked() {
     return (
-      <label htmlFor="favorited">
-        Mostrar somente favoritos:
+      <label htmlFor="favorited" className="favorited">
         <input
           id="favorited"
           type="checkbox"
           checked={this.props.bookmarkedOnly}
           onChange={this.props.onBookmarkedChange}
         />
+        Mostrar somente favoritos
       </label>
     );
   }
 
   createSelect() {
     return (
-      <label htmlFor="genre">
+      <label htmlFor="genre" className="genre">
         Filtrar por gênero
         <select
           id="genre"
@@ -49,8 +51,8 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <form>
-        <fieldset>
+      <form className="search-form">
+        <fieldset className="search">
           {this.createInput()}
           {this.createInputChecked()}
           {this.createSelect()}

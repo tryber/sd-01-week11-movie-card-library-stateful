@@ -1,0 +1,36 @@
+
+.size-rating {
+    width: 90%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.size-rating img {
+    height: 100%;
+}
+
+.rating {
+    color: #2667E7;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 100%;
+    width:40px;
+    margin: 0px 4px;
+  }
+
+.bar-rating {
+    width:100%;
+    margin:10px 0px;
+    border-radius: 15px;
+    background: rgb(194, 193, 193);
+    height: 90%
+}
+
+.bar-rating-child {
+    border-radius: 15px;
+    background: #2667E7;
+    height: 100%;
+}

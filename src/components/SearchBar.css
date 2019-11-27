@@ -1,0 +1,59 @@
+
+@media only screen and (max-width: 770px) {
+    .search label {
+        width: 100%;
+    }
+
+    .search {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title, .genre, .favorited {
+        width: 100%;
+    }
+    .genre, .favorited {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+@media only screen and (min-width: 770px) {
+    .search label{
+        width: 25%;
+        padding: 10px;
+    }
+
+    .title {
+        width: 50%;
+        min-width: 400px;
+        padding: 10px;
+    }
+}
+
+.genre select{
+    box-sizing: border-box;
+    border: 1px blue solid;
+    border-radius: 5px;
+    border-bottom: 4px solid cornflowerblue;
+    background: white;
+    margin-left: 2px;
+}
+
+.title input{
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    border-bottom: 4px solid cornflowerblue; 
+}
+
+.favorited{
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+input {
+    background: white;
+    padding-left:15px;
+}

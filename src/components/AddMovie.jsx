@@ -1,7 +1,7 @@
 import React from 'react';
+import './AddMovie.css';
 
 class AddMovie extends React.Component {
-
   constructor(props) {
     super(props);
 
@@ -105,7 +105,7 @@ class AddMovie extends React.Component {
     const { onClick } = this.props;
     return (
       <form>
-        <fieldset>
+        <fieldset className="add-movie">
           {this.createInput('tlt', 'title', this.changeHandlerTitle, 'Título', 'text')}
           {this.createInput('sub', 'subtitle', this.changeHandlerSubtitle, 'Subtítulo', 'text')}
           {this.createInput('img', 'imagePath', this.changeHandlerimagePath, 'Imagem', 'text')}

@@ -1,0 +1,37 @@
+.add-movie {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-movie label input {
+    min-width: 400px;
+    width: 100%;
+    border: 0.5px cornflowerblue solid;
+    border-radius: 5px;
+    border-bottom: 4px solid cornflowerblue;
+}
+
+.add-movie label input[type=number] {
+    min-width: 80px;
+    width: 50%;
+    border: 0.5px cornflowerblue solid;
+    border-radius: 5px;
+    border-bottom: 4px solid cornflowerblue;
+}
+
+.add-movie select {
+    box-sizing: border-box;
+    border: 1px blue solid;
+    border-radius: 5px;
+    border-bottom: 4px solid cornflowerblue;
+    background: white;
+    margin-left: 2px;
+}
+
+.add-movie label textarea {
+    min-width: 400px;
+    width: 100%;
+    border: 0.5px cornflowerblue solid;
+    border-radius: 5px;
+    border-bottom: 4px solid cornflowerblue;
+}
