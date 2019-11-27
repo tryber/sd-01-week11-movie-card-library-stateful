@@ -1,0 +1,63 @@
+@media only screen and ( max-width : 770px ) {
+
+  .genre , .favorited {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .search label {
+    width: 100%;
+  }
+
+  .search {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title , .genre , .favorited {
+    width: 100%;
+  }
+
+}
+
+@media only screen and ( min-width : 770px ) {
+
+  .search label {
+    padding: 10px;
+    width: 25%;
+  }
+
+  .title {
+    min-width: 400px;
+    padding: 10px;
+    width: 50%;
+  }
+}
+
+.favorited {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.genre select {
+  background: white;
+  border: 1px blue solid;
+  border-bottom: 4px solid cornflowerblue;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-left: 2px;
+}
+
+input {
+  background: white;
+  padding-left: 15px;
+}
+
+.title input {
+  border: none;
+  border-bottom: 4px solid cornflowerblue;
+  border-radius: 5px;
+  width: 100%;
+}

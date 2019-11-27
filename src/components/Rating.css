@@ -1,0 +1,35 @@
+.bar-rating {
+  background: rgb(194, 193, 193);
+  border-radius: 15px;
+  height: 90%;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.bar-rating-child {
+  background: #2667e7;
+  border-radius: 15px;
+  height: 100%;
+}
+
+.rating {
+  border-radius: 100%;
+  color: #2667e7;
+  font-size: 30px;
+  font-weight: 900;
+  margin: 0 4px;
+  text-align: center;
+  width: 40px;
+}
+
+.size-rating {
+  align-items: center;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  width: 90%;
+}
+
+.size-rating img {
+  height: 100%;
+}
