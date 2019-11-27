@@ -1,6 +1,6 @@
 .movie-library {
     align-items: center;
     background: white;
-    flex-direction: column;
     display: flex;
+    flex-direction: column;
 }

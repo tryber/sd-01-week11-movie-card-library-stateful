@@ -7,8 +7,8 @@
     border: 0.5px cornflowerblue solid;
     border-bottom: 4px solid cornflowerblue;
     border-radius: 5px;
-    width: 100%;
     min-width: 400px;
+    width: 100%;
 }
 
 .add-movie label input[type=number] {
