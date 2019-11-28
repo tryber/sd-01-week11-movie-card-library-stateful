@@ -55,7 +55,7 @@ class SearchBar extends React.Component {
     const {
       onSearchTextChange,
       onBookmarkedChange,
-      onSelectedGenreChange
+      onSelectedGenreChange,
     } = this.props;
     return (
       <form onSubmit={this.handleSubmit}>
