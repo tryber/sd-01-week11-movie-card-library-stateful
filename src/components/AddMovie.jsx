@@ -104,37 +104,21 @@ class AddMovie extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         {this.createInput(
-          "tlt",
-          "title",
-          this.changeHandTitle,
-          "Título",
-          "text"
+          "tlt","title",this.changeHandTitle,"Título","text"
         )}
         <br />
         {this.createInput(
-          "sub",
-          "subtitle",
-          this.changeHandSubtitle,
-          "Subtítulo",
-          "text"
+          "sub","subtitle",this.changeHandSubtitle,"Subtítulo","text"
         )}
         <br />
         {this.createInput(
-          "img",
-          "imagePath",
-          this.changeHandImage,
-          "Imagem",
-          "text"
+          "img","imagePath",this.changeHandImage,"Imagem","text"
         )}
         <br />
         {this.createTextArea()}
         <br />
         {this.createInput(
-          "num",
-          "rating",
-          this.changeHandRating,
-          "Avaliação",
-          "number"
+          "num","rating",this.changeHandRating,"Avaliação","number"
         )}
         <br />
         {this.createSelect()}
