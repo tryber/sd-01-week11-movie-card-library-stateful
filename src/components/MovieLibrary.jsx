@@ -1,21 +1,21 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import MovieList from "./MovieList";
-import SearchBar from "./SearchBar";
-import AddMovie from "./AddMovie";
+import MovieList from './MovieList';
+import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtitle: "",
-      searchText: "",
-      onSearchTextChange: "",
+      subtitle: '',
+      searchText: '',
+      onSearchTextChange: '',
       bookmarkedOnly: false,
-      onBookmarkedChange: "",
-      selectedGenre: "",
+      onBookmarkedChange: '',
+      selectedGenre: '',
       movies: props.movies,
-      onSelectedGenreChange: ""
+      onSelectedGenreChange: '',
     };
     this.addNewFilm = this.addNewFilm.bind(this);
   }
@@ -30,24 +30,24 @@ class MovieLibrary extends Component {
     this.setState({ selectedGenre: event.target.value });
   }
   addNewFilm(values) {
-    this.setState(state => ({ movies: [...state.movies, values] }));
+    this.setState((state) => ({ movies: [...state.movies, values] }));
   }
   finalList() {
     let arrMovies = this.state.movies;
-    if (this.state.searchText !== "") {
+    if (this.state.searchText !== '') {
       arrMovies = this.state.movies.filter(
-        movie =>
+        (movie) =>
           movie.title.includes(this.state.searchText) ||
           movie.subtitle.includes(this.state.searchText) ||
-          movie.storyline.includes(this.state.searchText)
+          movie.storyline.includes(this.state.searchText),
       );
     }
     if (this.state.bookmarkedOnly) {
-      arrMovies = arrMovies.filter(movie => movie.bookmarked);
+      arrMovies = arrMovies.filter((movie) => movie.bookmarked);
     }
     if (this.state.selectedGenre.length > 0) {
       arrMovies = arrMovies.filter(
-        movie => movie.genre === this.state.selectedGenre
+        (movie) => movie.genre === this.state.selectedGenre,
       );
     }
     return arrMovies;
@@ -59,11 +59,11 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={this.state.searchText}
-          onSearchTextChange={event => this.handleChangeSearchText(event)}
+          onSearchTextChange={(event) => this.handleChangeSearchText(event)}
           bookmarkedOnly={this.state.bookmarkedOnly}
-          onBookmarkedChange={event => this.handleChangeBookmarkedOnly(event)}
+          onBookmarkedChange={(event) => this.handleChangeBookmarkedOnly(event)}
           selectedGenre={this.state.selectedGenre}
-          onSelectedGenreChange={event => this.handleChangeSelectedGenre(event)}
+          onSelectedGenreChange={(event) => this.handleChangeSelectedGenre(event)}
         />
         <MovieList movies={this.finalList(this.state)} />
         <AddMovie onClick={this.addNewFilm} />
