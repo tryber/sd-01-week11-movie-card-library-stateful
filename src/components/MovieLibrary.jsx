@@ -17,15 +17,39 @@ class MovieLibrary extends Component {
       movies: props.movies,
       onSelectedGenreChange: ""
     };
+    this.addNewFilm = this.addNewFilm.bind(this);
+
   }
-  handleChangeOnSearchText(event) {
-    this.setState({ onSearchTextChange: event.target.value });
-  }
+
   handleChangeSearchText(event) {
     this.setState({ searchText: event.target.value });
   }
   handleChangeBookmarkedOnly(event) {
-    this.setState({ bookmarkedOnly: event.target.value });
+    this.setState({ bookmarkedOnly: event.target.checked });
+  }
+  handleChangeSelectedGenre(event) {
+    this.setState({ selectedGenre: event.target.value });
+  }
+  addNewFilm(values) {
+    this.setState((state) => ({ movies: [...state.movies, values] }));
+  }
+  finalList() {
+    let arrMovies = this.state.movies;
+    if (this.state.searchText !== '') {
+      arrMovies = this.state.movies.filter((movie) => (
+        movie.title.includes(this.state.searchText)
+        || movie.subtitle.includes(this.state.searchText)
+        || movie.storyline.includes(this.state.searchText)
+      ));
+    }
+    if (this.state.bookmarkedOnly) {
+      arrMovies = arrMovies.filter((movie) => movie.bookmarked);
+    }
+    if (this.state.selectedGenre.length > 0) {
+      arrMovies = arrMovies
+        .filter((movie) => movie.genre === this.state.selectedGenre);
+    }
+    return arrMovies;
   }
 
   render() {
@@ -36,10 +60,12 @@ class MovieLibrary extends Component {
           searchText={this.state.searchText}
           onSearchTextChange={event => this.handleChangeSearchText(event)}
           bookmarkedOnly={this.state.bookmarkedOnly}
-          bookmarkedOnly={event => this.handleChangeBookmarkedOnly(event)}
+          onBookmarkedChange={event => this.handleChangeBookmarkedOnly(event)}
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenreChange={event => this.handleChangeSelectedGenre(event)}
         />
-        <MovieList movies={this.props.movies} />
-        <AddMovie />
+        <MovieList movies={this.finalList(this.state)} />
+        <AddMovie onClick={this.addNewFilm}/>
       </div>
     );
   }

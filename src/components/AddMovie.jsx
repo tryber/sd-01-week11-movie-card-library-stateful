@@ -48,7 +48,7 @@ class AddMovie extends React.Component {
   }
 
   resetMovie(onClick) {
-    onClick(this.state);
+    const value = this.state;
     this.setState({
       subtitle: '',
       title: '',
@@ -57,7 +57,9 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
+    onClick(value)
   }
+
   render() {
     const { onClick } = this.props;
     return (
