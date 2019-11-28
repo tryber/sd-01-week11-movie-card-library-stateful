@@ -9,7 +9,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action'
+      genre: 'action',
     };
     this.changeHandTitle = this.changeHandTitle.bind(this);
     this.changeHandSubtitle = this.changeHandSubtitle.bind(this);

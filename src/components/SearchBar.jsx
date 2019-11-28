@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -10,27 +10,38 @@ class SearchBar extends React.Component {
   handleChange(event) {
     this.setState({ value: event.target.value });
   }
-  createInputSearch(value, func) {
+  createInputSearch(func) {
     return (
       <label htmlFor="Inp">
         Inclui o texto:
-        <input id="Inp" type="text" value={value} onChange={func} />
+        <input
+          id="Inp"
+          type="text"
+          value={this.props.searchText}
+          onChange={func}
+        />
       </label>
     );
   }
-  createSelectBook(value, func) {
+  createSelectBook(func) {
     return (
       <label htmlFor="Sel">
         Mostrar somente favoritos
-        <input id="Sel" name="isGoing" type="checkbox" checked={value} onChange={func} />
+        <input
+          id="Sel"
+          name="isGoing"
+          type="checkbox"
+          checked={this.props.bookmarkedOnly}
+          onChange={func}
+        />
       </label>
     );
   }
-  createSelectedGenre(value, func) {
+  createSelectedGenre(func) {
     return (
       <label htmlFor="genr">
         Filtrar por gênero
-        <select id="genr" value={value} onChange={func}>
+        <select id="genr" value={this.props.selectedGenre} onChange={func}>
           <option value="">Todos</option>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
@@ -42,20 +53,17 @@ class SearchBar extends React.Component {
 
   render() {
     const {
-      searchText,
       onSearchTextChange,
-      bookmarkedOnly,
       onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
+      onSelectedGenreChange
     } = this.props;
     return (
       <form onSubmit={this.handleSubmit}>
-        {this.createInputSearch(searchText, onSearchTextChange)}
+        {this.createInputSearch(onSearchTextChange)}
         <br />
-        {this.createSelectBook(bookmarkedOnly, onBookmarkedChange)}
+        {this.createSelectBook(onBookmarkedChange)}
         <br />
-        {this.createSelectedGenre(selectedGenre, onSelectedGenreChange)}
+        {this.createSelectedGenre(onSelectedGenreChange)}
       </form>
     );
   }
