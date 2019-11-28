@@ -1,7 +1,143 @@
 import React from 'react';
 
 class AddMovie extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
+  }
+
+  change(event, id) {
+    const { value } = event.target;
+    this.setState({ [id]: value });
+  }
+
+  changeNumber(event, id) {
+    const { value } = event.target;
+    this.setState({ [id]: Number(value) });
+  }
+
+  newState(onClick) {
+    const value = this.state;
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+    onClick(value);
+  }
+
+  addTitle() {
+    return (
+      <label htmlFor="add-title">
+        Título
+        <input
+          id="add-title"
+          type="text"
+          value={this.state.title}
+          onChange={(event) => this.change(event, 'title')}
+        />
+      </label>
+    );
+  }
+
+  addSubtitle() {
+    return (
+      <label htmlFor="add-subtitle">
+        Subtítulo
+        <input
+          id="add-subtitle"
+          type="text"
+          value={this.state.subtitle}
+          onChange={(event) => this.change(event, 'subtitle')}
+        />
+      </label>
+    );
+  }
+
+  addImage() {
+    return (
+      <label htmlFor="add-image-link">
+        Imagem
+        <input
+          id="add-image-link"
+          type="text"
+          value={this.state.imagePath}
+          onChange={(event) => this.change(event, 'imagePath')}
+        />
+      </label>
+    );
+  }
+
+  addSynopsis() {
+    return (
+      <label htmlFor="add-synopsis">
+        Sinopse
+        <textarea
+          id="add-synopsis"
+          value={this.state.storyline}
+          onChange={(event) => this.change(event, 'storyline')}
+        />
+      </label>
+    );
+  }
+
+  addRating() {
+    return (
+      <label htmlFor="add-rating">
+        Avaliação
+        <input
+          id="add-rating"
+          type="number"
+          value={this.state.rating}
+          onChange={(event) => this.changeNumber(event, 'rating')}
+        />
+      </label>
+    );
+  }
+
+  addGenre() {
+    return (
+      <label htmlFor="add-genre">
+        Gênero
+        <select
+          id="add-genre"
+          value={this.state.genre}
+          onChange={(event) => this.change(event, 'genre')}
+        >
+          <option value="action">Ação</option>
+          <option value="comedy">Comédia</option>
+          <option value="thriller">Suspense</option>
+        </select>
+      </label>
+    );
+  }
+
   render() {
+    const { onClick } = this.props;
+    return (
+      <form>
+        <fieldset>
+          {this.addTitle()}
+          {this.addSubtitle()}
+          {this.addImage()}
+          {this.addSynopsis()}
+          {this.addRating()}
+          {this.addGenre()}
+          <button type="button" onClick={() => this.newState(onClick)}>Adicionar filme</button>
+        </fieldset>
+      </form>
+    );
   }
 }
 
