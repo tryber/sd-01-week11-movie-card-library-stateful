@@ -89,12 +89,12 @@ class AddMovie extends React.Component {
   resetMovie(onClick) {
     const value = this.state;
     this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
+      subtitle:'',
+      title:'',
+      imagePath:'',
+      storyline:'',
+      rating:0,
+      genre:'action',
     });
     onClick(value);
   }
@@ -106,21 +106,16 @@ class AddMovie extends React.Component {
         {this.createInput(
           'tlt', 'title', this.changeHandTitle, 'Título', 'text',
         )}
-        <br />
         {this.createInput(
           'sub', 'subtitle', this.changeHandSubtitle, 'Subtítulo', 'text',
         )}
-        <br />
         {this.createInput(
           'img', 'imagePath', this.changeHandImage, 'Imagem', 'text',
         )}
-        <br />
         {this.createTextArea()}
-        <br />
         {this.createInput(
           'num', 'rating', this.changeHandRating, 'Avaliação', 'number',
         )}
-        <br />
         {this.createSelect()}
         <button type='button' onClick={() => this.resetMovie(onClick)}>
           Adicionar filme
