@@ -1,21 +1,21 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import MovieList from "./MovieList";
-import SearchBar from "./SearchBar";
-import AddMovie from "./AddMovie";
+import MovieList from './MovieList';
+import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtitle: "",
-      searchText: "",
-      onSearchTextChange: "",
+      subtitle: '',
+      searchText: '',
+      onSearchTextChange: '',
       bookmarkedOnly: false,
-      onBookmarkedChange: "",
-      selectedGenre: "",
+      onBookmarkedChange: '',
+      selectedGenre: '',
       movies: props.movies,
-      onSelectedGenreChange: ""
+      onSelectedGenreChange: ''
     };
     this.addNewFilm = this.addNewFilm.bind(this);
 
