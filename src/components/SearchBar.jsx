@@ -1,30 +1,36 @@
-import React from "react";
+import React from 'react';
 
 class SearchBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.createInputSearch = this.createInputSearch.bind(this);
+    this.createSelectBook = this.createSelectBook.bind(this);
+    this.createSelectedGenre = this.createSelectedGenre.bind(this);
+  }
   handleChange(event) {
     this.setState({ value: event.target.value });
   }
   createInputSearch(value, func) {
     return (
-      <label>
+      <label htmlFor="Inp">
         Inclui o texto:
-        <input type="text" value={value} onChange={func} />
+        <input id="Inp" type="text" value={value} onChange={func} />
       </label>
     );
   }
   createSelectBook(value, func) {
     return (
-      <label>
+      <label htmlFor="Sel">
         Mostrar somente favoritos
-        <input name="isGoing" type="checkbox" checked={value} onChange={func} />
+        <input id="Sel" name="isGoing" type="checkbox" checked={value} onChange={func} />
       </label>
     );
   }
   createSelectedGenre(value, func) {
     return (
-      <label>
+      <label htmlFor="genr">
         Filtrar por gênero
-        <select value={value} onChange={func}>
+        <select id="genr" value={value} onChange={func}>
           <option value="">Todos</option>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
@@ -41,7 +47,7 @@ class SearchBar extends React.Component {
       bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
-      onSelectedGenreChange
+      onSelectedGenreChange,
     } = this.props;
     return (
       <form onSubmit={this.handleSubmit}>
